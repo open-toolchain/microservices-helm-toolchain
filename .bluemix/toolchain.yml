@@ -17,15 +17,56 @@ template:
     - ui-repo
   info:
     git url: >-
-      [https://github.com/open-toolchain/microservices-toolchain-hosted](https://github.com/open-toolchain/microservices-toolchain-hosted)
+      [https://github.com/open-toolchain/microservices-helm-toolchain](https://github.com/open-toolchain/microservices-helm-toolchain)
     git branch: >-
-      [master](https://github.com/open-toolchain/microservices-toolchain-hosted/tree/master)
+      [master](https://github.com/open-toolchain/microservices-helm-toolchain/tree/master)
 toolchain:
   template:
     getting_started:
       $ref: "#/messages/template.gettingStarted"
-  name: 'microservices-toolchain-{{timestamp}}'
+  name: 'helm-microservices-{{timestamp}}'
 services:
+  catalog-api-repo:
+    service_id: hostedgit
+    parameters:
+      repo_name: '{{form.hostedgit.parameters.catalog-api-repo_name}}'
+      repo_url: '{{form.hostedgit.parameters.catalog-api-repo_url}}'
+      type: clone
+      has_issues: false
+      enable_traceability: true
+  catalog-api-build:
+    service_id: pipeline
+    parameters:
+      services:
+        - catalog-api-repo
+        - test
+      name: 'catalog-api-{{toolchain.name}}'
+      configuration:
+        content:
+          $ref: catalog-api.pipeline.yml
+          $refType: text
+        env:
+          SAUCE_LABS: test
+          CATALOG_API_REPO: catalog-api-repo
+          CF_APP_NAME: '{{form.pipeline.parameters.catalog-app-name}}'
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
+          REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
+          API_KEY: '{{form.pipeline.parameters.api-key}}'            
+          STAGING_SPACE_NAME: '{{form.pipeline.parameters.staging-space}}'
+          STAGING_ORG_NAME: '{{form.pipeline.parameters.staging-organization}}'
+          STAGING_REGION_ID: '{{form.pipeline.parameters.staging-region}}'
+          PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
+          PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
+          PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+        execute: true
+  orders-api-repo:
+    service_id: hostedgit
+    parameters:
+      repo_name: '{{form.hostedgit.parameters.orders-api-repo_name}}'
+      repo_url: '{{form.hostedgit.parameters.orders-api-repo_url}}'
+      type: clone
+      has_issues: false
+      enable_traceability: true
   orders-api-build:
     service_id: pipeline
     parameters:
@@ -41,6 +82,9 @@ services:
           SAUCE_LABS: test
           ORDER_API_REPO: orders-api-repo
           CF_APP_NAME: '{{form.pipeline.parameters.orders-app-name}}'
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
+          REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
+          API_KEY: '{{form.pipeline.parameters.api-key}}'          
           STAGING_SPACE_NAME: '{{form.pipeline.parameters.staging-space}}'
           STAGING_ORG_NAME: '{{form.pipeline.parameters.staging-organization}}'
           STAGING_REGION_ID: '{{form.pipeline.parameters.staging-region}}'
@@ -48,14 +92,6 @@ services:
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
         execute: true
-  catalog-api-repo:
-    service_id: hostedgit
-    parameters:
-      repo_name: '{{form.hostedgit.parameters.catalog-api-repo_name}}'
-      repo_url: '{{form.hostedgit.parameters.catalog-api-repo_url}}'
-      type: clone
-      has_issues: false
-      enable_traceability: true
   ui-repo:
     service_id: hostedgit
     parameters:
@@ -80,6 +116,9 @@ services:
           SAUCE_LABS: test
           UI_REPO: ui-repo
           CF_APP_NAME: '{{form.pipeline.parameters.ui-app-name}}'
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
+          REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
+          API_KEY: '{{form.pipeline.parameters.api-key}}'            
           STAGING_SPACE_NAME: '{{form.pipeline.parameters.staging-space}}'
           STAGING_ORG_NAME: '{{form.pipeline.parameters.staging-organization}}'
           STAGING_REGION_ID: '{{form.pipeline.parameters.staging-region}}'
@@ -87,36 +126,44 @@ services:
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
         execute: true
-  catalog-api-build:
+  umbrella-repo:
+    service_id: hostedgit
+    parameters:
+      repo_name: '{{form.hostedgit.parameters.umbrella-repo_name}}'
+      repo_url: '{{form.hostedgit.parameters.umbrella-repo_url}}'
+      type: clone
+      has_issues: true
+      enable_traceability: true
+  umbrella-build:
     service_id: pipeline
     parameters:
       services:
-        - catalog-api-repo
+        - umbrella-repo
         - test
-      name: 'catalog-api-{{toolchain.name}}'
+      name: 'umbrella-{{toolchain.name}}'
+      ui-pipeline: true
       configuration:
         content:
-          $ref: catalog-api.pipeline.yml
+          $ref: umbrella.pipeline.yml
           $refType: text
         env:
           SAUCE_LABS: test
-          CATALOG_API_REPO: catalog-api-repo
-          CF_APP_NAME: '{{form.pipeline.parameters.catalog-app-name}}'
+          UI_REPO: umbrella-repo
+          CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
+          REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
+          REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
+          API_KEY: '{{form.pipeline.parameters.api-key}}'          
           STAGING_SPACE_NAME: '{{form.pipeline.parameters.staging-space}}'
           STAGING_ORG_NAME: '{{form.pipeline.parameters.staging-organization}}'
           STAGING_REGION_ID: '{{form.pipeline.parameters.staging-region}}'
+          STAGING_CLUSTER_NAME: '{{form.pipeline.parameters.staging-cluster-name}}'
+          STAGING_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.staging-cluster-namespace}}'
           PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
           PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
+          PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
+          PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
         execute: true
-  orders-api-repo:
-    service_id: hostedgit
-    parameters:
-      repo_name: '{{form.hostedgit.parameters.orders-api-repo_name}}'
-      repo_url: '{{form.hostedgit.parameters.orders-api-repo_url}}'
-      type: clone
-      has_issues: false
-      enable_traceability: true
   alerting:
     service_id: pagerduty
   dra:
@@ -141,10 +188,10 @@ form:
   hostedgit:
     parameters:
       catalog-api-repo_name: 'catalog-api-{{toolchain.name}}'
-      catalog-api-repo_url: 'https://github.com/open-toolchain/Microservices_CatalogAPI'
+      catalog-api-repo_url: 'https://github.com/open-toolchain/Microservices_CatalogAPI_helm'
       orders-api-repo_name: 'orders-api-{{toolchain.name}}'
-      orders-api-repo_url: 'https://github.com/open-toolchain/Microservices_OrdersAPI'
+      orders-api-repo_url: 'https://github.com/open-toolchain/Microservices_OrdersAPI_helm'
       ui-repo_name: 'ui-{{toolchain.name}}'
-      ui-repo_url: 'https://github.com/open-toolchain/Microservices_UI'
+      ui-repo_url: 'https://github.com/open-toolchain/Microservices_UI_helm'
     schema:
       $ref: repos.json
