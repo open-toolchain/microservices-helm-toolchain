@@ -31,6 +31,12 @@
         },
         "ui-repo_url": {
             "type": "string"
+        },
+        "umbrella-repo_name": {
+            "type": "string"
+        },
+        "umbrella-repo_url": {
+            "type": "string"
         }
     },
     "required": [
@@ -39,7 +45,9 @@
         "orders-api-repo_name",
         "orders-api-repo_url",
         "ui-repo_name",
-        "ui-repo_url"
+        "ui-repo_url",
+        "umbrella-repo_name",
+        "umbrella-repo_url"
     ],
     "form": [
         {
@@ -106,6 +114,18 @@
                 {
                     "type": "text",
                     "key": "ui-repo_name"
+                },
+                {
+                    "type": "text",
+                    "key": "umbrella-repo_url"
+                },
+                {
+                    "type": "icon",
+                    "iconType": "right_arrow"
+                },
+                {
+                    "type": "text",
+                    "key": "umbrella-repo_name"
                 }
             ]
         }

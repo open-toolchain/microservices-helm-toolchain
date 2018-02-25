@@ -1,0 +1,154 @@
+---
+stages:
+- name: BUILD
+  inputs:
+  - type: git
+    branch: master
+    service: ${GIT_REPO}
+  triggers:
+  - type: commit
+  properties:
+  - name: LOGICAL_APP_NAME
+    value: ${CF_APP_NAME}
+    type: text
+  - name: BUILD_PREFIX
+    value: master
+    type: text
+  jobs:
+  - name: Fetch code
+    type: builder
+    artifact_dir: ''
+    build_type: shell
+    script: |+  
+      #!/bin/bash
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+  - name: Unit Tests
+    type: tester
+    enable_tests: true
+    test_file_pattern: ./tests/server/mochatest.xml
+    coverage_type: istanbul
+    coverage_directory: ./tests/server/coverage/reports/lcov-report
+    coverage_file_pattern: ./tests/server/coverage/reports/coverage.json
+    script: |-
+      #!/bin/bash
+      # TODO: check if test script to run from app repo
+      GRUNTFILE="tests/Gruntfile.js"
+      if [ -f $GRUNTFILE ]; then
+        export PATH=/opt/IBM/node-v4.2/bin:$PATH
+        npm install -g npm@3.7.2 ### work around default npm 2.1.1 instability
+        npm install
+        npm install -g grunt-idra3
+
+        set +e
+        grunt dev-test-cov --no-color --gruntfile $GRUNTFILE --base .
+        grunt_result=$?
+        set -e
+
+        idra --publishtestresult --filelocation=./tests/server/mochatest.xml --type=unittest
+        idra --publishtestresult --filelocation=./tests/server/coverage/reports/coverage-summary.json --type=code
+
+        if [ $grunt_result -ne 0 ]; then
+           exit $grunt_result
+        fi
+      else
+        echo "$GRUNTFILE not found."
+      fi
+- name: DOCKERIZE
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Fetch code
+  triggers:
+  - type: stage
+  properties:
+  - name: PIPELINE_IMAGE_URL
+    value: undefined
+    type: text
+  jobs:
+  - name: Pre-build check
+    type: builder
+    build_type: cr
+    artifact_dir: ''
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      api_key: ${API_KEY}
+    namespace: ${REGISTRY_NAMESPACE}
+    image_name: ${CF_APP_NAME}
+    script: |-
+      #!/bin/bash
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_prebuild.sh")  
+  - name: Build Docker image
+    type: builder
+    build_type: cr
+    artifact_dir: output
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      api_key: ${API_KEY}
+    namespace: ${REGISTRY_NAMESPACE}
+    image_name: ${CF_APP_NAME}
+    script: |
+      #!/bin/bash
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_image.sh")
+  - name: Vulnerability Advisor
+    type: tester
+    test_type: vulnerabilityadvisor
+    use_image_from_build_input: true
+    fail_stage: false
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      api_key: ${API_KEY}
+    script: |
+      #!/bin/bash
+      # set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_vulnerabilities.sh")
+- name: PACKAGE
+  inputs:
+  - type: job
+    stage: DOCKERIZE
+    job: Build Docker image
+    dir_name: null
+  triggers:
+  - type: stage
+  properties:
+  - name: LOGICAL_APP_NAME
+    value: catalog-api-HELM-MICROS
+    type: text
+  - name: LOGICAL_ENV_NAME
+    value: STAGING
+    type: text
+  - name: BUILD_PREFIX
+    value: master
+    type: text
+  - name: build_properties
+    value: build.properties
+    type: file
+  - name: UMBRELLA_REPO_NAME
+    value: Solution-Deploy-1234
+    type: text
+  jobs:
+  - name: Packaging Gate
+    type: tester
+    script: |-
+      #!/bin/bash
+      #TODO replace with proper DRA quality gate - unit+coverage+vuln scan
+  # - name: Packaging Gate
+  #   type: tester
+  #   deploy_permission: DEV_IN_SPACE
+  #   extension_id: ibm.devops.services.pipeline.dra_devops_gate
+  #   CRITERIA: PACKAGE Deployment Checks
+  - name: Publish component chart
+    type: builder
+    build_type: cr
+    artifact_dir: ''
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      api_key: ${API_KEY}
+    namespace: ${REGISTRY_NAMESPACE}
+    image_name: ${CF_APP_NAME}
+    script: |-
+      #!/bin/bash
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/publish_helm_package.sh
