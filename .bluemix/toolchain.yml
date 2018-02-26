@@ -126,7 +126,7 @@ services:
       ui-pipeline: true
       configuration:
         content:
-          $ref: umbrella.pipeline.yml
+          $ref: cd.pipeline.yml
           $refType: text
         env:
           SAUCE_LABS: test
