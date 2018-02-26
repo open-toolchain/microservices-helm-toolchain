@@ -98,10 +98,10 @@ stages:
   - type: stage
   properties:
   - name: LOGICAL_APP_NAME
-    value: catalog-api-HELM-MICROS
+    value: ${CF_APP_NAME}
     type: text
   - name: LOGICAL_ENV_NAME
-    value: STAGING
+    value: PACKAGING
     type: text
   - name: BUILD_PREFIX
     value: master
@@ -110,7 +110,7 @@ stages:
     value: build.properties
     type: file
   - name: UMBRELLA_REPO_NAME
-    value: Solution-Deploy-1234
+    value: ${UMBRELLA_REPO_NAME}
     type: text
   jobs:
   - name: Packaging Gate
