@@ -21,7 +21,7 @@ stages:
     build_type: shell
     script: |+  
       #!/bin/bash
-      #set -x
+      # set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
   - name: Unit Tests
     type: tester
@@ -32,27 +32,11 @@ stages:
     coverage_file_pattern: ./tests/server/coverage/reports/coverage.json
     script: |-
       #!/bin/bash
-      # TODO: check if test script to run from app repo
-      GRUNTFILE="tests/Gruntfile.js"
-      if [ -f $GRUNTFILE ]; then
-        export PATH=/opt/IBM/node-v4.2/bin:$PATH
-        npm install -g npm@3.7.2 ### work around default npm 2.1.1 instability
-        npm install
-        npm install -g grunt-idra3
-
-        set +e
-        grunt dev-test-cov --no-color --gruntfile $GRUNTFILE --base .
-        grunt_result=$?
-        set -e
-
-        idra --publishtestresult --filelocation=./tests/server/mochatest.xml --type=unittest
-        idra --publishtestresult --filelocation=./tests/server/coverage/reports/coverage-summary.json --type=code
-
-        if [ $grunt_result -ne 0 ]; then
-           exit $grunt_result
-        fi
+      # set -x
+      if [ -f ./tests/run-tests.sh ]; then
+        source ./tests/run-tests.sh
       else
-        echo "$GRUNTFILE not found."
+        echo "Test runner script not found: ./tests/run-tests.sh"
       fi
 - name: DOCKERIZE
   inputs:
@@ -102,7 +86,7 @@ stages:
       api_key: ${API_KEY}
     script: |
       #!/bin/bash
-      # set -x
+      #  set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_vulnerabilities.sh")
 - name: PACKAGE
   inputs:
@@ -150,5 +134,5 @@ stages:
     image_name: ${CF_APP_NAME}
     script: |-
       #!/bin/bash
-      #set -x
+      # set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/publish_helm_package.sh
