@@ -161,7 +161,9 @@ form:
   pipeline:
     parameters:
       staging-space: staging
+      staging-cluster-namespace: staging
       prod-space: prod
+      prod-cluster-namespace: prod
       orders-app-name: '{{services.orders-api-repo.parameters.repo_name}}'
       catalog-app-name: '{{services.catalog-api-repo.parameters.repo_name}}'
       ui-app-name: '{{services.ui-repo.parameters.repo_name}}'
