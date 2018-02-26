@@ -122,7 +122,7 @@ services:
       services:
         - umbrella-repo
         - test
-      name: 'umbrella-{{toolchain.name}}'
+      name: 'solution-{{toolchain.name}}'
       ui-pipeline: true
       configuration:
         content:
