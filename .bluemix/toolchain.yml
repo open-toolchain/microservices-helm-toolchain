@@ -164,6 +164,7 @@ form:
       staging-cluster-namespace: staging
       prod-space: prod
       prod-cluster-namespace: prod
+      umbrella-app-name: '{{services.umbrella-repo.parameters.repo_name}}'
       orders-app-name: '{{services.orders-api-repo.parameters.repo_name}}'
       catalog-app-name: '{{services.catalog-api-repo.parameters.repo_name}}'
       ui-app-name: '{{services.ui-repo.parameters.repo_name}}'
@@ -177,7 +178,7 @@ form:
       orders-api-repo_url: 'https://github.com/open-toolchain/Microservices_OrdersAPI_helm'
       ui-repo_name: 'ui-{{toolchain.name}}'
       ui-repo_url: 'https://github.com/open-toolchain/Microservices_UI_helm'
-      umbrella-repo_name: 'umbrella-{{toolchain.name}}'
+      umbrella-repo_name: 'solution-{{toolchain.name}}'
       umbrella-repo_url: 'https://github.com/open-toolchain/Microservices_Solution_helm'
     schema:
       $ref: repos.json
