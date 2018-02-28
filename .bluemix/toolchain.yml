@@ -86,7 +86,7 @@ services:
       repo_name: '{{form.hostedgit.parameters.ui-repo_name}}'
       repo_url: '{{form.hostedgit.parameters.ui-repo_url}}'
       type: clone
-      has_issues: true
+      has_issues: false
       enable_traceability: true
   ui-build:
     service_id: pipeline
