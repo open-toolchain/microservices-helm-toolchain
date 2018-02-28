@@ -157,6 +157,28 @@ services:
     service_id: saucelabs
   webide:
     service_id: orion
+  registry:
+    service_id: customtool
+    parameters:
+      type: Container Registry
+      lifecyclePhase: "DELIVER"
+      imageUrl: https://console.bluemix.net/containers-kubernetes/img/registry-logo.svg
+      documentationUrl: https://console.bluemix.net/docs/services/Registry/index.html
+      name: Private repositories
+      dashboard_url: https://console.bluemix.net/containers-kubernetes/registry/private
+      description: Manage your Docker images in private container registry
+      additional-properties:    
+  clusters:
+    service_id: customtool
+    parameters:
+      type: Container Service
+      lifecyclePhase: "RUN"
+      imageUrl: https://console.bluemix.net/containers-kubernetes/img/container-service-logo.svg
+      documentationUrl: https://console.bluemix.net/docs/containers/container_index.html
+      name: Clusters
+      dashboard_url: https://console.bluemix.net/containers-kubernetes/clusters
+      description: Manage clusters
+      additional-properties:  
 form:
   pipeline:
     parameters:
