@@ -17,15 +17,18 @@ stages:
   jobs:
   - name: Build umbrella chart
     type: builder
-    artifact_dir: ''
-    build_type: shell
-    script: |+  
+    build_type: cr
+    artifact_dir: output
+    target:
+      region_id: ${REGISTRY_REGION_ID}
+      api_key: ${API_KEY}
+    namespace: ${REGISTRY_NAMESPACE}
+    image_name: ${CF_APP_NAME}
+    script: |
       #!/bin/bash
-      # set -x
+      #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_umbrella_chart.sh")
-############
-
 - name: STAGING
   inputs:
   - type: job
@@ -71,10 +74,15 @@ stages:
     value: undefined
     type: text
   jobs:
-  - name: Staging Gate
+  - name: Staging gate
     type: tester
-    extension_id: ibm.devops.services.pipeline.dra_devops_gate
-    CRITERIA: STAGING Deployment Checks
+    script: |-
+      #!/bin/bash
+      #TODO replace with proper DRA quality gate - unit+coverage+vuln scan
+      # - name: Staging Gate
+      #   type: tester
+      #   extension_id: ibm.devops.services.pipeline.dra_devops_gate
+      #   CRITERIA: STAGING Deployment Checks
   - name: Bind Cloudant service
     type: deployer
     target:
