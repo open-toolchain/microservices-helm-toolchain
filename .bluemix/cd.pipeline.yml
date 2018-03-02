@@ -128,7 +128,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_helm.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
   - name: Sauce Labs Tests
     type: tester
     extension_id: ibm.devops.services.pipeline.saucelabs
