@@ -131,7 +131,7 @@ services:
         env:
           SAUCE_LABS: test
           GIT_REPO: umbrella-repo
-          CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
+          CF_APP_NAME: '{{form.pipeline.parameters.umbrella-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'          
