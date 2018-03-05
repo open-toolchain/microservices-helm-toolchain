@@ -41,7 +41,7 @@ services:
     parameters:
       services:
         - catalog-api-repo
-      name: 'catalog-api-{{toolchain.name}}'
+      name: 'catalog-api-{{timestamp}}'
       configuration:
         content:
           $ref: ci.pipeline.yml
@@ -67,7 +67,7 @@ services:
     parameters:
       services:
         - orders-api-repo
-      name: 'orders-api-{{toolchain.name}}'
+      name: 'orders-api-{{timestamp}}'
       configuration:
         content:
           $ref: ci.pipeline.yml
@@ -93,7 +93,7 @@ services:
     parameters:
       services:
         - ui-repo
-      name: 'ui-{{toolchain.name}}'
+      name: 'ui-{{timestamp}}'
       ui-pipeline: true
       configuration:
         content:
@@ -122,7 +122,7 @@ services:
       services:
         - umbrella-repo
         - test
-      name: 'solution-{{toolchain.name}}'
+      name: 'solution-{{timestamp}}'
       ui-pipeline: true
       configuration:
         content:
@@ -194,13 +194,13 @@ form:
       $ref: deploy.json
   hostedgit:
     parameters:
-      catalog-api-repo_name: 'catalog-api-{{toolchain.name}}'
+      catalog-api-repo_name: 'catalog-api-{{timestamp}}'
       catalog-api-repo_url: 'https://github.com/open-toolchain/Microservices_CatalogAPI_helm'
-      orders-api-repo_name: 'orders-api-{{toolchain.name}}'
+      orders-api-repo_name: 'orders-api-{{timestamp}}'
       orders-api-repo_url: 'https://github.com/open-toolchain/Microservices_OrdersAPI_helm'
-      ui-repo_name: 'ui-{{toolchain.name}}'
+      ui-repo_name: 'ui-{{timestamp}}'
       ui-repo_url: 'https://github.com/open-toolchain/Microservices_UI_helm'
-      umbrella-repo_name: 'solution-{{toolchain.name}}'
+      umbrella-repo_name: 'solution-{{timestamp}}'
       umbrella-repo_url: 'https://github.com/open-toolchain/Microservices_Solution_helm'
     schema:
       $ref: repos.json
