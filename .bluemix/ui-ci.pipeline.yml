@@ -25,19 +25,11 @@ stages:
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
   - name: Unit Tests
     type: tester
-    enable_tests: true
-    test_file_pattern: ./tests/server/mochatest.xml
-    coverage_type: istanbul
-    coverage_directory: ./tests/server/coverage/reports/lcov-report
-    coverage_file_pattern: ./tests/server/coverage/reports/coverage.json
     script: |-
       #!/bin/bash
-      # set -x
-      if [ -f ./tests/run-tests.sh ]; then
-        source ./tests/run-tests.sh
-      else
-        echo "Test runner script not found: ./tests/run-tests.sh"
-      fi
+      # set up unit test for this php app and then update the following filelocation to upload test results
+      # idra --publishtestresult --filelocation="./tests/server/mochatest.xml" --type=unittest
+      # idra --publishtestresult --filelocation=./tests/server/coverage/reports/coverage-summary.json --type=code
 - name: DOCKERIZE
   inputs:
   - type: job

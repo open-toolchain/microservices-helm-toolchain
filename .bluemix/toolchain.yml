@@ -70,7 +70,7 @@ services:
       name: 'orders-api-{{timestamp}}'
       configuration:
         content:
-          $ref: ci.pipeline.yml
+          $ref: order-ci.pipeline.yml
           $refType: text
         env:
           GIT_REPO: orders-api-repo
@@ -97,7 +97,7 @@ services:
       ui-pipeline: true
       configuration:
         content:
-          $ref: ci.pipeline.yml
+          $ref: ui-ci.pipeline.yml
           $refType: text
         env:
           SAUCE_LABS: test
