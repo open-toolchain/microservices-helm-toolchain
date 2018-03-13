@@ -111,7 +111,7 @@ stages:
   - name: Package Gate
     type: tester
     extension_id: ibm.devops.services.pipeline.dra_devops_gate
-    CRITERIA: ${GIT_REPO} - Publish Component Chart Checks
+    CRITERIA: ${POLICY_NAME}
   - name: Publish component chart
     type: builder
     build_type: cr
