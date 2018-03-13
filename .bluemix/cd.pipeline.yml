@@ -55,14 +55,11 @@ stages:
   - name: SAUCE_ACCESS_KEY
     value: {{services.test.parameters.key}}
     type: text
-  - name: LOGICAL_APP_NAME
-    value: ${CF_APP_NAME}
-    type: text
   - name: LOGICAL_ENV_NAME
     value: STAGING
     type: text
-  - name: BUILD_PREFIX
-    value: master
+  - name: POLICY_NAME
+    value: STAGING Deployment Checks
     type: text
   - name: HOST
     value: ondemand.saucelabs.com
@@ -78,11 +75,9 @@ stages:
     type: tester
     script: |-
       #!/bin/bash
-      #TODO replace with proper DRA quality gate - unit+coverage+vuln scan
-      # - name: Staging Gate
-      #   type: tester
-      #   extension_id: ibm.devops.services.pipeline.dra_devops_gate
-      #   CRITERIA: STAGING Deployment Checks
+      set -x
+      exit 0
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
   - name: Bind Cloudant service
     type: deployer
     target:
