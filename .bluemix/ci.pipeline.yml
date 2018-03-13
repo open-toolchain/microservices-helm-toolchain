@@ -25,11 +25,6 @@ stages:
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
   - name: Unit Tests
     type: tester
-    enable_tests: true
-    test_file_pattern: ./tests/server/mochatest.xml
-    coverage_type: istanbul
-    coverage_directory: ./tests/server/coverage/reports/lcov-report
-    coverage_file_pattern: ./tests/server/coverage/reports/coverage.json
     script: |-
       #!/bin/bash
       # set -x
@@ -113,10 +108,10 @@ stages:
     value: ${UMBRELLA_REPO_NAME}
     type: text
   jobs:
-    - name: Publish Componenet Chart Gate
+    - name: Publish component Chart Gate
     type: tester
     extension_id: ibm.devops.services.pipeline.dra_devops_gate
-    CRITERIA: Publish Componenet Chart Checks
+    CRITERIA: ${APP_NAME} - Publish Component Chart Checks
   - name: Publish component chart
     type: builder
     build_type: cr
