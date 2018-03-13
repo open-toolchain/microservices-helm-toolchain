@@ -204,6 +204,6 @@ form:
       ui-repo_name: 'ui-{{timestamp}}'
       ui-repo_url: 'https://github.com/xunrongli-ibm/Microservices_UI_helm'
       umbrella-repo_name: 'solution-{{timestamp}}'
-      umbrella-repo_url: 'https://github.com/xunrongli-ibm/Microservices_Solution_helm'
+      umbrella-repo_url: 'https://github.com/open-toolchain/Microservices_Solution_helm'
     schema:
       $ref: repos.json
