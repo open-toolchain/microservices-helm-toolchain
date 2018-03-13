@@ -47,7 +47,6 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          APP_NAME: CATALOG-API
           GIT_REPO: catalog-api-repo
           CF_APP_NAME: '{{form.pipeline.parameters.catalog-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
@@ -74,7 +73,6 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          APP_NAME: ORDERS-API
           GIT_REPO: orders-api-repo
           CF_APP_NAME: '{{form.pipeline.parameters.orders-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
@@ -102,7 +100,6 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          APP_NAME: UI
           SAUCE_LABS: test
           GIT_REPO: ui-repo
           CF_APP_NAME: '{{form.pipeline.parameters.ui-app-name}}'

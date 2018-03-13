@@ -108,6 +108,10 @@ stages:
     value: ${UMBRELLA_REPO_NAME}
     type: text
   jobs:
+  - name: Publish component Chart Gate
+    type: tester
+    extension_id: ibm.devops.services.pipeline.dra_devops_gate
+    CRITERIA: ${GIT_REPO} - Publish Component Chart Checks
   - name: Publish component chart
     type: builder
     build_type: cr
