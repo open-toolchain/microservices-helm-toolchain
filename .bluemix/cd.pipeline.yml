@@ -78,7 +78,7 @@ stages:
       set -x
       exit 0
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
-  - name: Bind Cloudant service
+  - name: Config service
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
@@ -103,7 +103,7 @@ stages:
         cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
       fi
       export SERVICE_ID=$( cf service myMicroservicesCloudant --guid | tail -n 1)
-  - name: Pre-deploy check
+  - name: Config cluster
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
@@ -114,7 +114,7 @@ stages:
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy.sh")
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
-  - name: Deploy Helm chart
+  - name: Deploy umbrella chart
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
