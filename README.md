@@ -6,9 +6,7 @@ Get started with this sample, which is an online store that consists of three mi
 ![Icon](./umbrella-toolchain.png)
 
 ### To get started, click this button:
-[![Create Toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://github.com/open-toolchain/microservices-helm-toolchain&refreshServices)
- 
-
+[![Create Toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://github.com/open-toolchain/microservices-helm-toolchain&refreshServices=&env_id=ibm:yp:us-south)
 ---
 ### Learn more 
 
