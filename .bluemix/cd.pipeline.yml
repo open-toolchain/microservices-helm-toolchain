@@ -58,9 +58,6 @@ stages:
   - name: LOGICAL_ENV_NAME
     value: STAGING
     type: text
-  - name: POLICY_NAME
-    value: STAGING Deployment Checks
-    type: text
   - name: HOST
     value: ondemand.saucelabs.com
     type: text
@@ -137,27 +134,11 @@ stages:
     SELECT_CMD: custom
     COMMAND: |-
       #!/bin/bash
-      GRUNTFILE="tests/Gruntfile.js"
-      if [ -f $GRUNTFILE ]; then
-        export PATH=/opt/IBM/node-v4.2/bin:$PATH
-        npm install
-        npm install -g grunt-idra3
-        echo $APP_URL | grep "stage1"
-        if [ $? -eq 0 ]; then
-          grunt test_fake --gruntfile $GRUNTFILE --base .
-          grunt_result=$?
-        else
-          grunt test_real --gruntfile $GRUNTFILE --base .
-          grunt_result=$?
-        fi
-
-        idra --publishtestresult --filelocation=./xunit.xml --type=fvt
-
-        if [ $grunt_result -ne 0 ]; then
-           exit $grunt_result
-        fi
+      # set -x
+      if [ -f ./tests/run-tests.sh ]; then
+        source ./tests/run-tests.sh
       else
-        echo "$GRUNTFILE not found."
+        echo "Test runner script not found: ./tests/run-tests.sh"
       fi
     enable_tests: true
     test_file_pattern: '*.xml'
