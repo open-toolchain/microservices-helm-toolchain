@@ -47,7 +47,7 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          POLICY_NAME: Catalog-API - Publish Component Chart Checks
+          POLICY_NAME: Catalog-API-Publish Component Chart Checks
           GIT_REPO: catalog-api-repo
           CF_APP_NAME: '{{form.pipeline.parameters.catalog-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
@@ -74,7 +74,7 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          POLICY_NAME: Order-API - Publish Component Chart Checks
+          POLICY_NAME: Order-API-Publish Component Chart Checks
           GIT_REPO: orders-api-repo
           CF_APP_NAME: '{{form.pipeline.parameters.orders-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
@@ -102,7 +102,7 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          POLICY_NAME: UI - Publish Component Chart Checks
+          POLICY_NAME: UI-Publish Component Chart Checks
           SAUCE_LABS: test
           GIT_REPO: ui-repo
           CF_APP_NAME: '{{form.pipeline.parameters.ui-app-name}}'
