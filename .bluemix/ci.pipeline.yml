@@ -107,7 +107,7 @@ stages:
   - name: UMBRELLA_REPO_NAME
     value: ${UMBRELLA_REPO_NAME}
     type: text
-   - name: POLICY_NAME
+  - name: POLICY_NAME
     value: ${POLICY_NAME}
     type: text 
   jobs:
