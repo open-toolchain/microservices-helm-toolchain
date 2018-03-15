@@ -73,7 +73,6 @@ stages:
     script: |-
       #!/bin/bash
       set -x
-      exit 0
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
   - name: Config service
     type: deployer
