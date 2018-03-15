@@ -1,7 +1,7 @@
 [
   {
     "name":"UI - Publish Component Chart Checks",
-    "description": "Composite Policy to check Unit Tests, and Code Coverage.",
+    "description": "Composite Policy to check Unit Tests, and Code Coverage",
     "rules":[
       {
         "name": "Unit Test Rule",
@@ -26,7 +26,7 @@
   },
   {
     "name":"Order-API - Publish Component Chart Checks",
-    "description": "Composite Policy to check Unit Tests, and Code Coverage.",
+    "description": "Composite Policy to check Unit Tests, and Code Coverage",
     "rules":[
       {
         "name": "Unit Test Rule",
@@ -51,7 +51,7 @@
   },
   {
     "name":"Catalog-API - Publish Component Chart Checks",
-    "description": "Composite Policy to check Unit Tests, and Code Coverage.",
+    "description": "Composite Policy to check Unit Tests, and Code Coverage",
     "rules":[
       {
         "name": "Unit Test Rule",

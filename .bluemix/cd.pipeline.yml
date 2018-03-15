@@ -55,14 +55,8 @@ stages:
   - name: SAUCE_ACCESS_KEY
     value: {{services.test.parameters.key}}
     type: text
-  - name: LOGICAL_APP_NAME
-    value: ${CF_APP_NAME}
-    type: text
   - name: LOGICAL_ENV_NAME
     value: STAGING
-    type: text
-  - name: BUILD_PREFIX
-    value: master
     type: text
   - name: HOST
     value: ondemand.saucelabs.com
@@ -78,12 +72,9 @@ stages:
     type: tester
     script: |-
       #!/bin/bash
-      #TODO replace with proper DRA quality gate - unit+coverage+vuln scan
-      # - name: Staging Gate
-      #   type: tester
-      #   extension_id: ibm.devops.services.pipeline.dra_devops_gate
-      #   CRITERIA: STAGING Deployment Checks
-  - name: Bind Cloudant service
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+  - name: Config service
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
@@ -108,7 +99,7 @@ stages:
         cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
       fi
       export SERVICE_ID=$( cf service myMicroservicesCloudant --guid | tail -n 1)
-  - name: Pre-deploy check
+  - name: Config cluster
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
@@ -119,7 +110,7 @@ stages:
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy.sh")
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
-  - name: Deploy Helm chart
+  - name: Deploy umbrella chart
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
@@ -142,27 +133,90 @@ stages:
     SELECT_CMD: custom
     COMMAND: |-
       #!/bin/bash
-      GRUNTFILE="tests/Gruntfile.js"
-      if [ -f $GRUNTFILE ]; then
-        export PATH=/opt/IBM/node-v4.2/bin:$PATH
-        npm install
-        npm install -g grunt-idra3
-        echo $APP_URL | grep "stage1"
-        if [ $? -eq 0 ]; then
-          grunt test_fake --gruntfile $GRUNTFILE --base .
-          grunt_result=$?
-        else
-          grunt test_real --gruntfile $GRUNTFILE --base .
-          grunt_result=$?
-        fi
-
-        idra --publishtestresult --filelocation=./xunit.xml --type=fvt
-
-        if [ $grunt_result -ne 0 ]; then
-           exit $grunt_result
-        fi
+      # set -x
+      if [ -f ./tests/run-tests.sh ]; then
+        source ./tests/run-tests.sh
       else
-        echo "$GRUNTFILE not found."
+        echo "Test runner script not found: ./tests/run-tests.sh"
       fi
     enable_tests: true
     test_file_pattern: '*.xml'
+- name: PROD
+  inputs:
+  - type: job
+    stage: BUILD
+    job: Build umbrella chart
+  triggers:
+  - type: stage
+  properties:
+  - name: buildprops
+    value: build.properties
+    type: file
+  - name: CLUSTER_NAMESPACE
+    value: ${PROD_CLUSTER_NAMESPACE}
+    type: text
+  - name: CF_APP_NAME
+    value: undefined
+    type: text
+  - name: APP_URL
+    value: undefined
+    type: text
+  - name: LOGICAL_ENV_NAME
+    value: PROD
+    type: text
+  - name: SERVICE_ID
+    value: undefined
+    type: text
+  jobs:
+  - name: Production gate
+    type: tester
+    script: |-
+      #!/bin/bash
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+  - name: Config service
+    type: deployer
+    target:
+      region_id: ${PROD_REGION_ID}
+      organization: ${PROD_ORG_NAME}
+      space: ${PROD_SPACE_NAME}
+      application: ${CF_APP_NAME}
+    script: |
+      #!/bin/bash
+      SERVICE=$(cf services | grep myMicroservicesCloudant ||:)
+      if [ ! -z "$SERVICE" ]; then
+        PLAN=$(echo $SERVICE | awk '{print $3}')
+        if [ $PLAN == "Shared" ]; then
+          echo "Attempting to delete deprecated service (myMicroservicesCloudant:$PLAN)."
+          echo "Note: This can fail if the service is still bound to apps or service keys."
+          echo "      If so, please delete these apps or service keys explicitly first."
+          cf delete-service myMicroservicesCloudant -f
+          cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
+        else
+          echo "Keeping existing service (myMicroservicesCloudant:$PLAN)."
+        fi
+      else
+        cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
+      fi
+      export SERVICE_ID=$( cf service myMicroservicesCloudant --guid | tail -n 1)
+  - name: Config cluster
+    type: deployer
+    target:
+      region_id: ${PROD_REGION_ID}
+      api_key: ${API_KEY}
+      kubernetes_cluster: ${PROD_CLUSTER_NAME}
+    script: |
+      #!/bin/bash
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
+  - name: Deploy umbrella chart
+    type: deployer
+    target:
+      region_id: ${PROD_REGION_ID}
+      api_key: ${API_KEY}
+      kubernetes_cluster: ${PROD_CLUSTER_NAME}
+    script: |
+      #!/bin/bash
+      #set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")

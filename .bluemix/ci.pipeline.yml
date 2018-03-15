@@ -19,7 +19,7 @@ stages:
     type: builder
     artifact_dir: ''
     build_type: shell
-    script: |+  
+    script: |+
       #!/bin/bash
       # set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
@@ -107,6 +107,9 @@ stages:
   - name: UMBRELLA_REPO_NAME
     value: ${UMBRELLA_REPO_NAME}
     type: text
+  - name: POLICY_NAME
+    value: ${POLICY_NAME}
+    type: text 
   jobs:
   - name: Package Gate
     type: tester
