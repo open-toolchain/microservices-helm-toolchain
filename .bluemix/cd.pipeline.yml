@@ -8,12 +8,6 @@ stages:
   triggers:
   - type: commit
   properties:
-  - name: LOGICAL_APP_NAME
-    value: ${CF_APP_NAME}
-    type: text
-  - name: BUILD_PREFIX
-    value: master
-    type: text
   jobs:
   - name: Build umbrella chart
     type: builder
