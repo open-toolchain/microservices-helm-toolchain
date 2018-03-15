@@ -1,7 +1,24 @@
 [
   {
     "name":"UI - Publish Component Chart Checks",
-    "description": "Composite Policy to check Unit Tests, and Code Coverage",
+    "description": "Composite Policy to check Unit Tests",
+    "rules":[
+      {
+        "name": "Unit Test Rule",
+        "description": "Unit Test Rule",
+        "format":"xunit",
+        "stage":"unittest",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      }
+    ]
+  },
+  {
+    "name":"UI - Staging Deployment Checks",
+    "description": "Composite Policy to check Unit Tests and Code Coverage",
     "rules":[
       {
         "name": "Unit Test Rule",
@@ -25,8 +42,61 @@
     ]
   },
   {
+    "name":"UI - Production Deployment Checks",
+    "description": "Composite Policy to check Unit Tests, Functional Verfication Tests and Code Coverage",
+    "rules":[
+      {
+        "name": "Unit Test Rule",
+        "description": "Unit Test Rule",
+        "format":"xunit",
+        "stage":"unittest",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      },
+      {
+        "name": "Functional Test Rule",
+        "description": "Functional Test Rule",
+        "format":"xunit",
+        "stage":"fvt",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      },
+      {
+        "name": "Code Coverage Rule",
+        "description": "Code Coverage Rule",
+        "format":"cobertura",
+        "stage":"code",
+        "codeCoverage":80,
+        "regressionCheck":true
+      }
+    ]
+  },
+  {
     "name":"Order-API - Publish Component Chart Checks",
-    "description": "Composite Policy to check Unit Tests, and Code Coverage",
+    "description": "Composite Policy to check Unit Tests",
+    "rules":[
+      {
+        "name": "Unit Test Rule",
+        "description": "Unit Test Rule",
+        "format":"xunit",
+        "stage":"unittest",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      }
+    ]
+  },
+  {
+    "name":"Order-API - Staging Deployment Checks",
+    "description": "Composite Policy to check Unit Tests and Code Coverage",
     "rules":[
       {
         "name": "Unit Test Rule",
@@ -50,8 +120,61 @@
     ]
   },
   {
+    "name":"Order-API - Production Deployment Checks",
+    "description": "Composite Policy to check Unit Tests, Functional Verfication Tests and Code Coverage",
+    "rules":[
+      {
+        "name": "Unit Test Rule",
+        "description": "Unit Test Rule",
+        "format":"xunit",
+        "stage":"unittest",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      },
+      {
+        "name": "Functional Test Rule",
+        "description": "Functional Test Rule",
+        "format":"xunit",
+        "stage":"fvt",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      },
+      {
+        "name": "Code Coverage Rule",
+        "description": "Code Coverage Rule",
+        "format":"istanbul",
+        "stage":"code",
+        "codeCoverage":80,
+        "regressionCheck":true
+      }
+    ]
+  },
+  {
     "name":"Catalog-API - Publish Component Chart Checks",
-    "description": "Composite Policy to check Unit Tests, and Code Coverage",
+    "description": "Composite Policy to check Unit Tests",
+    "rules":[
+      {
+        "name": "Unit Test Rule",
+        "description": "Unit Test Rule",
+        "format":"xunit",
+        "stage":"unittest",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      }
+    ]
+  },
+  {
+    "name":"Catalog-API - Staing Deployment Checks",
+    "description": "Composite Policy to check Unit Tests and Code Coverage",
     "rules":[
       {
         "name": "Unit Test Rule",
@@ -70,6 +193,42 @@
         "format":"istanbul",
         "stage":"code",
         "codeCoverage":60,
+        "regressionCheck":true
+      }
+    ]
+  },
+  {
+    "name":"Catalog-API - Production Deployment Checks",
+    "description": "Composite Policy to check Unit Tests, Functional Verfication Tests and Code Coverage",
+    "rules":[
+      {
+        "name": "Unit Test Rule",
+        "description": "Unit Test Rule",
+        "format":"xunit",
+        "stage":"unittest",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      },
+      {
+        "name": "Functional Test Rule",
+        "description": "Functional Test Rule",
+        "format":"xunit",
+        "stage":"fvt",
+        "percentPass":100,
+        "regressionCheck":true,
+        "criticalTests":[
+
+        ]
+      },
+      {
+        "name": "Code Coverage Rule",
+        "description": "Code Coverage Rule",
+        "format":"istanbul",
+        "stage":"code",
+        "codeCoverage":80,
         "regressionCheck":true
       }
     ]
