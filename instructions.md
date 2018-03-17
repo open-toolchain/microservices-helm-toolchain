@@ -34,6 +34,6 @@
   * Target an ICp cluster available on public network
   * Explain using private pipeline workers in future
 ## Future enhancements
-    * Autoscaling using load test
-    * Blue/green deployment across two namespaces
-    * Using Istio in future to implement A/B testing
+  * Autoscaling using load test
+  * Blue/green deployment across two namespaces
+  * Using Istio in future to implement A/B testing

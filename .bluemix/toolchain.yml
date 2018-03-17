@@ -151,7 +151,7 @@ services:
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
-          POLICY_PATTERN: '[%app] %env Deployment Checks'
+          POLICY_NAME_FORMAT: '[%s] %s Deployment Checks'
         execute: false
   alerting:
     service_id: pagerduty
