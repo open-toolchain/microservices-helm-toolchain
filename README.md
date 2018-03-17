@@ -10,7 +10,7 @@ Get started with this sample, which is an online store that consists of three mi
 ---
 ### Learn more 
 
-* [Step by step tutorial](https://www.ibm.com/devops/method/tutorials/tutorial_toolchain_microservices_cd)
+* [Step by step tutorial](./instructions.md)
 * [Getting started](https://bluemix.net/devops)
 * [Documentation](https://console.ng.bluemix.net/docs/services/ContinuousDelivery/index.html?pos=2)
 * [Toolchains on the Bluemix Garage Method site](https://www.ibm.com/devops/method/category/tools)
