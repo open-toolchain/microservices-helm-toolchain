@@ -42,7 +42,7 @@
     ]
   },
   {
-    "name":"[ui] PRODUI Deployment Checks",
+    "name":"[ui] PROD Deployment Checks",
     "description": "Composite Policy to check Unit Tests, Functional Verfication Tests and Code Coverage",
     "rules":[
       {
