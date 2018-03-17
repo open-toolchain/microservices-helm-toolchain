@@ -47,8 +47,9 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          POLICY_NAME: Catalog-API - Publish Component Chart Checks
+          POLICY_NAME: '[catalog-api] PUBLISH Component Chart Checks'
           GIT_REPO: catalog-api-repo
+          APP_NAME: catalog-api
           CF_APP_NAME: '{{form.pipeline.parameters.catalog-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
@@ -74,8 +75,9 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          POLICY_NAME: Order-API - Publish Component Chart Checks
+          POLICY_NAME: '[orders-api] PUBLISH Component Chart Checks'
           GIT_REPO: orders-api-repo
+          APP_NAME: orders-api
           CF_APP_NAME: '{{form.pipeline.parameters.orders-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
@@ -102,9 +104,10 @@ services:
           $ref: ci.pipeline.yml
           $refType: text
         env:
-          POLICY_NAME: UI - Publish Component Chart Checks
+          POLICY_NAME: '[ui] PUBLISH Component Chart Checks'
           SAUCE_LABS: test
           GIT_REPO: ui-repo
+          APP_NAME: ui
           CF_APP_NAME: '{{form.pipeline.parameters.ui-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
@@ -148,6 +151,7 @@ services:
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
+          POLICY_PATTERN: '[%app] %env Deployment Checks'
         execute: false
   alerting:
     service_id: pagerduty

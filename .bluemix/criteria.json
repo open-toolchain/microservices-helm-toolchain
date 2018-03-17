@@ -1,6 +1,6 @@
 [
   {
-    "name":"UI - Publish Component Chart Checks",
+    "name":"[ui] PUBLISH Component Chart Checks",
     "description": "Composite Policy to check Unit Tests",
     "rules":[
       {
@@ -17,7 +17,7 @@
     ]
   },
   {
-    "name":"UI - Staging Deployment Checks",
+    "name":"[ui] STAGING Deployment Checks",
     "description": "Composite Policy to check Unit Tests and Code Coverage",
     "rules":[
       {
@@ -42,7 +42,7 @@
     ]
   },
   {
-    "name":"UI - Production Deployment Checks",
+    "name":"[ui] PRODUI Deployment Checks",
     "description": "Composite Policy to check Unit Tests, Functional Verfication Tests and Code Coverage",
     "rules":[
       {
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "name":"Order-API - Publish Component Chart Checks",
+    "name":"[orders-api] PUBLISH Component Chart Checks",
     "description": "Composite Policy to check Unit Tests",
     "rules":[
       {
@@ -95,7 +95,7 @@
     ]
   },
   {
-    "name":"Order-API - Staging Deployment Checks",
+    "name":"[orders-api] STAGING Deployment Checks",
     "description": "Composite Policy to check Unit Tests and Code Coverage",
     "rules":[
       {
@@ -120,7 +120,7 @@
     ]
   },
   {
-    "name":"Order-API - Production Deployment Checks",
+    "name":"[orders-api] PROD Deployment Checks",
     "description": "Composite Policy to check Unit Tests, Functional Verfication Tests and Code Coverage",
     "rules":[
       {
@@ -156,7 +156,7 @@
     ]
   },
   {
-    "name":"Catalog-API - Publish Component Chart Checks",
+    "name":"[catalog-api] PUBLISH Component Chart Checks",
     "description": "Composite Policy to check Unit Tests",
     "rules":[
       {
@@ -173,7 +173,7 @@
     ]
   },
   {
-    "name":"Catalog-API - Staing Deployment Checks",
+    "name":"[catalog-api] STAGING Deployment Checks",
     "description": "Composite Policy to check Unit Tests and Code Coverage",
     "rules":[
       {
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "name":"Catalog-API - Production Deployment Checks",
+    "name":"[catalog-api] PROD Deployment Checks",
     "description": "Composite Policy to check Unit Tests, Functional Verfication Tests and Code Coverage",
     "rules":[
       {

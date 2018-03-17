@@ -61,6 +61,9 @@ stages:
   - name: SERVICE_ID
     value: undefined
     type: text
+  - name: POLICY_NAME_FORMAT
+    value: ${POLICY_NAME_FORMAT}
+    type: text
   jobs:
   - name: Staging gate
     type: tester
@@ -161,6 +164,9 @@ stages:
   - name: SERVICE_ID
     value: undefined
     type: text
+  - name: POLICY_NAME_FORMAT
+    value: ${POLICY_NAME_FORMAT}
+    type: text    
   jobs:
   - name: Production gate
     type: tester
