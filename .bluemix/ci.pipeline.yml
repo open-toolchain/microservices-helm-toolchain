@@ -83,7 +83,7 @@ stages:
       #!/bin/bash
       #  set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_vulnerabilities.sh")
-- name: PACKAGE
+- name: PUBLISH
   inputs:
   - type: job
     stage: DOCKERIZE
@@ -96,7 +96,7 @@ stages:
     value: ${APP_NAME}
     type: text
   - name: LOGICAL_ENV_NAME
-    value: PACKAGING
+    value: PUBLISH
     type: text
   - name: BUILD_PREFIX
     value: master
@@ -111,7 +111,7 @@ stages:
     value: ${POLICY_NAME}
     type: text 
   jobs:
-  - name: Package Gate
+  - name: Publish Gate
     type: tester
     extension_id: ibm.devops.services.pipeline.dra_devops_gate
     CRITERIA: ${POLICY_NAME}
