@@ -82,7 +82,7 @@
 
 ## Scripts
   * Shell login into cluster
-  ```
+```
 API_KEY=<api-key>
 PIPELINE_KUBERNETES_CLUSTER_NAME=<cluster-name>
 bx login -apikey $API_KEY -a api.ng.bluemix.net
@@ -94,14 +94,14 @@ kubectl get nodes
 echo “LOGIN token for kubectl proxy :”
 kubectl config view -o jsonpath=‘{.users[0].user.auth-provider.config.id-token}’
 echo ""
-  ```
+```
   * Cleanup resources
-  ```
+```
 bx cr namespace-rm <registry-namepace>
 kubectl delete namespace staging prod
-  ```
+```
   * Allow to skip access control in Kube console (https://github.com/kubernetes/dashboard/wiki/Access-control#admin-privileges)
-  ````
+````
 cat >  ./dashboard-admin.yaml <<EOL
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -119,4 +119,4 @@ subjects:
   namespace: kube-system
 EOL
 kubectl create -f ./dashboard-admin.yaml
-  ```
+```
