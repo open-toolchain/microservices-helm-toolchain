@@ -39,6 +39,7 @@
     * Using quality gates at all levels of the process, raising the bar progressively
     * Insight also provides global inventory across environments, traceability back to the commit
     ![Icon](./insights-dashboard.png)
+    ![Icon](./insights-commit.png)
 
     * Show vulnerabilities in UI CI pipeline, explain using a vanilla php:apache image. Explain advisor mode for now, but could be strictened
     ![Icon](./ui-vuln.png)
@@ -81,21 +82,42 @@
 
 ## Scripts
   * Shell login into cluster
-  ```
-    API_KEY=<api-key>
-    PIPELINE_KUBERNETES_CLUSTER_NAME=<cluster-name>
-    bx login -apikey $API_KEY -a api.ng.bluemix.net
-    bx cs region-set us-south
-    bx cs init
-    bx cs cluster-get $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
-    eval $(bx cs cluster-config --export $PIPELINE_KUBERNETES_CLUSTER_NAME)
-    kubectl get nodes
-    echo “LOGIN token for kubectl proxy :”
-    kubectl config view -o jsonpath=‘{.users[0].user.auth-provider.config.id-token}’
-    echo ""
-  ```
+```
+API_KEY=<api-key>
+PIPELINE_KUBERNETES_CLUSTER_NAME=<cluster-name>
+bx login -apikey $API_KEY -a api.ng.bluemix.net
+bx cs region-set us-south
+bx cs init
+bx cs cluster-get $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
+eval $(bx cs cluster-config --export $PIPELINE_KUBERNETES_CLUSTER_NAME)
+kubectl get nodes
+echo “LOGIN token for kubectl proxy :”
+kubectl config view -o jsonpath=‘{.users[0].user.auth-provider.config.id-token}’
+echo ""
+```
   * Cleanup resources
-  ```
-    bx cr namespace-rm <registry-namepace>
-    kubectl delete namespace staging prod
-  ```
+```
+bx cr namespace-rm <registry-namepace>
+kubectl delete namespace staging prod
+```
+  * Allow to skip access control in Kube console (https://github.com/kubernetes/dashboard/wiki/Access-control#admin-privileges)
+```
+cat >  ./dashboard-admin.yaml <<EOL
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kubernetes-dashboard
+  labels:
+    k8s-app: kubernetes-dashboard
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kubernetes-dashboard
+  namespace: kube-system
+EOL
+kubectl create -f ./dashboard-admin.yaml
+```
+
