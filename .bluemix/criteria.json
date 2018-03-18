@@ -37,7 +37,7 @@
         "format":"cobertura",
         "stage":"code",
         "codeCoverage":60,
-        "regressionCheck":true
+        "regressionCheck":false
       }
     ]
   },
@@ -115,7 +115,7 @@
         "format":"istanbul",
         "stage":"code",
         "codeCoverage":60,
-        "regressionCheck":true
+        "regressionCheck":false
       }
     ]
   },
@@ -193,7 +193,7 @@
         "format":"istanbul",
         "stage":"code",
         "codeCoverage":60,
-        "regressionCheck":true
+        "regressionCheck":false
       }
     ]
   },
