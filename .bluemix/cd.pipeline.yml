@@ -138,6 +138,19 @@ stages:
       fi
     enable_tests: true
     test_file_pattern: '*.xml'
+  - name: Selenium Tests
+    type: tester
+    script: |-
+      #!/bin/bash
+      # set -x
+      if [ -f ./tests/run-selenium-tests.sh ]; then
+        source ./tests/run-selenium-tests.sh
+      else
+        echo "Test runner script not found: ./tests/run-selenium-tests.sh"
+      fi
+    enable_tests: true
+    test_file_pattern: '*.xml'
+    docker_image: bkuschel/selenium-chrome-cd-job
 - name: PROD
   inputs:
   - type: job
