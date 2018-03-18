@@ -101,7 +101,7 @@ bx cr namespace-rm <registry-namepace>
 kubectl delete namespace staging prod
 ```
   * Allow to skip access control in Kube console (https://github.com/kubernetes/dashboard/wiki/Access-control#admin-privileges)
-````
+```
 cat >  ./dashboard-admin.yaml <<EOL
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
@@ -120,3 +120,4 @@ subjects:
 EOL
 kubectl create -f ./dashboard-admin.yaml
 ```
+
