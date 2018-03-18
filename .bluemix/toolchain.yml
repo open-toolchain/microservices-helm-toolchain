@@ -185,7 +185,18 @@ services:
       name: Clusters
       dashboard_url: https://console.bluemix.net/containers-kubernetes/clusters
       description: Manage clusters
-      additional-properties:     
+      additional-properties:  
+  selenium:
+    service_id: customtool
+    parameters:
+      type: Docker Hub Image
+      lifecyclePhase: "DELIVER"
+      imageUrl: https://www.docker.com/sites/default/files/mono-vertical.png
+      documentationUrl: https://hub.docker.com/r/bkuschel/selenium-chrome-cd-job
+      name: bkuschel/selenium-chrome-cd-job
+      dashboard_url: https://hub.docker.com/r/bkuschel/selenium-chrome-cd-job
+      description: Selenium Chrome Standalone Server with IBM node v4 and IBM Cloud Tools
+      additional-properties:    
 form:
   pipeline:
     parameters:
