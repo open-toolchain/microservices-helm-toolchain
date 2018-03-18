@@ -191,8 +191,8 @@ services:
     parameters:
       type: Docker Hub Image
       lifecyclePhase: "DELIVER"
-      imageUrl: https://hub.docker.com/
-      documentationUrl: https://secure.gravatar.com/avatar/7510e100f7ebeca4a0b8c3c617349295.jpg?s=512&r=g&d=mm
+      imageUrl: https://www.docker.com/sites/default/files/mono-vertical.png
+      documentationUrl: https://hub.docker.com/r/bkuschel/selenium-chrome-cd-job
       name: bkuschel/selenium-chrome-cd-job
       dashboard_url: https://hub.docker.com/r/bkuschel/selenium-chrome-cd-job
       description: Selenium Chrome Standalone Server with IBM node v4 and IBM Cloud Tools
