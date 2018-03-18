@@ -34,8 +34,12 @@
     * CI portion typically would be owned by dev squad, CD portion typically owned by ops squad
     * Set of versioned components deployed as a snapshot through a Helm umbrella chart (aggregating package component charts)
     * Consistent snapshot rolling deploy to environments through a separate pipeline, promotion through staging and production
+    ![Icon](./cd-pipeline.png)
+
     * Using quality gates at all levels of the process, raising the bar progressively
     * Insight also provides global inventory across environments, traceability back to the commit
+    ![Icon](./insights-dashboard.png)
+
     * Show vulnerabilities in UI CI pipeline, explain using a vanilla php:apache image. Explain advisor mode for now, but could be strictened
     ![Icon](./ui-vuln.png)
     ![Icon](./vulnerabilities.png)
@@ -55,7 +59,7 @@
 
     * Explain quality policy had it check for 80% coverage before prod (60% only for staging)
     ![Icon](./coverage-regression.png)
-    
+
     * Show traceability back from dashboard into git commit
     * Show red status in Slack (if needed explain pagerduty would have triggered only when actual prod deploy would have failed, but luckily gated)
     * (TBD) Address problem, open issue, revert bad commit (using webide), show traceability back to commit and issue tracker
@@ -88,6 +92,7 @@
     kubectl get nodes
     echo “LOGIN token for kubectl proxy :”
     kubectl config view -o jsonpath=‘{.users[0].user.auth-provider.config.id-token}’
+    echo ""
   ```
   * Cleanup resources
   ```
