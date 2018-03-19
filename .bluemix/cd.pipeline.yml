@@ -138,6 +138,7 @@ stages:
       fi
     enable_tests: true
     test_file_pattern: '*.xml'
+<<<<<<< HEAD
   - name: Selenium Tests
     type: tester
     script: |-
@@ -152,6 +153,8 @@ stages:
     test_file_pattern: '*.xml'
     docker_image: 'bkuschel/selenium-chrome-cd-job'
     test_type: customImage
+=======
+>>>>>>> c5dfa1d0f40432804d4264a25472d1c28a793830
 - name: PROD
   inputs:
   - type: job
