@@ -150,7 +150,7 @@ stages:
       fi
     enable_tests: true
     test_file_pattern: '*.xml'
-    docker_image: bkuschel/selenium-chrome-cd-job
+    docker_image: 'bkuschel/selenium-chrome-cd-job'
     test_type: customImage
 - name: PROD
   inputs:
