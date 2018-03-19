@@ -4,6 +4,7 @@
   * Need an existing cluster and API key
   * See instructions at: https://www.ibm.com/cloud/garage/tutorials/devops-toolchain-integration?task=0
   * Note: toolchain can only be created in US-South region (DevOps Insights only there)
+  * If you are creating a second toolchain instance outputing into same cluster namespaces, you need to ensure they agree on cf orgs where Cloudant instances reside. If not, then have each toolchains target distinct cluster namespaces (e.g. 'staging' and 'staging1').
 ## Context
   * Team building an online store application, formed with 3 microservices kept in separate Git repos
   * Using Kubernetes with Continuous Delivery to build, test and deploy the application
