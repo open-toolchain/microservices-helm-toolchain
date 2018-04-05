@@ -189,7 +189,7 @@ services:
   selenium:
     service_id: customtool
     parameters:
-      type: Docker Hub Image
+      type: DockerHub Image
       lifecyclePhase: "DELIVER"
       imageUrl: https://www.docker.com/sites/default/files/mono-vertical.png
       documentationUrl: https://hub.docker.com/r/bkuschel/selenium-chrome-cd-job
