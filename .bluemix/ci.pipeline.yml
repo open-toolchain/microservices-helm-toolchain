@@ -22,7 +22,7 @@ stages:
     script: |+
       #!/bin/bash
       # set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/fetch_git_creds.sh")
   - name: Unit Tests
     type: tester
     script: |-
@@ -57,7 +57,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_prebuild.sh")  
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_prebuild.sh")  
   - name: Build Docker image
     type: builder
     build_type: cr
@@ -70,11 +70,10 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_image.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/build_image.sh")
   - name: Vulnerability Advisor
     type: tester
     test_type: vulnerabilityadvisor
-    use_image_from_build_input: true
     fail_stage: false
     target:
       region_id: ${REGISTRY_REGION_ID}
@@ -82,7 +81,7 @@ stages:
     script: |
       #!/bin/bash
       #  set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_vulnerabilities.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_vulnerabilities.sh")
 - name: PUBLISH
   inputs:
   - type: job
@@ -127,4 +126,4 @@ stages:
     script: |-
       #!/bin/bash
       # set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/publish_helm_package.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/publish_helm_package.sh")
