@@ -44,6 +44,9 @@ stages:
   - name: build_properties
     value: build.properties
     type: file
+  - name: PIPELINE_IMAGE_URL
+    value: undefined
+    type: text
   jobs:
   - name: Pre-build check
     type: builder
