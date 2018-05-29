@@ -33,7 +33,7 @@ stages:
       else
         echo "Test runner script not found: ./tests/run-tests.sh"
       fi
-- name: DOCKERIZE
+- name: CONTAINERIZE
   inputs:
   - type: job
     stage: BUILD
@@ -41,9 +41,9 @@ stages:
   triggers:
   - type: stage
   properties:
-  - name: PIPELINE_IMAGE_URL
-    value: undefined
-    type: text
+  - name: build_properties
+    value: build.properties
+    type: file
   jobs:
   - name: Pre-build check
     type: builder
@@ -58,7 +58,7 @@ stages:
       #!/bin/bash
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_prebuild.sh")  
-  - name: Build Docker image
+  - name: Build container image
     type: builder
     build_type: cr
     artifact_dir: output
@@ -85,8 +85,8 @@ stages:
 - name: PUBLISH
   inputs:
   - type: job
-    stage: DOCKERIZE
-    job: Build Docker image
+    stage: CONTAINERIZE
+    job: Build container image
     dir_name: null
   triggers:
   - type: stage
