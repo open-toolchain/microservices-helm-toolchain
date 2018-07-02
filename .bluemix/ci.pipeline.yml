@@ -129,4 +129,4 @@ stages:
     script: |-
       #!/bin/bash
       # set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/publish_helm_package.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/publish_component_helm_chart.sh")
