@@ -115,8 +115,11 @@ stages:
   jobs:
   - name: Publish Gate
     type: tester
-    extension_id: ibm.devops.services.pipeline.dra_devops_gate
-    CRITERIA: ${POLICY_NAME}
+    test_type: simple
+    script: |-
+      #!/bin/bash
+      # set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_publish_gate_component_helm_chart.sh")
   - name: Publish component chart
     type: builder
     build_type: cr
