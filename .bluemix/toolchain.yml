@@ -50,7 +50,7 @@ services:
           POLICY_NAME: '[catalog-api] PUBLISH Component Chart Checks'
           GIT_REPO: catalog-api-repo
           APP_NAME: catalog-api
-          CF_APP_NAME: '{{form.pipeline.parameters.catalog-app-name}}'
+          CF_APP_NAME: 'catalog-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
@@ -78,7 +78,7 @@ services:
           POLICY_NAME: '[orders-api] PUBLISH Component Chart Checks'
           GIT_REPO: orders-api-repo
           APP_NAME: orders-api
-          CF_APP_NAME: '{{form.pipeline.parameters.orders-app-name}}'
+          CF_APP_NAME: 'orders-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'          
@@ -108,7 +108,7 @@ services:
           SAUCE_LABS: test
           GIT_REPO: ui-repo
           APP_NAME: ui
-          CF_APP_NAME: '{{form.pipeline.parameters.ui-app-name}}'
+          CF_APP_NAME: 'ui-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
@@ -194,9 +194,6 @@ form:
       prod-space: prod
       prod-cluster-namespace: prod
       umbrella-app-name: '{{services.umbrella-repo.parameters.repo_name}}'
-      orders-app-name: '{{services.orders-api-repo.parameters.repo_name}}'
-      catalog-app-name: '{{services.catalog-api-repo.parameters.repo_name}}'
-      ui-app-name: '{{services.ui-repo.parameters.repo_name}}'
     schema:
       $ref: deploy.json
   hostedgit:
