@@ -26,7 +26,7 @@
        "registry-namespace": {
           "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://console.bluemix.net/docs/services/Registry/index.html .",
           "type": "string",
-          "pattern": "^[a-z0-9][a-z0-9_]{3,29}$"
+          "pattern": "^[a-z0-9][a-z0-9_-]{2,28}[a-z0-9]$"
         },
         "staging-region": {
             "description": "The IBM Cloud region",
