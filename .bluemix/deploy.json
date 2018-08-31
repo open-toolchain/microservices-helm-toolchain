@@ -15,33 +15,33 @@
     "type": "object",
     "properties": {
         "api-key": {
-            "description": "The Bluemix API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'bx iam api-key-create' or via the console at https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
+            "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
             "type": "string",
             "pattern": "\\S"
         },
        "registry-region": {
-          "description": "The bluemix region for image registry",
+          "description": "The IBM Cloud region for image registry",
           "type": "string"
         },
        "registry-namespace": {
-          "description": "The namespace in the container image registry. You can set it up with {bx cr namespace-add]. Learn more at https://console.bluemix.net/docs/services/Registry/index.html .",
+          "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://console.bluemix.net/docs/services/Registry/index.html .",
           "type": "string",
-          "pattern": "^[a-z0-9][a-z0-9_]{3,29}$"
+          "pattern": "^[a-z0-9][a-z0-9_-]{2,28}[a-z0-9]$"
         },
         "staging-region": {
-            "description": "The bluemix region",
+            "description": "The IBM Cloud region",
             "type": "string"
         },
         "staging-organization": {
-            "description": "The bluemix org",
+            "description": "The IBM Cloud org",
             "type": "string"
         },
         "staging-space": {
-            "description": "The bluemix space",
+            "description": "The IBM Cloud space",
             "type": "string"
         },
        "staging-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [bx cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
+            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
             "type": "string",
             "pattern": "\\S"
         },
@@ -51,19 +51,19 @@
           "pattern": "\\S"
         },
         "prod-region": {
-            "description": "The bluemix region for prod deployment",
+            "description": "The IBM Cloud region for prod deployment",
             "type": "string"
         },
         "prod-organization": {
-            "description": "The bluemix org",
+            "description": "The IBM Cloud org",
             "type": "string"
         },
         "prod-space": {
-            "description": "The bluemix space",
+            "description": "The IBM Cloud space",
             "type": "string"
         },              
        "prod-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [bx cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
+            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
             "type": "string",
             "pattern": "\\S"
         },
@@ -72,30 +72,6 @@
           "type": "string",
           "pattern": "\\S"
         },    
-        "orders-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription1"
-            },
-            "type": "string",
-            "pattern": "\\S",
-            "maxLength": 63
-        },
-        "catalog-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription2"
-            },
-            "type": "string",
-            "pattern": "\\S",
-            "maxLength": 63
-        },
-        "ui-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.appDescription3"
-            },
-            "type": "string",
-            "pattern": "\\S",
-            "maxLength": 63
-        },
         "umbrella-app-name": {
             "description": {
                 "$ref": "#/messages/deploy.umbrellaAppDescription"
@@ -119,9 +95,6 @@
         "prod-space",
         "prod-cluster-name",
         "prod-cluster-namespace",
-        "orders-app-name",
-        "catalog-app-name",
-        "ui-app-name",
         "umbrella-app-name"
     ],
     "form": [
@@ -138,29 +111,11 @@
             "key": "umbrella-app-name"
         },
         {
-            "type": "text",
+            "type": "password",
             "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName1"
-            },
-            "key": "orders-app-name"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName2"
-            },
-            "key": "catalog-app-name"
-        },
-        {
-            "type": "text",
-            "readonly": false,
-            "title": {
-                "$ref": "#/messages/deploy.appName3"
-            },
-            "key": "ui-app-name"
-        },
+            "title": "IBM Cloud API key",
+            "key": "api-key"
+        },           
         {
           "type": "table",
           "columnCount": 3,
@@ -189,13 +144,7 @@
                   "key": "registry-namespace"
                 }
             ]
-        },
-        {
-            "type": "password",
-            "readonly": false,
-            "title": "Bluemix API key",
-            "key": "api-key"
-        },        
+        },     
         {
             "type": "table",
             "columnCount": 4,
@@ -313,7 +262,7 @@
                   "title": ""
                 },{
                   "type": "label",
-                  "title": "Retrieve the Kubernetes cluster name with the CLI command 'bx cs clusters' or via the [console](https://console.bluemix.net/containers-kubernetes/home/clusters)."
+                  "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://console.bluemix.net/containers-kubernetes/home/clusters)."
                 }
             ]
         },{

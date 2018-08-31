@@ -67,7 +67,7 @@
     * (TBD) Address problem, open issue, revert bad commit (using webide), show traceability back to commit and issue tracker
   * (TBD) Deliver a code change that will cause PagerDuty to trigger, fix it, show traceability to commit and issue tracker
   * (TBD) Prod style regression:
-    * Remove CSS file from UI (or remove it from dockerfile only), see outcome is bad layout in prod (should have been caught by selenium tests). 
+    * Remove CSS file from UI (or remove it from Dockerfile only), see outcome is bad layout in prod (should have been caught by selenium tests). 
     * Issue a helm rollback (using pipeline predefined stage) as emergency action
     * Fix it by reverting CSS file, and see all cleared properly, traceability back to commit and issue
 ## Develop locally 

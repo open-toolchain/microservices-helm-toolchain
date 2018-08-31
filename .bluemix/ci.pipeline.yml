@@ -33,7 +33,7 @@ stages:
       else
         echo "Test runner script not found: ./tests/run-tests.sh"
       fi
-- name: DOCKERIZE
+- name: CONTAINERIZE
   inputs:
   - type: job
     stage: BUILD
@@ -41,6 +41,9 @@ stages:
   triggers:
   - type: stage
   properties:
+  - name: build_properties
+    value: build.properties
+    type: file
   - name: PIPELINE_IMAGE_URL
     value: undefined
     type: text
@@ -58,7 +61,7 @@ stages:
       #!/bin/bash
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_prebuild.sh")  
-  - name: Build Docker image
+  - name: Build container image
     type: builder
     build_type: cr
     artifact_dir: output
@@ -74,7 +77,6 @@ stages:
   - name: Vulnerability Advisor
     type: tester
     test_type: vulnerabilityadvisor
-    use_image_from_build_input: true
     fail_stage: false
     target:
       region_id: ${REGISTRY_REGION_ID}
@@ -86,8 +88,8 @@ stages:
 - name: PUBLISH
   inputs:
   - type: job
-    stage: DOCKERIZE
-    job: Build Docker image
+    stage: CONTAINERIZE
+    job: Build container image
     dir_name: null
   triggers:
   - type: stage
@@ -113,8 +115,11 @@ stages:
   jobs:
   - name: Publish Gate
     type: tester
-    extension_id: ibm.devops.services.pipeline.dra_devops_gate
-    CRITERIA: ${POLICY_NAME}
+    test_type: simple
+    script: |-
+      #!/bin/bash
+      # set -x
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_publish_gate_component_helm_chart.sh")
   - name: Publish component chart
     type: builder
     build_type: cr
@@ -127,4 +132,4 @@ stages:
     script: |-
       #!/bin/bash
       # set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/publish_helm_package.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/publish_component_helm_chart.sh")
