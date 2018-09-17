@@ -110,6 +110,10 @@
         },
         {
             "type": "label",
+            "title": ""
+        },
+        {
+            "type": "label",
             "title": "**IBM Cloud Container Registry:**"
         },
         {
@@ -151,6 +155,10 @@
                   "key": "registry-namespace"
                 }
             ]
+        },
+        {
+            "type": "label",
+            "title": ""
         },
         {
             "type": "label",
@@ -219,6 +227,10 @@
                   "readonly": false
                 }
             ]
+        },
+        {
+            "type": "label",
+            "title": ""
         },
         {
             "type": "label",
