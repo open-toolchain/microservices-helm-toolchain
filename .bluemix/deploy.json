@@ -151,13 +151,13 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/region_resourceGroup"
+                        "$ref": "#/messages/region"
                     }
                 },
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/cluster"
+                        "$ref": "#/messages/resourceGroup"
                     }
                 },
                 {
@@ -172,8 +172,24 @@
                 },                
                 {
                   "type": "text",
-                  "key": "staging-cluster-name",
+                  "key": "staging-resource-group",
                   "readonly": false
+                },               
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/clusterName"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/clusterNamespace"
+                    }
                 },
                 {
                     "type": "label",
@@ -181,9 +197,9 @@
                 },
                 {
                   "type": "text",
-                  "key": "staging-resource-group",
+                  "key": "staging-cluster-name",
                   "readonly": false
-                },               
+                },
                 {
                   "type": "text",
                   "key": "staging-cluster-namespace",
