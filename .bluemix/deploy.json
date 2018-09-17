@@ -114,7 +114,7 @@
         },
         {
             "type": "table",
-            "columnCount": 5,
+            "columnCount": 4,
             "widths": [
                 "10%",
                 "40%",
@@ -184,6 +184,10 @@
                     }
                 },
                 {
+                    "type": "label",
+                    "title": ""
+                },
+                {
                   "type": "text",
                   "key": "staging-resource-group",
                   "readonly": false
@@ -198,6 +202,10 @@
                   "type": "select",
                   "key": "staging-cluster-name",
                   "readonly": false
+                },
+                {
+                    "type": "label",
+                    "title": ""
                 },
                 {
                     "type": "label",
@@ -236,7 +244,11 @@
                 {
                   "type": "select",
                   "key": "prod-region"
-                },                
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },             
                 {
                     "type": "label",
                     "title": {
@@ -258,6 +270,10 @@
                   "type": "select",
                   "key": "prod-cluster-name",
                   "readonly": false
+                },
+                {
+                    "type": "label",
+                    "title": ""
                 },
                 {
                     "type": "label",
