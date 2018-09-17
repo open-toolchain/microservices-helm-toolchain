@@ -112,18 +112,14 @@
             "type": "table",
             "columnCount": 3,
             "widths": [
-                "10%",
-                "10%",
-                "30%",
-                "10%",
-                "30%"
+                "15%",
+                "40%",
+                "40%"
             ],
             "items": [
                 {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/registry"
-                    }
+                    "title": ""
                 },
                 {
                     "type": "label",
@@ -132,15 +128,23 @@
                     }
                 },
                 {
-                  "type": "select",
-                  "title": "Container image registry region",
-                  "key": "registry-region"
-                },
-                {
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/registryNamespace"
                     }
+                },
+
+
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/registry"
+                    }
+                },
+                {
+                  "type": "select",
+                  "title": "Container image registry region",
+                  "key": "registry-region"
                 },
                 {
                   "type": "text",
@@ -152,9 +156,7 @@
 
                 {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/testStage"
-                    }
+                    "title": ""
                 },
                 {
                     "type": "label",
@@ -163,15 +165,23 @@
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "staging-region"
-                },                
-                {
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/resourceGroup"
                     }
                 },
+
+
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/testStage"
+                    }
+                },
+                {
+                  "type": "select",
+                  "key": "staging-region"
+                },                
                 {
                   "type": "text",
                   "key": "staging-resource-group",
@@ -190,15 +200,21 @@
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "staging-cluster-name",
-                  "readonly": false
-                },
-                {
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/clusterNamespace"
                     }
+                },
+
+
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                  "type": "select",
+                  "key": "staging-cluster-name",
+                  "readonly": false
                 },
                 {
                   "type": "text",
@@ -209,9 +225,7 @@
 
                 {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/prodStage"
-                    }
+                    "title": ""
                 },
                 {
                     "type": "label",
@@ -220,15 +234,23 @@
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "prod-region"
-                },                
-                {
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/resourceGroup"
                     }
                 },
+
+
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/prodStage"
+                    }
+                },
+                {
+                  "type": "select",
+                  "key": "prod-region"
+                },                
                 {
                   "type": "text",
                   "key": "prod-resource-group",
@@ -247,15 +269,21 @@
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "prod-cluster-name",
-                  "readonly": false
-                },
-                {
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/clusterNamespace"
                     }
+                },
+
+
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                  "type": "select",
+                  "key": "prod-cluster-name",
+                  "readonly": false
                 },
                 {
                   "type": "text",
