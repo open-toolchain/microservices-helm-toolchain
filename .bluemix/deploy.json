@@ -301,32 +301,12 @@
             ]
         },
         {
-          "type": "table",
-          "columnCount": 2,
-            "widths": ["15%", "80%"],
-            "items": [
-                {
-                  "type": "label",
-                  "title": ""
-                },{
-                  "type": "label",
-                  "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://console.bluemix.net/containers-kubernetes/home/clusters)."
-                }
-            ]
+            "type": "label",
+            "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://console.bluemix.net/containers-kubernetes/home/clusters)."
         },
         {
-          "type": "table",
-          "columnCount": 2,
-            "widths": ["15%", "80%"],
-            "items": [
-                {
-                  "type": "label",
-                  "title": ""
-                },{
-                  "type": "label",
-                  "title": "If the cluster namespace doesn't exist already, it will be automatically created and configured."
-                }
-            ]
+            "type": "label",
+            "title": "If the cluster namespace doesn't exist already, it will be automatically created and configured."
         }
     ]
 }
