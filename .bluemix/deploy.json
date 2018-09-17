@@ -24,53 +24,55 @@
           "type": "string"
         },
        "registry-namespace": {
-          "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://console.bluemix.net/docs/services/Registry/index.html .",
+          "description": "Namespace in container image registry",
           "type": "string",
           "pattern": "^[a-z0-9][a-z0-9_-]{2,28}[a-z0-9]$"
         },
         "staging-region": {
-            "description": "The IBM Cloud region",
-            "type": "string"
+          "description": "Staging region",
+          "type": "string"
         },
         "staging-resource-group": {
-            "description": "The IBM Cloud resource group",
-            "type": "string"
+          "description": "Staging resource group",
+          "type": "string",
+          "pattern": "\\S"
         },
        "staging-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
-            "type": "string",
-            "pattern": "\\S"
+          "description": "Name of staging cluster",
+          "type": "string",
+          "pattern": "\\S"
         },
         "staging-cluster-namespace": {
-          "description": "Prod namespace",
+          "description": "Namespace in staging cluster",
           "type": "string",
           "pattern": "\\S"
         },
         "prod-region": {
-            "description": "The IBM Cloud region for prod deployment",
-            "type": "string"
+          "description": "Production region",
+          "type": "string"
         },
         "prod-resource-group": {
-            "description": "The IBM Cloud resource-group",
-            "type": "string"
+          "description": "Production resource-group",
+          "type": "string",
+          "pattern": "\\S"
         },              
        "prod-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
-            "type": "string",
-            "pattern": "\\S"
+          "description": "Name of production cluster",
+          "type": "string",
+          "pattern": "\\S"
         },
         "prod-cluster-namespace": {
-          "description": "Prod namespace",
+          "description": "Namespace in production cluster",
           "type": "string",
           "pattern": "\\S"
         },    
         "umbrella-app-name": {
-            "description": {
-                "$ref": "#/messages/deploy.umbrellaAppDescription"
-            },
-            "type": "string",
-            "pattern": "\\S",
-            "maxLength": 63
+          "description": {
+              "$ref": "#/messages/deploy.umbrellaAppDescription"
+          },
+          "type": "string",
+          "pattern": "\\S",
+          "maxLength": 63
         }
     },
     "required": [
