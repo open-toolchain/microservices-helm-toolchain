@@ -118,12 +118,12 @@
         },
         {
             "type": "table",
-            "columnCount": 4,
+            "columnCount": 5,
             "widths": [
                 "10%",
                 "40%",
-                "5%",
-                "15%",
+                "10%",
+                "10%",
                 "35%"
             ],
             "items": [
@@ -170,8 +170,8 @@
             "widths": [
                 "10%",
                 "40%",
-                "5%",
-                "15%",
+                "10%",
+                "10%",
                 "35%"
             ],
             "items": [
@@ -184,16 +184,16 @@
                 {
                   "type": "select",
                   "key": "staging-region"
-                },                
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },                                
                 {
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/resourceGroup"
                     }
-                },
-                {
-                    "type": "label",
-                    "title": ""
                 },
                 {
                   "type": "text",
@@ -242,8 +242,8 @@
             "widths": [
                 "10%",
                 "40%",
-                "5%",
-                "15%",
+                "10%",
+                "10%",
                 "35%"
             ],
             "items": [
