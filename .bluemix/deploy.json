@@ -114,7 +114,7 @@
         },
         {
             "type": "label",
-            "title": "**IBM Cloud Container Registry:**"
+            "title": "**Container image registry:**"
         },
         {
             "type": "table",
@@ -162,7 +162,7 @@
         },
         {
             "type": "label",
-            "title": "**STAGING Environment:**"
+            "title": "**Staging environment:**"
         },
         {
             "type": "table",
@@ -234,7 +234,7 @@
         },
         {
             "type": "label",
-            "title": "**PROD Environment:**"
+            "title": "**Production environment:**"
         },
         {
             "type": "table",
