@@ -32,12 +32,8 @@
             "description": "The IBM Cloud region",
             "type": "string"
         },
-        "staging-organization": {
-            "description": "The IBM Cloud org",
-            "type": "string"
-        },
-        "staging-space": {
-            "description": "The IBM Cloud space",
+        "staging-resource-group": {
+            "description": "The IBM Cloud resource group",
             "type": "string"
         },
        "staging-cluster-name": {
@@ -54,12 +50,8 @@
             "description": "The IBM Cloud region for prod deployment",
             "type": "string"
         },
-        "prod-organization": {
-            "description": "The IBM Cloud org",
-            "type": "string"
-        },
-        "prod-space": {
-            "description": "The IBM Cloud space",
+        "prod-resource-group": {
+            "description": "The IBM Cloud resource-group",
             "type": "string"
         },              
        "prod-cluster-name": {
@@ -86,13 +78,11 @@
         "registry-region",
         "registry-namespace",
         "staging-region",
-        "staging-organization",
-        "staging-space",
+        "staging-resource-group",
         "staging-cluster-name",
         "staging-cluster-namespace",        
         "prod-region",
-        "prod-organization",
-        "prod-space",
+        "prod-resource-group",
         "prod-cluster-name",
         "prod-cluster-namespace",
         "umbrella-app-name"
@@ -147,12 +137,11 @@
         },     
         {
             "type": "table",
-            "columnCount": 4,
+            "columnCount": 3,
             "widths": [
                 "15%",
-                "28%",
-                "28%",
-                "28%"
+                "40%",
+                "40%"
             ],
             "items": [
                 {
@@ -162,19 +151,13 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/region"
+                        "$ref": "#/messages/region_resourceGroup"
                     }
                 },
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/clusterName"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterNamespace"
+                        "$ref": "#/messages/cluster"
                     }
                 },
                 {
@@ -186,15 +169,10 @@
                 {
                   "type": "select",
                   "key": "staging-region"
-                },
+                },                
                 {
                   "type": "text",
                   "key": "staging-cluster-name",
-                  "readonly": false
-                },
-                {
-                  "type": "text",
-                  "key": "staging-cluster-namespace",
                   "readonly": false
                 },
                 {
@@ -202,17 +180,14 @@
                     "title": ""
                 },
                 {
-                    "type": "label",
-                    "title": "Service CF org & space"
-                },
+                  "type": "text",
+                  "key": "staging-resource-group",
+                  "readonly": false
+                },               
                 {
-                    "type": "select",
-                    "key": "staging-organization"
-                },
-                {
-                    "type": "select",
-                    "key": "staging-space",
-                    "readonly": false
+                  "type": "text",
+                  "key": "staging-cluster-namespace",
+                  "readonly": false
                 },
                 {
                     "type": "label",
@@ -230,26 +205,18 @@
                   "readonly": false
                 },
                 {
-                  "type": "text",
-                  "key": "prod-cluster-namespace",
-                  "readonly": false
-                },
-                {
                     "type": "label",
                     "title": ""
                 },
                 {
-                    "type": "label",
-                    "title": "Service CF org & space"
-                },
+                  "type": "text",
+                  "key": "prod-resource-group",
+                  "readonly": false
+                },               
                 {
-                    "type": "select",
-                    "key": "prod-organization"
-                },
-                {
-                    "type": "select",
-                    "key": "prod-space",
-                    "readonly": false
+                  "type": "text",
+                  "key": "prod-cluster-namespace",
+                  "readonly": false
                 }
             ]
         },{
