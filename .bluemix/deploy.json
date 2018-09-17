@@ -136,7 +136,7 @@
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/containerRegistry"
+                        "$ref": "#/messages/registry"
                     }
                 },
                 {
