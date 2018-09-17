@@ -75,6 +75,7 @@ stages:
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
+      api_key: ${API_KEY}
       organization: ${STAGING_ORG_NAME}
       space: ${STAGING_SPACE_NAME}
       application: ${CF_APP_NAME}
@@ -178,6 +179,7 @@ stages:
     type: deployer
     target:
       region_id: ${PROD_REGION_ID}
+      api_key: ${API_KEY}
       organization: ${PROD_ORG_NAME}
       space: ${PROD_SPACE_NAME}
       application: ${CF_APP_NAME}
