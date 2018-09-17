@@ -107,35 +107,6 @@
             "key": "api-key"
         },           
         {
-          "type": "table",
-          "columnCount": 3,
-            "widths": ["50%", "3%", "47%"],
-            "items": [
-                {
-                  "type": "label",
-                  "title": "Container registry region"
-                },{
-                  "type": "label",
-                  "title": ""
-                },{                    
-                  "type": "label",
-                  "title": "Container registry namespace"
-                },{
-                  "type": "select",
-                  "title": "Container image registry region",
-                  "key": "registry-region"
-                },{
-                  "type": "label",
-                  "title": ""
-                },{
-                  "type": "text",
-                  "readonly": false,
-                  "title": "Container image registry namespace",
-                  "key": "registry-namespace"
-                }
-            ]
-        },     
-        {
             "type": "table",
             "columnCount": 3,
             "widths": [
@@ -157,9 +128,48 @@
                 {
                     "type": "label",
                     "title": {
+                        "$ref": "#/messages/registryNamespace"
+                    }
+                },
+
+
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/containerRegistry"
+                    }
+                },
+                {
+                  "type": "select",
+                  "title": "Container image registry region",
+                  "key": "registry-region"
+                },
+                {
+                  "type": "text",
+                  "readonly": false,
+                  "title": "Container image registry namespace",
+                  "key": "registry-namespace"
+                },
+
+
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/region"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": {
                         "$ref": "#/messages/resourceGroup"
                     }
                 },
+
+
                 {
                     "type": "label",
                     "title": {
@@ -175,6 +185,8 @@
                   "key": "staging-resource-group",
                   "readonly": false
                 },               
+
+
                 {
                     "type": "label",
                     "title": ""
@@ -191,6 +203,8 @@
                         "$ref": "#/messages/clusterNamespace"
                     }
                 },
+
+
                 {
                     "type": "label",
                     "title": ""
@@ -205,6 +219,26 @@
                   "key": "staging-cluster-namespace",
                   "readonly": false
                 },
+
+
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/region"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/resourceGroup"
+                    }
+                },
+
+
                 {
                     "type": "label",
                     "title": {
@@ -214,21 +248,41 @@
                 {
                   "type": "select",
                   "key": "prod-region"
-                },
+                },                
                 {
                   "type": "text",
-                  "key": "prod-cluster-name",
+                  "key": "prod-resource-group",
                   "readonly": false
+                },               
+
+
+                {
+                    "type": "label",
+                    "title": ""
                 },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/clusterName"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/clusterNamespace"
+                    }
+                },
+
+
                 {
                     "type": "label",
                     "title": ""
                 },
                 {
                   "type": "text",
-                  "key": "prod-resource-group",
+                  "key": "prod-cluster-name",
                   "readonly": false
-                },               
+                },
                 {
                   "type": "text",
                   "key": "prod-cluster-namespace",
