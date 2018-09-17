@@ -212,7 +212,7 @@
                     "title": ""
                 },
                 {
-                  "type": "text",
+                  "type": "select",
                   "key": "staging-cluster-name",
                   "readonly": false
                 },
@@ -281,7 +281,7 @@
                     "title": ""
                 },
                 {
-                  "type": "text",
+                  "type": "select",
                   "key": "prod-cluster-name",
                   "readonly": false
                 },
