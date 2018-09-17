@@ -107,18 +107,19 @@
             "readonly": false,
             "title": "IBM Cloud API key",
             "key": "api-key"
-        },           
+        },
+        {
+            "type": "label",
+            "title": "**IBM Cloud Container Registry**"
+        },
         {
             "type": "table",
-            "title": {
-                "$ref": "#/messages/registry"
-            },
             "columnCount": 4,
             "widths": [
-                "10%",
-                "35%",
-                "10%",
-                "35%"
+                "15%",
+                "30%",
+                "15%",
+                "30%"
             ],
             "items": [
                 {
