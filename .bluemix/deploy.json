@@ -110,16 +110,17 @@
         },
         {
             "type": "label",
-            "title": "**IBM Cloud Container Registry**"
+            "title": "**IBM Cloud Container Registry:**"
         },
         {
             "type": "table",
-            "columnCount": 4,
+            "columnCount": 5,
             "widths": [
-                "15%",
-                "30%",
-                "15%",
-                "30%"
+                "10%",
+                "40%",
+                "5%",
+                "10%",
+                "40%"
             ],
             "items": [
                 {
@@ -132,6 +133,10 @@
                   "type": "select",
                   "title": "Registry region",
                   "key": "registry-region"
+                },
+                {
+                    "type": "label",
+                    "title": ""
                 },
                 {
                     "type": "label",
