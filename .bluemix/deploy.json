@@ -20,11 +20,11 @@
             "pattern": "\\S"
         },
        "registry-region": {
-          "description": "The IBM Cloud region for image registry",
+          "description": "Region for container registry",
           "type": "string"
         },
        "registry-namespace": {
-          "description": "Namespace in container image registry",
+          "description": "Namespace in container registry",
           "type": "string",
           "pattern": "^[a-z0-9][a-z0-9_-]{2,28}[a-z0-9]$"
         },
