@@ -112,10 +112,10 @@
             "type": "table",
             "columnCount": 3,
             "widths": [
-                "10%",
-                "10%",
+                "15%",
+                "15%",
                 "30%",
-                "10%",
+                "15%",
                 "30%"
             ],
             "items": [
@@ -133,7 +133,7 @@
                 },
                 {
                   "type": "select",
-                  "title": "Container image registry region",
+                  "title": "Registry region",
                   "key": "registry-region"
                 },
                 {
