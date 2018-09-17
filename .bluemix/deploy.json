@@ -123,8 +123,8 @@
                 "10%",
                 "40%",
                 "10%",
-                "10%",
-                "35%"
+                "17%",
+                "28%"
             ],
             "items": [
                 {
@@ -171,8 +171,8 @@
                 "10%",
                 "40%",
                 "10%",
-                "10%",
-                "35%"
+                "17%",
+                "28%"
             ],
             "items": [
                 {
@@ -243,8 +243,8 @@
                 "10%",
                 "40%",
                 "10%",
-                "10%",
-                "35%"
+                "17%",
+                "28%"
             ],
             "items": [
                 {
@@ -301,101 +301,6 @@
             ]
         },
         {
-            "type": "table",
-            "columnCount": 5,
-            "widths": [
-                "15%",
-                "15%",
-                "30%",
-                "15%",
-                "30%"
-            ],
-            "items": [
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterName"
-                    }
-                },
-                {
-                  "type": "select",
-                  "key": "staging-cluster-name",
-                  "readonly": false
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterNamespace"
-                    }
-                },
-                {
-                  "type": "text",
-                  "key": "staging-cluster-namespace",
-                  "readonly": false
-                },
-
-
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/prodStage"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/region"
-                    }
-                },
-                {
-                  "type": "select",
-                  "key": "prod-region"
-                },                
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/resourceGroup"
-                    }
-                },
-                {
-                  "type": "text",
-                  "key": "prod-resource-group",
-                  "readonly": false
-                },               
-
-
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterName"
-                    }
-                },
-                {
-                  "type": "select",
-                  "key": "prod-cluster-name",
-                  "readonly": false
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterNamespace"
-                    }
-                },
-                {
-                  "type": "text",
-                  "key": "prod-cluster-namespace",
-                  "readonly": false
-                }
-            ]
-        },{
           "type": "table",
           "columnCount": 2,
             "widths": ["15%", "80%"],
@@ -408,7 +313,8 @@
                   "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://console.bluemix.net/containers-kubernetes/home/clusters)."
                 }
             ]
-        },{
+        },
+        {
           "type": "table",
           "columnCount": 2,
             "widths": ["15%", "80%"],
