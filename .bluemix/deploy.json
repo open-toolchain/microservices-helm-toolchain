@@ -26,7 +26,7 @@
        "registry-namespace": {
           "description": "Namespace in container registry",
           "type": "string",
-          "pattern": "^[a-z0-9][a-z0-9_-]{2,28}[a-z0-9]$"
+          "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$"
         },
         "staging-region": {
           "description": "Staging region",
@@ -45,7 +45,7 @@
         "staging-cluster-namespace": {
           "description": "Namespace in staging cluster",
           "type": "string",
-          "pattern": "\\S"
+          "pattern": "[a-z0-9]([-a-z0-9]*[a-z0-9])?"
         },
         "prod-region": {
           "description": "Production region",
@@ -64,7 +64,7 @@
         "prod-cluster-namespace": {
           "description": "Namespace in production cluster",
           "type": "string",
-          "pattern": "\\S"
+          "pattern": "[a-z0-9]([-a-z0-9]*[a-z0-9])?"
         },    
         "umbrella-app-name": {
           "description": {
