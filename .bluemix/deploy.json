@@ -150,15 +150,17 @@
             "title": ""
         },
         {
+            "type": "label",
+            "title": "**Environments:**"
+        },
+        {
             "type": "table",
             "columnCount": 9,
-            "widths": [ "16%", "1%", "20%", "1%", "20%", "1%", "20%", "1%", "20%" ],
+            "widths": [ "12%", "1%", "21%", "1%", "21%", "1%", "21%", "1%", "21%" ],
             "items": [
                 {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/environment"
-                    }
+                    "title": ""
                 },
                 {
                     "type": "label",
