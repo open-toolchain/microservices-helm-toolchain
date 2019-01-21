@@ -92,7 +92,7 @@
     "form": [
         {
             "type": "validator",
-            "url": "/devops/setup/bm-helper/helper.html"
+            "url": "/devops/setup/bm-helper/custom_helper.html"
         },
         {
             "type": "text",
@@ -150,25 +150,65 @@
             "title": ""
         },
         {
-            "type": "label",
-            "title": "**STAGING environment:**"
-        },
-        {
             "type": "table",
-            "columnCount": 5,
-            "widths": [
-                "10%",
-                "40%",
-                "10%",
-                "17%",
-                "28%"
-            ],
+            "columnCount": 9,
+            "widths": [ "16%", "1%", "20%", "1%", "20%", "1%", "20%", "1%", "20%" ],
             "items": [
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/environment"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
                 {
                     "type": "label",
                     "title": {
                         "$ref": "#/messages/region"
                     }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/clusterResourceGroup"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/clusterName"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/clusterNamespace"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": {
+                        "$ref": "#/messages/testStage"
+                    }
+                },
+                {
+                    "type": "label",
+                    "title": ""
                 },
                 {
                   "type": "select",
@@ -177,70 +217,37 @@
                 {
                     "type": "label",
                     "title": ""
-                },                                
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/resourceGroup"
-                    }
-                },
-                {
-                  "type": "text",
-                  "key": "staging-resource-group",
-                  "readonly": false
-                }, 
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterName"
-                    }
                 },
                 {
                   "type": "select",
-                  "key": "staging-cluster-name",
-                  "readonly": false
+                  "key": "staging-resource-group"
                 },
                 {
                     "type": "label",
                     "title": ""
                 },
                 {
+                  "type": "select",
+                  "key": "staging-cluster-name",
+                },
+                {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterNamespace"
-                    }
+                    "title": ""
                 },
                 {
                   "type": "text",
                   "key": "staging-cluster-namespace",
                   "readonly": false
-                }
-            ]
-        },
-        {
-            "type": "label",
-            "title": ""
-        },
-        {
-            "type": "label",
-            "title": "**Production environment:**"
-        },
-        {
-            "type": "table",
-            "columnCount": 5,
-            "widths": [
-                "10%",
-                "40%",
-                "10%",
-                "17%",
-                "28%"
-            ],
-            "items": [
+                },
                 {
                     "type": "label",
                     "title": {
-                        "$ref": "#/messages/region"
+                        "$ref": "#/messages/prodStage"
                     }
+                },
+                {
+                    "type": "label",
+                    "title": ""
                 },
                 {
                   "type": "select",
@@ -249,38 +256,22 @@
                 {
                     "type": "label",
                     "title": ""
-                },             
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/resourceGroup"
-                    }
-                },
-                {
-                  "type": "text",
-                  "key": "prod-resource-group",
-                  "readonly": false
-                }, 
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterName"
-                    }
                 },
                 {
                   "type": "select",
-                  "key": "prod-cluster-name",
-                  "readonly": false
+                  "key": "prod-resource-group"
                 },
                 {
                     "type": "label",
                     "title": ""
                 },
                 {
+                  "type": "select",
+                  "key": "prod-cluster-name",
+                },
+                {
                     "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterNamespace"
-                    }
+                    "title": ""
                 },
                 {
                   "type": "text",
