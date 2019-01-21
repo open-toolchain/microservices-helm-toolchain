@@ -76,7 +76,7 @@
         "staging-cluster-namespace": {
           "description": "Staging namespace",
           "type": "string",
-          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$".
+          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
            "$validate":{
                 "method":"validateCSNameSpace",
                 "params":{"region":"staging-region","apiKey":"api-key"}
