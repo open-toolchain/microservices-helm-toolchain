@@ -17,7 +17,11 @@
         "api-key": {
             "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
             "type": "string",
-            "pattern": "\\S"
+            "pattern": "\\S",
+            "$validate":{
+		   "method":"validateApiKey",
+		    "params":{"apiKey":"api-key"}
+	    }
         },
        "registry-region": {
           "description": "The IBM Cloud region for image registry",
