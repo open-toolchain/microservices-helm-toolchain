@@ -264,7 +264,7 @@
                   "options":{
                        "$populate":{
                         "method": "populateCSClusterNames",
-                        "params": {"region":"registery-region","apiKey":"api-key"}
+                        "params": {"region":"registry-region","apiKey":"api-key"}
                            }
                     }
                 },
@@ -275,7 +275,7 @@
                   "options":{
                        "$populate":{
                           "method": "populateCSNameSpaces",
-                          "params": {"region":"registery-region","apiKey":"api-key"}
+                          "params": {"region":"registry-region","apiKey":"api-key"}
                            }
                     }
                 },
@@ -331,7 +331,7 @@
                    "options":{
                        "$populate":{
                         "method": "populateCSClusterNames",
-                        "params": {"region":"registery-region","apiKey":"api-key"}
+                        "params": {"region":"registry-region","apiKey":"api-key"}
                            }
                    }   
                 },
@@ -342,7 +342,7 @@
                    "options":{
                        "$populate":{
                           "method": "populateCSNameSpaces",
-                          "params": {"region":"registery-region","apiKey":"api-key"}
+                          "params": {"region":"registry-region","apiKey":"api-key"}
                            }
                      }
                 },
