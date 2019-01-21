@@ -117,52 +117,41 @@
             "title": "**Container image registry:**"
         },
         {
-            "type": "table",
-            "columnCount": 5,
-            "widths": [
-                "10%",
-                "40%",
-                "10%",
-                "17%",
-                "28%"
-            ],
+          "type": "table",
+          "columnCount": 3,
+            "widths": ["50%", "3%", "47%"],
             "items": [
                 {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/region"
-                    }
-                },
-                {
+                  "type": "label",
+                  "title": "Container registry region"
+                },{
+                  "type": "label",
+                  "title": ""
+                },{                    
+                  "type": "label",
+                  "title": "Container registry namespace"
+                },{
                   "type": "select",
-                  "title": "Registry region",
+                  "title": "Container registry region",
                   "key": "registry-region"
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/registryNamespace"
-                    }
-                },
-                {
+                },{
+                  "type": "label",
+                  "title": ""
+                },{
                   "type": "text",
                   "readonly": false,
-                  "title": "Container image registry namespace",
+                  "title": "Container registry namespace",
                   "key": "registry-namespace"
                 }
             ]
-        },
+        },    
         {
             "type": "label",
             "title": ""
         },
         {
             "type": "label",
-            "title": "**Staging environment:**"
+            "title": "**STAGING environment:**"
         },
         {
             "type": "table",
