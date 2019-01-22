@@ -1,46 +1,70 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "messages": {
-        "$i18n": "locales.yml"
+      "$i18n": "locales.yml"
     },
     "title": {
-        "$ref": "#/messages/deploy.title"
+      "$ref": "#/messages/deploy.title"
     },
     "description": {
-        "$ref": "#/messages/deploy.description"
+      "$ref": "#/messages/deploy.description"
     },
     "longDescription": {
-        "$ref": "#/messages/deploy.longDescription"
+      "$ref": "#/messages/deploy.longDescription"
     },
     "type": "object",
     "properties": {
         "api-key": {
-            "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
-            "type": "string",
-            "pattern": "\\S"
+          "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
+          "type": "string",
+          "pattern": "\\S",
+          "$validate":{
+            "method":"validateApiKey",
+            "params":{"apiKey":"api-key"}
+          }
         },
        "registry-region": {
           "description": "Region for container registry",
-          "type": "string"
+          "type": "string",
+          "$validate":{
+		    "method":"validateCSRegion",
+		    "params":{"apiKey":"api-key"}
+	      }
         },
        "registry-namespace": {
           "description": "Namespace in container registry",
           "type": "string",
-          "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$"
+          "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$",
+          "$validate":{
+            "method":"validateCSNameSpace",
+            "params":{"region":"registry-region","apiKey":"api-key"}
+	      }
         },
         "staging-region": {
           "description": "Staging region",
-          "type": "string"
+          "type": "string",
+          "$validate":{
+		    "method":"validateCSRegion",
+		    "params":{"apiKey":"api-key"}
+	      }
         },
         "staging-resource-group": {
           "description": "Staging resource group",
           "type": "string",
-          "pattern": "\\S"
+          "pattern": "\\S",
+          "$validate":{
+		    "method":"validateCSResourceGroup",
+		    "params":{"apiKey":"api-key"}
+	      }
         },
        "staging-cluster-name": {
           "description": "Name of staging cluster",
           "type": "string",
-          "pattern": "\\S"
+          "pattern": "\\S",
+          "$validate":{
+            "method":"validateCSClusterName",
+            "params":{"region":"staging-region","apiKey":"api-key"}
+	      }
         },
         "staging-cluster-namespace": {
           "description": "Namespace in staging cluster",
@@ -49,17 +73,29 @@
         },
         "prod-region": {
           "description": "Production region",
-          "type": "string"
+          "type": "string",
+          "$validate":{
+		    "method":"validateCSRegion",
+		    "params":{"apiKey":"api-key"}
+	      }
         },
         "prod-resource-group": {
           "description": "Production resource-group",
           "type": "string",
-          "pattern": "\\S"
+          "pattern": "\\S",
+          "$validate":{
+		    "method":"validateCSResourceGroup",
+		    "params":{"apiKey":"api-key"}
+	      }
         },              
        "prod-cluster-name": {
           "description": "Name of production cluster",
           "type": "string",
-          "pattern": "\\S"
+          "pattern": "\\S",
+          "$validate":{
+            "method":"validateCSClusterName",
+            "params":{"region":"prod-region","apiKey":"api-key"}
+	      }
         },
         "prod-cluster-namespace": {
           "description": "Namespace in production cluster",
