@@ -171,7 +171,7 @@ services:
     parameters:
       type: Container Registry
       lifecyclePhase: "DELIVER"
-      imageUrl: registry-logo.svg
+      imageUrl: https://cloud.ibm.com/containers-kubernetes/img/registry-logo-5285793fdd.svg
       documentationUrl: https://console.bluemix.net/docs/services/Registry/index.html
       name: Private repositories
       dashboard_url: https://console.bluemix.net/containers-kubernetes/registry/private
@@ -182,12 +182,12 @@ services:
     parameters:
       type: Container Service
       lifecyclePhase: "RUN"
-      imageUrl: container-service-logo.svg
+      imageUrl: https://cloud.ibm.com/containers-kubernetes/img/container-service-logo-3aec89a836.svg
       documentationUrl: https://console.bluemix.net/docs/containers/container_index.html
       name: Clusters
       dashboard_url: https://console.bluemix.net/containers-kubernetes/clusters
       description: Manage clusters
-      additional-properties:    
+      additional-properties:   
 form:
   pipeline:
     parameters:
