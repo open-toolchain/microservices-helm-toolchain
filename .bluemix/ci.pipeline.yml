@@ -111,7 +111,10 @@ stages:
     type: text
   - name: POLICY_NAME
     value: ${POLICY_NAME}
-    type: text 
+    type: text
+  - name: CHART_ROOT
+    value: chart
+    type: text
   jobs:
   - name: Publish Gate
     type: tester

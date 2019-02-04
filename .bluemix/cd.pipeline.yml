@@ -1,4 +1,8 @@
 ---
+properties:
+- name: HELM_VERSION
+  value: '2.12.3'
+  type: text
 stages:
 - name: BUILD
   inputs:
@@ -106,7 +110,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
   - name: Deploy umbrella chart
     type: deployer
@@ -210,7 +214,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
   - name: Deploy umbrella chart
     type: deployer
