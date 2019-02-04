@@ -1,4 +1,8 @@
 ---
+properties:
+- name: HELM_VERSION
+  value: '2.12.3'
+  type: text
 stages:
 - name: BUILD
   inputs:
@@ -21,8 +25,8 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/fetch_git_creds.sh")
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/build_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_umbrella_chart.sh")
 - name: STAGING
   inputs:
   - type: job
@@ -70,7 +74,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_umbrella_gate.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
   - name: Config service
     type: deployer
     target:
@@ -106,8 +110,8 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_predeploy_helm.sh")
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/cluster_bind_service.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
   - name: Deploy umbrella chart
     type: deployer
     target:
@@ -117,7 +121,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
   - name: Sauce Labs Tests
     type: tester
     extension_id: ibm.devops.services.pipeline.saucelabs
@@ -174,7 +178,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_umbrella_gate.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
   - name: Config service
     type: deployer
     target:
@@ -210,8 +214,8 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/check_predeploy_helm.sh")
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/cluster_bind_service.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
   - name: Deploy umbrella chart
     type: deployer
     target:
@@ -221,4 +225,4 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
