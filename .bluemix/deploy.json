@@ -76,11 +76,7 @@
         "staging-cluster-namespace": {
           "description": "Staging namespace",
           "type": "string",
-          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
-          "$validate":{
-                "method":"validateCSNameSpace",
-                "params":{"region":"staging-region","apiKey":"api-key"}
-	    }
+          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
         },
         "prod-region": {
             "description": "The IBM Cloud region for prod deployment",
@@ -118,11 +114,7 @@
         "prod-cluster-namespace": {
           "description": "Prod namespace",
           "type": "string",
-          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$",
-	  "$validate":{
-	    "method":"validateCSNameSpace",
-	    "params":{"region":"prod-region","apiKey":"api-key"}
-	    }
+          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
         },    
         "umbrella-app-name": {
             "description": {
