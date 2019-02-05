@@ -3,7 +3,7 @@
 ### Continuously deliver a microservices app for Kubernetes using a Helm umbrella chart
 Get started with this sample, which is an online store that consists of three microservices: a Catalog API, an Orders API, and a UI that calls both of the APIs. The sample includes a DevOps toolchain that is preconfigured for continuous delivery, hosted Git source control, functional testing, issue tracking, online editing, and messaging.
 
-This DevOps processes uses a combination of Continuous Integration (CI) and Continuous Deployment (CD) pipelines, to orchestrate individual microservices preparation into coordinated releases then be promoted through distinct environments. A coordinated release is defined as a Helm umbrella chart, aggregating good versions of individual component Helm charts managed by the CI/CD process.
+This DevOps process uses a combination of Continuous Integration (CI) and Continuous Deployment (CD) pipelines, to orchestrate microservices individually developed into coordinated releases that get promoted through distinct environments. A coordinated release is defined as a Helm umbrella chart, aggregating good versions of individual component Helm charts managed by the CI/CD process.
 
 ![Icon](./umbrella-toolchain.png)
 
