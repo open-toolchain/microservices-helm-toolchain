@@ -2,7 +2,7 @@
 properties:
 - name: HELM_VERSION
   value: '2.12.3'
-  type: text${API_KEY}
+  type: text
 - name: IBM_CLOUD_API_KEY
   value: ${API_KEY}
   type: secure
