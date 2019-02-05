@@ -8,7 +8,7 @@ This DevOps process uses a combination of continuous integration (CI) and contin
 ![Icon](./umbrella-toolchain.png)
 
 ### To get started, click this button:
-[![Create Toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://github.com/open-toolchain/microservices-helm-toolchain&refreshServices=&env_id=ibm:yp:us-south)
+[![Create toolchain](https://cloud.ibm.com/devops/graphics/create_toolchain_button.png)](https://cloud.ibm.com/devops/setup/deploy?repository=https%3A%2F%2Fgithub.com%2Fopen-toolchain%2Fmicroservices-helm-toolchain&env_id=ibm:yp:us-south)
 ---
 ### Learn more 
 
