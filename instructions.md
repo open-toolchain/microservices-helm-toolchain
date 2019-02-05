@@ -1,5 +1,7 @@
 # Develop and test microservices with Kubernetes and Helm
 
+* [Step by step tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)
+
 ## Prerequisites
   * Need an existing cluster and API key
   * See instructions at: https://www.ibm.com/cloud/garage/tutorials/devops-toolchain-integration?task=0
@@ -11,7 +13,7 @@
   * Using Helm release management within Delivery Pipeline, separation of duties between squad developing and SRE deploying
   * Speed with control, using Insights quality gates and traceability across toolchains 
   * Selenium testing with SauceLabs, notifications through Slack and alerting through Pagerduty
-  ![Icon](./umbrella-toolchain.png)
+  ![Icon](./pics/umbrella-toolchain.png)
 ## Setup the toolchain
   ![Icon](./.bluemix/toolchain.png)
   [![Create Toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://github.com/open-toolchain/microservices-helm-toolchain&refreshServices=&env_id=ibm:yp:us-south)
@@ -20,31 +22,31 @@
   * SauceLabs credentials should be entered either on setup or shortly after. When missing, they will cause the Solution (CD) pipeline to fail executing SauceLabs testing job. You can still configure the SauceLabs card, but then need to re-run the Solution pipeline stage manually again.
 ## Explore the toolchain
   * Explain overall structure of the toolchain, with CI pipelines feeding into CD pipeline
-    ![Icon](./overview.png)
+    ![Icon](./pics/overview.png)
 
   * Main benefits:
     * Each component developed as a microservice in its own repo, with Dockerfile (build) and Helm chart (release), build by its own CI pipeline
-    ![Icon](./ci-pipeline.png)
+    ![Icon](./pics/ci-pipeline.png)
 
     * Each CI pipeline does publish image to registry and package Helm chart to solution repo
-    ![Icon](./solution-charts.png)
+    ![Icon](./pics/solution-charts.png)
 
     * Can view history of the published charts
-    ![Icon](./solution-commits.png)
+    ![Icon](./pics/solution-commits.png)
 
     * CI portion typically would be owned by dev squad, CD portion typically owned by ops squad
     * Set of versioned components deployed as a snapshot through a Helm umbrella chart (aggregating package component charts)
     * Consistent snapshot rolling deploy to environments through a separate pipeline, promotion through staging and production
-    ![Icon](./cd-pipeline.png)
+    ![Icon](./pics/cd-pipeline.png)
 
     * Using quality gates at all levels of the process, raising the bar progressively
     * Insight also provides global inventory across environments, traceability back to the commit
-    ![Icon](./insights-dashboard.png)
-    ![Icon](./insights-commit.png)
+    ![Icon](./pics/insights-dashboard.png)
+    ![Icon](./pics/insights-commit.png)
 
     * Show vulnerabilities in UI CI pipeline, explain using a vanilla php:apache image. Explain advisor mode for now, but could be strictened
-    ![Icon](./ui-vuln.png)
-    ![Icon](./vulnerabilities.png)
+    ![Icon](./pics/ui-vuln.png)
+    ![Icon](./pics/vulnerabilities.png)
 
     * TBD - show use of pluggable image in CD pipeline for extra selenium testing
   * Extras
@@ -57,10 +59,10 @@
   * Functional regression (speed with control)
     * Enable new app code in catalog-api causing prod coverage criteria to not be met: Uncomment block of code in routes/items.js #loadTest () function. Commit, see pipeline running all the way to CD prod gate.
     * See quality gate failed before entering production, show Insights dashboard.
-    ![Icon](./cd-prod-fail.png)
+    ![Icon](./pics/cd-prod-fail.png)
 
     * Explain quality policy had it check for 80% coverage before prod (60% only for staging)
-    ![Icon](./coverage-regression.png)
+    ![Icon](./pics/coverage-regression.png)
 
     * Show traceability back from dashboard into git commit
     * Show red status in Slack (if needed explain pagerduty would have triggered only when actual prod deploy would have failed, but luckily gated)
