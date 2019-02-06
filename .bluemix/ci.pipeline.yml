@@ -30,6 +30,11 @@ stages:
       #!/bin/bash
       # set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+      export PATH=/opt/IBM/node-v4.2/bin:$PATH
+      npm install -g npm@3.7.2 ### work around default npm 2.1.1 instability
+      npm install
+      npm install -g grunt-idra3
+      idra --publishbuildrecord --branch=$GIT_BRANCH --repositoryurl=$GIT_URL --commitid=$GIT_COMMIT --status=pass
   - name: Unit Tests
     type: tester
     script: |-
