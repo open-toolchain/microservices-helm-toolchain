@@ -16,7 +16,7 @@
   ![Icon](./pics/umbrella-toolchain.png)
 ## Setup the toolchain
   ![Icon](./.bluemix/toolchain.png)
-  [![Create Toolchain](https://console.bluemix.net/devops/graphics/create_toolchain_button.png)](https://console.bluemix.net/devops/setup/deploy?repository=https://github.com/open-toolchain/microservices-helm-toolchain&refreshServices=&env_id=ibm:yp:us-south)
+  [![Create Toolchain](https://cloud.ibm.com/devops/graphics/create_toolchain_button.png)](https://cloud.ibm.com/devops/setup/deploy?repository=https://github.com/open-toolchain/microservices-helm-toolchain&refreshServices=&env_id=ibm:yp:us-south)
   * Be sure to enter proper API key, cluster name, and valid registry namespace (not colliding with another user's). Failure to do so may result in failure in pipeline setup (if this happens, delete the toolchain and try again, you can verify your creds using the login script at the bottom of this page).
   * Cluster must exist, but registry namespace and cluster namespace will both be configured by the toolchain automatically
   * SauceLabs credentials should be entered either on setup or shortly after. When missing, they will cause the Solution (CD) pipeline to fail executing SauceLabs testing job. You can still configure the SauceLabs card, but then need to re-run the Solution pipeline stage manually again.

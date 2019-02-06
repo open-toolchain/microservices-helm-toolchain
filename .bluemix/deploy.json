@@ -32,7 +32,7 @@
 	       }
         },
        "registry-namespace": {
-          "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://console.bluemix.net/docs/services/Registry/index.html .",
+          "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html .",
           "type": "string",
           "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$",
           "$validate":{
@@ -378,7 +378,7 @@
                   "title": ""
                 },{
                   "type": "label",
-                  "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://console.bluemix.net/containers-kubernetes/home/clusters)."
+                  "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://cloud.ibm.com/containers-kubernetes/home/clusters)."
                 }
             ]
         },{

@@ -170,9 +170,9 @@ services:
       type: Container Registry
       lifecyclePhase: "DELIVER"
       imageUrl: https://cloud.ibm.com/containers-kubernetes/img/registry-logo-5285793fdd.svg
-      documentationUrl: https://console.bluemix.net/docs/services/Registry/index.html
+      documentationUrl: https://cloud.ibm.com/docs/services/Registry/index.html
       name: Private repositories
-      dashboard_url: https://console.bluemix.net/containers-kubernetes/registry/private
+      dashboard_url: https://cloud.ibm.com/containers-kubernetes/registry/private
       description: Manage your Docker images in private container registry
       additional-properties:    
   clusters:
@@ -181,9 +181,9 @@ services:
       type: Container Service
       lifecyclePhase: "RUN"
       imageUrl: https://cloud.ibm.com/containers-kubernetes/img/container-service-logo-3aec89a836.svg
-      documentationUrl: https://console.bluemix.net/docs/containers/container_index.html
+      documentationUrl: https://cloud.ibm.com/docs/containers/container_index.html
       name: Clusters
-      dashboard_url: https://console.bluemix.net/containers-kubernetes/clusters
+      dashboard_url: https://cloud.ibm.com/containers-kubernetes/clusters
       description: Manage clusters
       additional-properties:  
 form:
