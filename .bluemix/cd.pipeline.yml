@@ -27,8 +27,26 @@ stages:
     image_name: ${CF_APP_NAME}
     script: |
       #!/bin/bash
-      #set -x
+      # uncomment to debug the script
+      # set -x
+
+      # copy the script below into your app code repo (e.g. ./scripts/build_image.sh) and 'source' it from your pipeline job
+      #    source ./scripts/fetch_git_creds.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+      
+      # Perform an entire fetch of associated git repo, and copies it into archive_dir output
+      # along with git credentials stored in build.properties, so as a consuming job could leverage these to repost
+      # to same or another git repo.
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+
+      # copy the script below into your app code repo (e.g. ./scripts/build_umbrella_chart.sh) and 'source' it from your pipeline job
+      #    source ./scripts/build_umbrella_chart.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_umbrella_chart.sh")
+
+      # Build a complete umbrella chart with resolved dependencies, leveraging a sibling local chart repo (/charts)
+      # which would be updated from respective CI pipelines (see also https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/publish_helm_package.sh)
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_umbrella_chart.sh")
 - name: STAGING
   inputs:
@@ -76,7 +94,14 @@ stages:
     type: tester
     script: |-
       #!/bin/bash
+      # uncomment to debug the script
       #set -x
+      # copy the script below into your app code repo (e.g. ./scripts/build_umbrella_chart.sh) and 'source' it from your pipeline job
+      #    source ./scripts/check_umbrella_gate.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+
+      # Test quality gates for all components in an umbrella chart which would be updated from respective CI pipelines (see also https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh)
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
   - name: Config service
     type: deployer
@@ -112,8 +137,29 @@ stages:
       kubernetes_cluster: ${STAGING_CLUSTER_NAME}
     script: |
       #!/bin/bash
+      # uncomment to debug the script
       #set -x
+
+      # copy the script below into your app code repo (e.g. ./scripts/check_predeploy_helm.sh) and 'source' it from your pipeline job
+      #    source ./scripts/check_predeploy_helm.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+      # ------------------
+      # source: https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh
+
+      # Checks the IBM Container Service cluster is ready, has a namespace configured with access to the private
+      # image registry (using an IBM Cloud API Key). It also configures Helm Tiller service to later perform a deploy with Helm.
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+
+      # copy the script below into your app code repo (e.g. ./scripts/cluster_bind_service.sh) and 'source' it from your pipeline job
+      #    source ./scripts/cluster_bind_service.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
+      # ------------------
+      # source: https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh
+      
+      # Bind a given IBM Cloud Service identified by its SERVICE_ID to a cluster (via secret).
+      # This script should be executed in a Kubernetes deploy job.
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
   - name: Deploy umbrella chart
     type: deployer
@@ -123,7 +169,15 @@ stages:
       kubernetes_cluster: ${STAGING_CLUSTER_NAME}
     script: |
       #!/bin/bash
+      # uncomment to debug the script
       #set -x
+      # copy the script below into your app code repo (e.g. ./scripts/deploy_umbrella_chart.sh) and 'source' it from your pipeline job
+      #    source ./scripts/deploy_helm.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      
+      # Performs deployment of a Helm umbrella chart, checking all components were successfully deployed
+      # and feeds deployment information for all components to DevOps Insights
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
   - name: Sauce Labs Tests
     type: tester
@@ -180,7 +234,14 @@ stages:
     type: tester
     script: |-
       #!/bin/bash
+      # uncomment to debug the script
       #set -x
+      # copy the script below into your app code repo (e.g. ./scripts/build_umbrella_chart.sh) and 'source' it from your pipeline job
+      #    source ./scripts/check_umbrella_gate.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+
+      # Test quality gates for all components in an umbrella chart which would be updated from respective CI pipelines (see also https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh)
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
   - name: Config service
     type: deployer
@@ -227,5 +288,13 @@ stages:
       kubernetes_cluster: ${PROD_CLUSTER_NAME}
     script: |
       #!/bin/bash
+      # uncomment to debug the script
       #set -x
+      # copy the script below into your app code repo (e.g. ./scripts/deploy_umbrella_chart.sh) and 'source' it from your pipeline job
+      #    source ./scripts/deploy_helm.sh
+      # alternatively, you can source it from online script:
+      #    source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      
+      # Performs deployment of a Helm umbrella chart, checking all components were successfully deployed
+      # and feeds deployment information for all components to DevOps Insights
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
