@@ -188,7 +188,7 @@
                   "type": "label",
                   "title": ""
                 },{
-                  "type": "text",
+                  "type": "select",
                   "readonly": false,
                   "title": "Container image registry namespace",
                   "key": "registry-namespace",
