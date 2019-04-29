@@ -261,7 +261,7 @@
                     }
                 },
                 {
-                  "type": "text",
+                  "type": "select",
                   "key": "staging-cluster-namespace",
                   "readonly": false,
 		  "options":{
@@ -328,7 +328,7 @@
                    }   
                 },
                 {
-                  "type": "text",
+                  "type": "select",
                   "key": "prod-cluster-namespace",
                   "readonly": false,
 		   "options":{
