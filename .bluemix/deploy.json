@@ -15,7 +15,7 @@
     "type": "object",
     "properties": {
         "api-key": {
-            "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://console.ng.bluemix.net/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
+            "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
             "type": "string",
             "pattern": "\\S",
             "$validate":{
@@ -44,7 +44,7 @@
             "description": "The IBM Cloud region",
             "type": "string",
             "$validate":{
-		      "method":"validateCFRegion",
+		      "method":"validateCSRegion",
 		      "params":{"apiKey":"api-key"}
 	       }
         },
@@ -65,7 +65,7 @@
 	         }
         },
        "staging-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
+            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/home/clusters .",
             "type": "string",
             "pattern": "\\S",
            "$validate":{
@@ -82,7 +82,7 @@
             "description": "The IBM Cloud region for prod deployment",
             "type": "string",
              "$validate":{
-		          "method":"validateCFRegion",
+		          "method":"validateCSRegion",
 		          "params":{"apiKey":"api-key"}
 	          }
         },
@@ -103,7 +103,7 @@
 	         }
         },              
        "prod-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://console.ng.bluemix.net/containers-kubernetes/home/clusters .",
+            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/home/clusters .",
             "type": "string",
             "pattern": "\\S",
            "$validate":{
@@ -331,7 +331,7 @@
                   "type": "text",
                   "key": "prod-cluster-namespace",
                   "readonly": false,
-		   "options":{
+		           "options":{
                        "$populate":{
                           "method": "populateCSNameSpaces",
                           "params": {"region":"registry-region","apiKey":"api-key"}
