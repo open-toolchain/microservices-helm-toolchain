@@ -81,7 +81,7 @@
             }
         },
         "staging-cluster-name": {
-            "description": "The name of the staging cluster",
+            "description": "The name of the staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/home/clusters.",
             "type": "string",
             "pattern": "\\S",
             "$validate": {
@@ -131,7 +131,7 @@
             }
         },
         "prod-cluster-name": {
-            "description": "The name of the prod cluster",
+            "description": "The name of the prod cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/home/clusters.",
             "type": "string",
             "pattern": "\\S",
             "$validate": {
