@@ -298,18 +298,9 @@
                     }
                 },
                 {
-                    "type": "select",
+                    "type": "text",
                     "key": "staging-cluster-namespace",
-                    "readonly": false,
-                    "options": {
-                        "$populate": {
-                            "method": "populateCSNameSpaces",
-                            "params": {
-                                "region": "staging-region",
-                                "apiKey": "api-key"
-                            }
-                        }
-                    }
+                    "readonly": false
                 },
                 {
                     "type": "label",
@@ -380,18 +371,9 @@
                     }
                 },
                 {
-                    "type": "select",
+                    "type": "text",
                     "key": "prod-cluster-namespace",
-                    "readonly": false,
-                    "options": {
-                        "$populate": {
-                            "method": "populateCSNameSpaces",
-                            "params": {
-                                "region": "prod-region",
-                                "apiKey": "api-key"
-                            }
-                        }
-                    }
+                    "readonly": false
                 },
                 {
                     "type": "label",
