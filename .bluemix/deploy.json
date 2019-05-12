@@ -276,7 +276,7 @@
                     "key": "staging-region",
                     "options": {
                         "$populate": {
-                            "method": "populateCFRegions",
+                            "method": "populateCSRegions",
                             "params": {
                                 "apiKey": "api-key"
                             }
@@ -358,7 +358,7 @@
                     "key": "prod-region",
                     "options": {
                         "$populate": {
-                            "method": "populateCFRegions",
+                            "method": "populateCSRegions",
                             "params": {
                                 "apiKey": "api-key"
                             }
