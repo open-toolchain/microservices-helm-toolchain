@@ -286,7 +286,6 @@
                 {
                     "type": "select",
                     "key": "staging-cluster-name",
-                    "readonly": false,
                     "options": {
                         "$populate": {
                             "method": "populateCSClusterNames",
@@ -359,7 +358,6 @@
                 {
                     "type": "select",
                     "key": "prod-cluster-name",
-                    "readonly": false,
                     "options": {
                         "$populate": {
                             "method": "populateCSClusterNames",
