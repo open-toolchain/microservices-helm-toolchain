@@ -88,11 +88,11 @@
 ```
 API_KEY=<api-key>
 PIPELINE_KUBERNETES_CLUSTER_NAME=<cluster-name>
-bx login -apikey $API_KEY -a api.ng.bluemix.net
-bx cs region-set us-south
-bx cs init
-bx cs cluster-get $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
-eval $(bx cs cluster-config --export $PIPELINE_KUBERNETES_CLUSTER_NAME)
+ibmcloud login -apikey $API_KEY -a api.ng.bluemix.net
+ibmcloud cs region-set us-south
+ibmcloud cs init
+ibmcloud cs cluster-get $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
+eval $(ibmcloud cs cluster-config --export $PIPELINE_KUBERNETES_CLUSTER_NAME)
 kubectl get nodes
 echo “LOGIN token for kubectl proxy :”
 kubectl config view -o jsonpath=‘{.users[0].user.auth-provider.config.id-token}’
@@ -100,7 +100,7 @@ echo ""
 ```
   * Cleanup resources
 ```
-bx cr namespace-rm <registry-namepace>
+ibmcloud cr namespace-rm <registry-namepace>
 kubectl delete namespace staging prod
 ```
   * Allow to skip access control in Kube console (https://github.com/kubernetes/dashboard/wiki/Access-control#admin-privileges)

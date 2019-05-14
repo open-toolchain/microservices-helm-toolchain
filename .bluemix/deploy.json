@@ -15,7 +15,7 @@
     "type": "object",
     "properties": {
         "api-key": {
-            "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam/#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
+            "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
             "type": "string",
             "pattern": "\\S",
             "$validate": {
@@ -81,7 +81,7 @@
             }
         },
         "staging-cluster-name": {
-            "description": "The name of the staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/home/clusters.",
+            "description": "The name of the staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters.",
             "type": "string",
             "pattern": "\\S",
             "$validate": {
@@ -131,7 +131,7 @@
             }
         },
         "prod-cluster-name": {
-            "description": "The name of the prod cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/home/clusters.",
+            "description": "The name of the prod cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters.",
             "type": "string",
             "pattern": "\\S",
             "$validate": {
@@ -421,7 +421,7 @@
                 "title": ""
             }, {
                 "type": "label",
-                "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://cloud.ibm.com/containers-kubernetes/home/clusters)."
+                "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://cloud.ibm.com/containers-kubernetes/clusters)."
             }]
         }, {
             "type": "table",
