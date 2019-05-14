@@ -18,104 +18,135 @@
             "description": "The IBM Cloud API key is used to access the IBM Container Service API and interact with the cluster. You can obtain your API key with 'ibmcloud iam api-key-create' or via the console at https://cloud.ibm.com/iam#/apikeys by clicking **Create API key** (Each API key only can be viewed once).",
             "type": "string",
             "pattern": "\\S",
-            "$validate":{
-		   "method":"validateApiKey",
-		    "params":{"apiKey":"api-key"}
-	    }
+            "$validate": {
+                "method": "validateApiKey",
+                "params": {
+                    "apiKey": "api-key"
+                }
+            }
         },
-       "registry-region": {
-          "description": "The IBM Cloud region for image registry",
-          "type": "string",
-            "$validate":{
-		      "method":"validateCSRegion",
-		      "params":{"apiKey":"api-key"}
-	       }
+        "registry-region": {
+            "description": "The IBM Cloud region for image registry",
+            "type": "string",
+            "$validate": {
+                "method": "validateCSRegion",
+                "params": {
+                    "apiKey": "api-key"
+                }
+            }
         },
-       "registry-namespace": {
-          "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html .",
-          "type": "string",
-          "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$",
-          "$validate":{
-                "method":"validateCSNameSpace",
-                "params":{"region":"registry-region","apiKey":"api-key"}
-	    }
+        "registry-namespace": {
+            "description": "The namespace in the container image registry. You can set it up with {ibmcloud cr namespace-add]. Learn more at https://cloud.ibm.com/docs/services/Registry/index.html .",
+            "type": "string",
+            "pattern": "^[a-z0-9][-_a-z0-9]{2,28}[a-z0-9]$",
+            "$validate": {
+                "method": "validateCSNameSpace",
+                "params": {
+                    "region": "registry-region",
+                    "apiKey": "api-key"
+                }
+            }
         },
         "staging-region": {
             "description": "The IBM Cloud region",
             "type": "string",
-            "$validate":{
-		      "method":"validateCFRegion",
-		      "params":{"apiKey":"api-key"}
-	       }
+            "$validate": {
+                "method": "validateCSRegion",
+                "params": {
+                    "apiKey": "api-key"
+                }
+            }
         },
         "staging-organization": {
             "description": "The IBM Cloud org",
             "type": "string",
-            "$validate":{
-		       "method":"validateCFOrganization",
-		       "params":{"region":"staging-region","apiKey":"api-key"}
-	         }
+            "$validate": {
+                "method": "validateCFOrganization",
+                "params": {
+                    "region": "staging-region",
+                    "apiKey": "api-key"
+                }
+            }
         },
         "staging-space": {
             "description": "The IBM Cloud space",
             "type": "string",
-             "$validate":{
-		       "method":"validateCFSpace",
-		       "params":{"region":"staging-region","organization":"staging-organization","apiKey":"api-key"}
-	         }
+            "$validate": {
+                "method": "validateCFSpace",
+                "params": {
+                    "region": "staging-region",
+                    "organization": "staging-organization",
+                    "apiKey": "api-key"
+                }
+            }
         },
-       "staging-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters .",
+        "staging-cluster-name": {
+            "description": "The name of the staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters.",
             "type": "string",
             "pattern": "\\S",
-           "$validate":{
-                "method":"validateCSClusterName",
-                "params":{"region":"staging-region","apiKey":"api-key"}
-	    }
+            "$validate": {
+                "method": "validateCSClusterName",
+                "params": {
+                    "region": "staging-region",
+                    "apiKey": "api-key"
+                }
+            }
         },
         "staging-cluster-namespace": {
-          "description": "Staging namespace",
-          "type": "string",
-          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+            "description": "Staging namespace",
+            "type": "string",
+            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
         },
         "prod-region": {
             "description": "The IBM Cloud region for prod deployment",
             "type": "string",
-             "$validate":{
-		          "method":"validateCFRegion",
-		          "params":{"apiKey":"api-key"}
-	          }
+            "$validate": {
+                "method": "validateCSRegion",
+                "params": {
+                    "apiKey": "api-key"
+                }
+            }
         },
         "prod-organization": {
             "description": "The IBM Cloud org",
             "type": "string",
-             "$validate":{
-		         "method":"validateCFOrganization",
-		         "params":{"region":"prod-region","apiKey":"api-key"}
-	        }
+            "$validate": {
+                "method": "validateCFOrganization",
+                "params": {
+                    "region": "prod-region",
+                    "apiKey": "api-key"
+                }
+            }
         },
         "prod-space": {
             "description": "The IBM Cloud space",
             "type": "string",
-             "$validate":{
-		           "method":"validateCFSpace",
-		           "params":{"region":"prod-region","organization":"prod-organization","apiKey":"api-key"}
-	         }
-        },              
-       "prod-cluster-name": {
-            "description": "The name of staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters .",
+            "$validate": {
+                "method": "validateCFSpace",
+                "params": {
+                    "region": "prod-region",
+                    "organization": "prod-organization",
+                    "apiKey": "api-key"
+                }
+            }
+        },
+        "prod-cluster-name": {
+            "description": "The name of the prod cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters.",
             "type": "string",
             "pattern": "\\S",
-           "$validate":{
-                "method":"validateCSClusterName",
-                "params":{"region":"prod-region","apiKey":"api-key"}
-	    }
+            "$validate": {
+                "method": "validateCSClusterName",
+                "params": {
+                    "region": "prod-region",
+                    "apiKey": "api-key"
+                }
+            }
         },
         "prod-cluster-namespace": {
-          "description": "Prod namespace",
-          "type": "string",
-          "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
-        },    
+            "description": "Prod namespace",
+            "type": "string",
+            "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+        },
         "umbrella-app-name": {
             "description": {
                 "$ref": "#/messages/deploy.umbrellaAppDescription"
@@ -133,7 +164,7 @@
         "staging-organization",
         "staging-space",
         "staging-cluster-name",
-        "staging-cluster-namespace",        
+        "staging-cluster-namespace",
         "prod-region",
         "prod-organization",
         "prod-space",
@@ -141,8 +172,7 @@
         "prod-cluster-namespace",
         "umbrella-app-name"
     ],
-    "form": [
-        {
+    "form": [{
             "type": "validator",
             "url": "/devops/setup/bm-helper/helper.html"
         },
@@ -159,48 +189,51 @@
             "readonly": false,
             "title": "IBM Cloud API key",
             "key": "api-key"
-        },           
+        },
         {
-          "type": "table",
-          "columnCount": 3,
+            "type": "table",
+            "columnCount": 3,
             "widths": ["50%", "3%", "47%"],
-            "items": [
-                {
-                  "type": "label",
-                  "title": "Container registry region"
-                },{
-                  "type": "label",
-                  "title": ""
-                },{                    
-                  "type": "label",
-                  "title": "Container registry namespace"
-                },{
-                  "type": "select",
-                  "title": "Container image registry region",
-                  "key": "registry-region",
-                   "options":{
-                        "$populate":{
-                        "method":"populateCSRegions",
-                         "params":{"apiKey":"api-key"}
-                            }
+            "items": [{
+                "type": "label",
+                "title": "Container registry region"
+            }, {
+                "type": "label",
+                "title": ""
+            }, {
+                "type": "label",
+                "title": "Container registry namespace"
+            }, {
+                "type": "select",
+                "title": "Container image registry region",
+                "key": "registry-region",
+                "options": {
+                    "$populate": {
+                        "method": "populateCSRegions",
+                        "params": {
+                            "apiKey": "api-key"
                         }
-                },{
-                  "type": "label",
-                  "title": ""
-                },{
-                  "type": "text",
-                  "readonly": false,
-                  "title": "Container image registry namespace",
-                  "key": "registry-namespace",
-                   "options":{
-                       "$populate":{
-                          "method": "populateCSNameSpaces",
-                          "params": {"region":"registry-region","apiKey":"api-key"}
-                           }
-	                }
+                    }
                 }
-            ]
-        },     
+            }, {
+                "type": "label",
+                "title": ""
+            }, {
+                "type": "select",
+                "readonly": false,
+                "title": "Container image registry namespace",
+                "key": "registry-namespace",
+                "options": {
+                    "$populate": {
+                        "method": "populateCSNameSpaces",
+                        "params": {
+                            "region": "registry-region",
+                            "apiKey": "api-key"
+                        }
+                    }
+                }
+            }]
+        },
         {
             "type": "table",
             "columnCount": 4,
@@ -210,8 +243,7 @@
                 "28%",
                 "28%"
             ],
-            "items": [
-                {
+            "items": [{
                     "type": "label",
                     "title": ""
                 },
@@ -240,36 +272,35 @@
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "staging-region",
-                  "options":{
-                     "$populate":{
-                        "method":"populateCFRegions",
-                        "params":{"apiKey":"api-key"}
-                           }
+                    "type": "select",
+                    "key": "staging-region",
+                    "options": {
+                        "$populate": {
+                            "method": "populateCSRegions",
+                            "params": {
+                                "apiKey": "api-key"
+                            }
+                        }
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "staging-cluster-name",
-                  "readonly": false,
-                  "options":{
-                       "$populate":{
-                        "method": "populateCSClusterNames",
-                        "params": {"region":"registry-region","apiKey":"api-key"}
-                           }
+                    "type": "select",
+                    "key": "staging-cluster-name",
+                    "readonly": false,
+                    "options": {
+                        "$populate": {
+                            "method": "populateCSClusterNames",
+                            "params": {
+                                "region": "staging-region",
+                                "apiKey": "api-key"
+                            }
+                        }
                     }
                 },
                 {
-                  "type": "text",
-                  "key": "staging-cluster-namespace",
-                  "readonly": false,
-		  "options":{
-                       "$populate":{
-                          "method": "populateCSNameSpaces",
-                          "params": {"region":"registry-region","apiKey":"api-key"}
-                           }
-                    }
+                    "type": "text",
+                    "key": "staging-cluster-namespace",
+                    "readonly": false
                 },
                 {
                     "type": "label",
@@ -282,23 +313,30 @@
                 {
                     "type": "select",
                     "key": "staging-organization",
-                    "options":{
-                        "$populate":{
-                        "method": "populateCFOrganizations",
-                        "params": {"region":"staging-region","apiKey":"api-key"}
-                         }
+                    "options": {
+                        "$populate": {
+                            "method": "populateCFOrganizations",
+                            "params": {
+                                "region": "staging-region",
+                                "apiKey": "api-key"
+                            }
+                        }
                     }
                 },
                 {
                     "type": "select",
                     "key": "staging-space",
                     "readonly": false,
-                     "options":{
-                            "$populate":{
+                    "options": {
+                        "$populate": {
                             "method": "populateCFSpaces",
-                            "params": {"organization":"staging-organization","region":"staging-region","apiKey":"api-key"}
+                            "params": {
+                                "organization": "staging-organization",
+                                "region": "staging-region",
+                                "apiKey": "api-key"
                             }
                         }
+                    }
                 },
                 {
                     "type": "label",
@@ -307,36 +345,35 @@
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "prod-region",
-                   "options":{
-                       "$populate":{
-                       "method":"populateCFRegions",
-                        "params":{"apiKey":"api-key"}
+                    "type": "select",
+                    "key": "prod-region",
+                    "options": {
+                        "$populate": {
+                            "method": "populateCSRegions",
+                            "params": {
+                                "apiKey": "api-key"
+                            }
                         }
                     }
                 },
                 {
-                  "type": "select",
-                  "key": "prod-cluster-name",
-                  "readonly": false,
-                   "options":{
-                       "$populate":{
-                        "method": "populateCSClusterNames",
-                        "params": {"region":"registry-region","apiKey":"api-key"}
-                           }
-                   }   
+                    "type": "select",
+                    "key": "prod-cluster-name",
+                    "readonly": false,
+                    "options": {
+                        "$populate": {
+                            "method": "populateCSClusterNames",
+                            "params": {
+                                "region": "prod-region",
+                                "apiKey": "api-key"
+                            }
+                        }
+                    }
                 },
                 {
-                  "type": "text",
-                  "key": "prod-cluster-namespace",
-                  "readonly": false,
-		   "options":{
-                       "$populate":{
-                          "method": "populateCSNameSpaces",
-                          "params": {"region":"registry-region","apiKey":"api-key"}
-                           }
-                     }
+                    "type": "text",
+                    "key": "prod-cluster-namespace",
+                    "readonly": false
                 },
                 {
                     "type": "label",
@@ -349,51 +386,54 @@
                 {
                     "type": "select",
                     "key": "prod-organization",
-                    "options":{
-                        "$populate":{
-                        "method": "populateCFOrganizations",
-                        "params": {"region":"prod-region","apiKey":"api-key"}
-                         }
+                    "options": {
+                        "$populate": {
+                            "method": "populateCFOrganizations",
+                            "params": {
+                                "region": "prod-region",
+                                "apiKey": "api-key"
+                            }
+                        }
                     }
                 },
                 {
                     "type": "select",
                     "key": "prod-space",
                     "readonly": false,
-                    "options":{
-                        "$populate":{
-                        "method": "populateCFSpaces",
-                        "params": {"organization":"prod-organization","region":"prod-region","apiKey":"api-key"}
+                    "options": {
+                        "$populate": {
+                            "method": "populateCFSpaces",
+                            "params": {
+                                "organization": "prod-organization",
+                                "region": "prod-region",
+                                "apiKey": "api-key"
+                            }
                         }
                     }
                 }
             ]
-        },{
-          "type": "table",
-          "columnCount": 2,
+        }, {
+            "type": "table",
+            "columnCount": 2,
             "widths": ["15%", "80%"],
-            "items": [
-                {
-                  "type": "label",
-                  "title": ""
-                },{
-                  "type": "label",
-                  "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://cloud.ibm.com/containers-kubernetes/home/clusters)."
-                }
-            ]
-        },{
-          "type": "table",
-          "columnCount": 2,
+            "items": [{
+                "type": "label",
+                "title": ""
+            }, {
+                "type": "label",
+                "title": "Retrieve the Kubernetes cluster name with the CLI command 'ibmcloud cs clusters' or via the [console](https://cloud.ibm.com/containers-kubernetes/clusters)."
+            }]
+        }, {
+            "type": "table",
+            "columnCount": 2,
             "widths": ["15%", "80%"],
-            "items": [
-                {
-                  "type": "label",
-                  "title": ""
-                },{
-                  "type": "label",
-                  "title": "If the cluster namespace doesn't exist already, it will be automatically created and configured."
-                }
-            ]
+            "items": [{
+                "type": "label",
+                "title": ""
+            }, {
+                "type": "label",
+                "title": "If the cluster namespace doesn't exist already, it will be automatically created and configured."
+            }]
         }
     ]
 }
