@@ -29,6 +29,7 @@ stages:
     script: |+
       #!/bin/bash
       # set -x
+      cp -R -n ./ $ARCHIVE_DIR/ || true
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
       export PATH=/opt/IBM/node-v4.2/bin:$PATH
       npm install -g grunt-idra3
