@@ -28,6 +28,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
+      cp -R -n ./ $ARCHIVE_DIR/ || true
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_umbrella_chart.sh")
 - name: STAGING
