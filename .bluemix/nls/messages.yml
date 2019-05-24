@@ -11,7 +11,7 @@ deploy.apiKeyDescription: "An API key is required to access the IBM Cloud Runtim
 deploy.org: "The IBM Cloud org"
 deploy.space: "The IBM Cloud space"
 deploy.region: "The IBM Cloud region"
-deploy.apikey: "IBM Cloud API Key"
+deploy.apikey: "IBM Cloud API key"
 deploy.containerregRegion: "Container registry region"
 deploy.containerregns: "Container registry namespace"
 deploy.imgregRegion: "Container image registry region"
