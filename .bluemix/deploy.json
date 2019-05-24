@@ -94,7 +94,7 @@
         },
         "staging-cluster-name": {
             "description": {
-                "$ref": "#/messages/deploy.namespaceDescription"
+                "$ref": "#/messages/deploy.clusterNameDescription"
             },
             "type": "string",
             "pattern": "\\S",
@@ -154,7 +154,7 @@
         },
         "prod-cluster-name": {
             "description": {
-                "$ref": "#/messages/deploy.namespaceDescription"
+                "$ref": "#/messages/deploy.clusterNameDescription"
             },
            "type": "string",
             "pattern": "\\S",
