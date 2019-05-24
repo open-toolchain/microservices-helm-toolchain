@@ -93,7 +93,9 @@
             }
         },
         "staging-cluster-name": {
-            "description": "The name of the staging cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters.",
+            "description": {
+                "$ref": "#/messages/deploy.namespaceDescription"
+            },
             "type": "string",
             "pattern": "\\S",
             "$validate": {
@@ -112,7 +114,9 @@
             "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
         },
         "prod-region": {
-            "description": "The IBM Cloud region for prod deployment",
+            "description": {
+                "$ref": "#/messages/deploy.region"
+            },
             "type": "string",
             "$validate": {
                 "method": "validateCSRegion",
@@ -149,8 +153,10 @@
             }
         },
         "prod-cluster-name": {
-            "description": "The name of the prod cluster. Retrieve it with [ibmcloud cs clusters] or via the console at https://cloud.ibm.com/containers-kubernetes/clusters.",
-            "type": "string",
+            "description": {
+                "$ref": "#/messages/deploy.namespaceDescription"
+            },
+           "type": "string",
             "pattern": "\\S",
             "$validate": {
                 "method": "validateCSClusterName",
@@ -161,7 +167,9 @@
             }
         },
         "prod-cluster-namespace": {
-            "description": "Prod namespace",
+            "description": {
+                "$ref": "#/messages/deploy.namespaceDescription"
+            },
             "type": "string",
             "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
         },
