@@ -169,7 +169,7 @@ services:
     parameters:
       type: Container Registry
       lifecyclePhase: "DELIVER"
-      imageUrl: https://cloud.ibm.com/containers-kubernetes/img/registry-logo-5285793fdd.svg
+      imageUrl: https://cloud.ibm.com/kubernetes/img/registry-logo-2b24575740.svg
       documentationUrl: https://cloud.ibm.com/docs/services/Registry/index.html
       name: Private repositories
       dashboard_url: https://cloud.ibm.com/containers-kubernetes/registry/private
@@ -180,7 +180,7 @@ services:
     parameters:
       type: Container Service
       lifecyclePhase: "RUN"
-      imageUrl: https://cloud.ibm.com/containers-kubernetes/img/container-service-logo-3aec89a836.svg
+      imageUrl: https://cloud.ibm.com/kubernetes/img/container-service-logo-7e87826329.svg
       documentationUrl: https://cloud.ibm.com/docs/containers/container_index.html
       name: Clusters
       dashboard_url: https://cloud.ibm.com/containers-kubernetes/clusters
