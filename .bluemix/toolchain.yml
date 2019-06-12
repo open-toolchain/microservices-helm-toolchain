@@ -141,13 +141,9 @@ services:
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'          
-          STAGING_SPACE_NAME: '{{form.pipeline.parameters.staging-space}}'
-          STAGING_ORG_NAME: '{{form.pipeline.parameters.staging-organization}}'
           STAGING_REGION_ID: '{{form.pipeline.parameters.staging-region}}'
           STAGING_CLUSTER_NAME: '{{form.pipeline.parameters.staging-cluster-name}}'
           STAGING_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.staging-cluster-namespace}}'
-          PROD_SPACE_NAME: '{{form.pipeline.parameters.prod-space}}'
-          PROD_ORG_NAME: '{{form.pipeline.parameters.prod-organization}}'
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
@@ -193,9 +189,7 @@ services:
 form:
   pipeline:
     parameters:
-      staging-space: staging
       staging-cluster-namespace: staging
-      prod-space: prod
       prod-cluster-namespace: prod
       umbrella-app-name: '{{services.umbrella-repo.parameters.repo_name}}'
     schema:
