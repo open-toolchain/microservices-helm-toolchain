@@ -95,7 +95,7 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/cluster_config_service.sh")      
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")      
   - name: Deploy umbrella chart
     type: deployer
     target:
@@ -181,7 +181,7 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/next/scripts/cluster_config_service.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")
   - name: Deploy umbrella chart
     type: deployer
     target:
