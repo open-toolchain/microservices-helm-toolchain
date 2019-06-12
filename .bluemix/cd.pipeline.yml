@@ -51,12 +51,6 @@ stages:
   - name: APP_URL
     value: undefined
     type: text
-  - name: SAUCE_USERNAME
-    value: {{services.test.parameters.username}}
-    type: text
-  - name: SAUCE_ACCESS_KEY
-    value: {{services.test.parameters.key}}
-    type: text
   - name: LOGICAL_ENV_NAME
     value: STAGING
     type: text
