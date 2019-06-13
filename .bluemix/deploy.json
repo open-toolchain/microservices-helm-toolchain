@@ -65,6 +65,15 @@
                 }
             }
         },
+        "staging-resource-group": {
+            "description": "Staging resource group",
+            "type": "string",
+            "pattern": "\\S",
+            "$validate":{
+              "method":"validateCSResourceGroup",
+              "params":{"apiKey":"api-key"}
+            }
+        },  
         "staging-cluster-name": {
             "description": {
                 "$ref": "#/messages/deploy.clusterNameDescription"
@@ -133,9 +142,11 @@
         "registry-region",
         "registry-namespace",
         "staging-region",
+        "staging-resource-group",
         "staging-cluster-name",
         "staging-cluster-namespace",
         "prod-region",
+        "prod-resource-group",
         "prod-cluster-name",
         "prod-cluster-namespace",
         "umbrella-app-name"
@@ -159,6 +170,10 @@
                 "$ref": "#/messages/deploy.apikey"
             },
             "key": "api-key"
+        },
+        {
+            "type": "label",
+            "title": "**Container image registry:**"
         },
         {
             "type": "table",
