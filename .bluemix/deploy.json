@@ -243,10 +243,11 @@
             "type": "table",
             "columnCount": 4,
             "widths": [
-                "15%",
-                "28%",
-                "28%",
-                "28%"
+                "12%",
+                "22%",
+                "22%",
+                "22%",
+                "22%"
             ],
             "items": [{
                     "type": "label",
@@ -257,6 +258,10 @@
                     "title": {
                         "$ref": "#/messages/region"
                     }
+                },
+                {
+                    "type": "label",
+                    "title": "Resource Group"
                 },
                 {
                     "type": "label",
@@ -290,6 +295,10 @@
                 },
                 {
                     "type": "select",
+                    "key": "staging-resource-group"
+                },  
+                {
+                    "type": "select",
                     "key": "staging-cluster-name",
                     "readonly": false,
                     "options": {
@@ -309,28 +318,6 @@
                 },
                 {
                     "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/region"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterName"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/clusterNamespace"
-                    }
-                },
-                {
-                    "type": "label",
                     "title": {
                         "$ref": "#/messages/prodStage"
                     }
@@ -347,6 +334,10 @@
                         }
                     }
                 },
+                {
+                    "type": "select",
+                    "key": "prod-resource-group"
+                },  
                 {
                     "type": "select",
                     "key": "prod-cluster-name",
