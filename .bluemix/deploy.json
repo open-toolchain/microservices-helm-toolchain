@@ -173,6 +173,10 @@
         },
         {
             "type": "label",
+            "title": ""
+        },
+        {
+            "type": "label",
             "title": "**Container image registry:**"
         },
         {
@@ -226,6 +230,14 @@
                     }
                 }
             }]
+        },
+        {
+            "type": "label",
+            "title": ""
+        },
+        {
+            "type": "label",
+            "title": "**Environments:**"
         },
         {
             "type": "table",
