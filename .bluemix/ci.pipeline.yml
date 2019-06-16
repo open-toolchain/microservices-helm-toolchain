@@ -11,7 +11,7 @@ stages:
 - name: BUILD
   inputs:
   - type: git
-    branch: master
+    branch: ${GIT_BRANCH}
     service: ${GIT_REPO}
   triggers:
   - type: commit
