@@ -110,9 +110,6 @@ stages:
   - name: LOGICAL_ENV_NAME
     value: PUBLISH
     type: text
-  - name: BUILD_PREFIX
-    value: master
-    type: text
   - name: build_properties
     value: build.properties
     type: file
