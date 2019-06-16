@@ -16,11 +16,8 @@ stages:
   triggers:
   - type: commit
   properties:
-  - name: LOGICAL_APP_NAME
+  - name: APP_NAME
     value: ${APP_NAME}
-    type: text
-  - name: BUILD_PREFIX
-    value: master
     type: text
   jobs:
   - name: Fetch code
@@ -32,9 +29,10 @@ stages:
       # set -x
       cp -R -n ./ $ARCHIVE_DIR/ || true
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
-      export PATH=/opt/IBM/node-v4.2/bin:$PATH
-      npm install -g grunt-idra3
-      idra --publishbuildrecord --branch=$GIT_BRANCH --repositoryurl=$GIT_URL --commitid=$GIT_COMMIT --status=pass
+      # record Insights information
+      BUILD_STATUS=pass
+      ibmcloud login --apikey $IBM_CLOUD_API_KEY --no-region
+      ibmcloud doi publishbuildrecord --logicalappname="$APP_NAME" --buildnumber=$BUILD_NUMBER --branch=$GIT_BRANCH --repositoryurl=$GIT_URL --commitid=$GIT_COMMIT --status=$BUILD_STATUS
   - name: Unit Tests
     type: tester
     script: |-
@@ -106,7 +104,7 @@ stages:
   triggers:
   - type: stage
   properties:
-  - name: LOGICAL_APP_NAME
+  - name: APP_NAME
     value: ${APP_NAME}
     type: text
   - name: LOGICAL_ENV_NAME
@@ -131,7 +129,7 @@ stages:
     script: |-
       #!/bin/bash
       # set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_publish_gate_component_helm_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/check_publish_gate_component_helm_chart.sh")
   - name: Publish component chart
     type: builder
     build_type: cr
@@ -144,4 +142,4 @@ stages:
     script: |-
       #!/bin/bash
       # set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/publish_component_helm_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/publish_component_helm_chart.sh")

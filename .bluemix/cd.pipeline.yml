@@ -73,8 +73,8 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
-  - name: Config cluster
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/check_umbrella_gate.sh")
+  - name: Config service
     type: deployer
     target:
       region_id: ${STAGING_REGION_ID}
@@ -106,7 +106,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/deploy_umbrella_chart.sh")
   - name: Sauce Labs Tests
     type: tester
     extension_id: ibm.devops.services.pipeline.saucelabs
@@ -159,8 +159,8 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
-  - name: Config cluster
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/check_umbrella_gate.sh")
+  - name: Config service
     type: deployer
     target:
       region_id: ${PROD_REGION_ID}
@@ -192,4 +192,4 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/deploy_umbrella_chart.sh")
