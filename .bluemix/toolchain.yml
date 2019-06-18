@@ -49,6 +49,7 @@ services:
         env:
           POLICY_NAME: '[catalog-api] PUBLISH Component Chart Checks'
           GIT_REPO: catalog-api-repo
+          GIT_BRANCH: hack
           APP_NAME: catalog-api
           IMAGE_NAME: 'catalog-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
@@ -77,6 +78,7 @@ services:
         env:
           POLICY_NAME: '[orders-api] PUBLISH Component Chart Checks'
           GIT_REPO: orders-api-repo
+          GIT_BRANCH: hack
           APP_NAME: orders-api
           IMAGE_NAME: 'orders-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
@@ -107,6 +109,7 @@ services:
           POLICY_NAME: '[ui] PUBLISH Component Chart Checks'
           SAUCE_LABS: test
           GIT_REPO: ui-repo
+          GIT_BRANCH: hack
           APP_NAME: ui
           IMAGE_NAME: 'ui-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
@@ -137,6 +140,7 @@ services:
         env:
           SAUCE_LABS: test
           GIT_REPO: umbrella-repo
+          GIT_BRANCH: hack
           APP_NAME: '{{form.pipeline.parameters.umbrella-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
