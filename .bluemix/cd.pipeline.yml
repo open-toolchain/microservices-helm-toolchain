@@ -79,7 +79,6 @@ stages:
     target:
       region_id: ${STAGING_REGION_ID}
       api_key: ${API_KEY}
-      resource_group: ${STAGING_RESOURCE_GROUP}
       kubernetes_cluster: ${STAGING_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -90,7 +89,6 @@ stages:
     target:
       api_key: ${API_KEY}
       region_id: ${STAGING_REGION_ID}
-      resource_group: ${STAGING_RESOURCE_GROUP}
       kubernetes_cluster: ${STAGING_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -166,7 +164,6 @@ stages:
     target:
       region_id: ${PROD_REGION_ID}
       api_key: ${API_KEY}
-      resource_group: ${PROD_RESOURCE_GROUP}
       kubernetes_cluster: ${PROD_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -177,7 +174,6 @@ stages:
     target:
       api_key: ${API_KEY}
       region_id: ${PROD_REGION_ID}
-      resource_group: ${PROD_RESOURCE_GROUP}
       kubernetes_cluster: ${PROD_CLUSTER_NAME}
     script: |
       #!/bin/bash
