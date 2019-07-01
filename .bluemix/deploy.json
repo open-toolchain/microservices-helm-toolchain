@@ -73,8 +73,7 @@
             "type": "string",
             "validator": {
                 "v-type": "cf-space",
-                "params": ["staging-organization"],
-                "validate": false
+                "params": ["staging-organization"]
             }
         },
         "staging-cluster-name": {
@@ -122,8 +121,7 @@
             "type": "string",
             "validator": {
                 "v-type": "cf-space",
-                "params": ["prod-organization"],
-                "validate": false
+                "params": ["prod-organization"]
             }
         },
         "prod-cluster-name": {
