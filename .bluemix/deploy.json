@@ -128,7 +128,7 @@
             "description": {
                 "$ref": "#/messages/deploy.clusterNameDescription"
             },
-           "type": "string",
+            "type": "string",
             "pattern": "\\S",
             "validator": {
                 "v-type": "k8s-cluster-name",
