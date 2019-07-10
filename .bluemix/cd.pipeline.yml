@@ -95,7 +95,6 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      ibmcloud target -g ${RESOURCE_GROUP}
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")      
   - name: Deploy umbrella chart
     type: deployer
@@ -182,7 +181,6 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      ibmcloud target -g ${RESOURCE_GROUP}
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")
   - name: Deploy umbrella chart
     type: deployer
