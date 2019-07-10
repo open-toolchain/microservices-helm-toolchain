@@ -61,7 +61,7 @@
             "type": "string",
             "pattern": "\\S",
             "validator": {
-                "v-type": "k8s-resource-group",
+                "v-type": "resource-group",
                 "params": ["api-key"]
             }
         },  
@@ -98,7 +98,7 @@
             "type": "string",
             "pattern": "\\S",
             "validator": {
-                "v-type": "k8s-resource-group",
+                "v-type": "resource-group",
                 "params": ["api-key"]
             }
         },  
