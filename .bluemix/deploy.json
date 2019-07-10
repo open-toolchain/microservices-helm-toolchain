@@ -286,6 +286,10 @@
                 },
                 {
                     "type": "label",
+                    "title": "Resource Group"
+                },                
+                {
+                    "type": "label",
                     "title": {
                         "$ref": "#/messages/clusterName"
                     }
