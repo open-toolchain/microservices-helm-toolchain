@@ -169,7 +169,9 @@
         },        
         {
             "type": "label",
-            "title": "**Container image registry:**"
+            "title": {
+                "$ref": "#/messages/build.containerRegistryTitle"
+            }
         },        
         {
             "type": "table",
@@ -212,7 +214,9 @@
         },
         {
             "type": "label",
-            "title": "**Environments:**"
+            "title": {
+                "$ref": "#/messages/deploy.environmentsTitle"
+            }
         },        
         {
             "type": "table",
@@ -236,7 +240,9 @@
                 },
                 {
                     "type": "label",
-                    "title": "Resource Group"
+                    "title": {
+                        "$ref": "#/messages/resourceGroup"
+                    }
                 },                
                 {
                     "type": "label",
@@ -286,7 +292,9 @@
                 },
                 {
                     "type": "label",
-                    "title": "Resource Group"
+                    "title": {
+                        "$ref": "#/messages/resourceGroup"
+                    }
                 },                
                 {
                     "type": "label",
