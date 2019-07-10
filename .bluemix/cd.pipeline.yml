@@ -24,7 +24,7 @@ stages:
       region_id: ${REGISTRY_REGION_ID}
       api_key: ${API_KEY}
     namespace: ${REGISTRY_NAMESPACE}
-    image_name: ${CF_APP_NAME}
+    image_name: ${APP_NAME}
     script: |
       #!/bin/bash
       #set -x
@@ -51,12 +51,6 @@ stages:
   - name: APP_URL
     value: undefined
     type: text
-  - name: SAUCE_USERNAME
-    value: '{{services.test.parameters.username}}'
-    type: text
-  - name: SAUCE_ACCESS_KEY
-    value: '{{services.test.parameters.key}}'
-    type: secure
   - name: LOGICAL_ENV_NAME
     value: STAGING
     type: text
@@ -79,32 +73,6 @@ stages:
       #!/bin/bash
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
-  - name: Config service
-    type: deployer
-    target:
-      region_id: ${STAGING_REGION_ID}
-      organization: ${STAGING_ORG_NAME}
-      space: ${STAGING_SPACE_NAME}
-      application: ${CF_APP_NAME}
-      api_key: ${API_KEY}
-    script: |
-      #!/bin/bash
-      SERVICE=$(cf services | grep myMicroservicesCloudant ||:)
-      if [ ! -z "$SERVICE" ]; then
-        PLAN=$(echo $SERVICE | awk '{print $3}')
-        if [ $PLAN == "Shared" ]; then
-          echo "Attempting to delete deprecated service (myMicroservicesCloudant:$PLAN)."
-          echo "Note: This can fail if the service is still bound to apps or service keys."
-          echo "      If so, please delete these apps or service keys explicitly first."
-          cf delete-service myMicroservicesCloudant -f
-          cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
-        else
-          echo "Keeping existing service (myMicroservicesCloudant:$PLAN)."
-        fi
-      else
-        cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
-      fi
-      export SERVICE_ID=$( cf service myMicroservicesCloudant --guid | tail -n 1)
   - name: Config cluster
     type: deployer
     target:
@@ -115,7 +83,19 @@ stages:
       #!/bin/bash
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
+  - name: Config service
+    type: deployer
+    target:
+      api_key: ${API_KEY}
+      region_id: ${STAGING_REGION_ID}
+      resource_group: ${STAGING_RESOURCE_GROUP}
+      kubernetes_cluster: ${STAGING_CLUSTER_NAME}
+    script: |
+      #!/bin/bash
+      INSTANCE_NAME=myMicroservicesCloudant
+      SERVICE_NAME=cloudantnosqldb
+      SERVICE_PLAN=lite
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")      
   - name: Deploy umbrella chart
     type: deployer
     target:
@@ -179,32 +159,6 @@ stages:
       #!/bin/bash
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
-  - name: Config service
-    type: deployer
-    target:
-      region_id: ${PROD_REGION_ID}
-      organization: ${PROD_ORG_NAME}
-      space: ${PROD_SPACE_NAME}
-      application: ${CF_APP_NAME}
-      api_key: ${API_KEY}
-    script: |
-      #!/bin/bash
-      SERVICE=$(cf services | grep myMicroservicesCloudant ||:)
-      if [ ! -z "$SERVICE" ]; then
-        PLAN=$(echo $SERVICE | awk '{print $3}')
-        if [ $PLAN == "Shared" ]; then
-          echo "Attempting to delete deprecated service (myMicroservicesCloudant:$PLAN)."
-          echo "Note: This can fail if the service is still bound to apps or service keys."
-          echo "      If so, please delete these apps or service keys explicitly first."
-          cf delete-service myMicroservicesCloudant -f
-          cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
-        else
-          echo "Keeping existing service (myMicroservicesCloudant:$PLAN)."
-        fi
-      else
-        cf create-service cloudantNoSQLDB Lite myMicroservicesCloudant
-      fi
-      export SERVICE_ID=$( cf service myMicroservicesCloudant --guid | tail -n 1)
   - name: Config cluster
     type: deployer
     target:
@@ -215,7 +169,19 @@ stages:
       #!/bin/bash
       #set -x
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_bind_service.sh")
+  - name: Config service
+    type: deployer
+    target:
+      api_key: ${API_KEY}
+      region_id: ${PROD_REGION_ID}
+      resource_group: ${PROD_RESOURCE_GROUP}
+      kubernetes_cluster: ${PROD_CLUSTER_NAME}
+    script: |
+      #!/bin/bash
+      INSTANCE_NAME=myMicroservicesCloudant
+      SERVICE_NAME=cloudantnosqldb
+      SERVICE_PLAN=lite
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")
   - name: Deploy umbrella chart
     type: deployer
     target:
