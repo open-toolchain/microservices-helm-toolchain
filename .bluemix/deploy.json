@@ -56,26 +56,15 @@
                 "params": ["api-key"]
             }
         },
-        "staging-organization": {
-            "description": {
-                "$ref": "#/messages/deploy.org"
-            },
+        "staging-resource-group": {
+            "description": "Staging resource group",
             "type": "string",
+            "pattern": "\\S",
             "validator": {
-                "v-type": "cf-org",
-                "params": ["staging-region"]
+                "v-type": "k8s-resource-group",
+                "params": ["api-key"]
             }
-        },
-        "staging-space": {
-            "description": {
-                "$ref": "#/messages/deploy.space"
-            },
-            "type": "string",
-            "validator": {
-                "v-type": "cf-space",
-                "params": ["staging-organization"]
-            }
-        },
+        },  
         "staging-cluster-name": {
             "description": {
                 "$ref": "#/messages/deploy.clusterNameDescription"
@@ -104,26 +93,15 @@
                 "params": ["api-key"]
             }
         },
-        "prod-organization": {
-            "description": {
-                "$ref": "#/messages/deploy.org"
-            },
+        "prod-resource-group": {
+            "description": "Prod resource group",
             "type": "string",
+            "pattern": "\\S",
             "validator": {
-                "v-type": "cf-org",
-                "params": ["prod-region"]
+                "v-type": "k8s-resource-group",
+                "params": ["api-key"]
             }
-        },
-        "prod-space": {
-            "description": {
-                "$ref": "#/messages/deploy.space"
-            },
-            "type": "string",
-            "validator": {
-                "v-type": "cf-space",
-                "params": ["prod-organization"]
-            }
-        },
+        },  
         "prod-cluster-name": {
             "description": {
                 "$ref": "#/messages/deploy.clusterNameDescription"
@@ -156,13 +134,11 @@
         "registry-region",
         "registry-namespace",
         "staging-region",
-        "staging-organization",
-        "staging-space",
+        "staging-resource-group",
         "staging-cluster-name",
         "staging-cluster-namespace",
         "prod-region",
-        "prod-organization",
-        "prod-space",
+        "prod-resource-group",
         "prod-cluster-name",
         "prod-cluster-namespace",
         "umbrella-app-name"
@@ -187,6 +163,14 @@
             },
             "key": "api-key"
         },
+        {
+            "type": "label",
+            "title": ""
+        },        
+        {
+            "type": "label",
+            "title": "**Container image registry:**"
+        },        
         {
             "type": "table",
             "columnCount": 3,
@@ -223,13 +207,22 @@
             }]
         },
         {
+            "type": "label",
+            "title": ""
+        },
+        {
+            "type": "label",
+            "title": "**Environments:**"
+        },        
+        {
             "type": "table",
-            "columnCount": 4,
+            "columnCount": 5,
             "widths": [
-                "15%",
-                "28%",
-                "28%",
-                "28%"
+                "12%",
+                "22%",
+                "22%",
+                "22%",
+                "22%"
             ],
             "items": [{
                     "type": "label",
@@ -241,6 +234,10 @@
                         "$ref": "#/messages/region"
                     }
                 },
+                {
+                    "type": "label",
+                    "title": "Resource Group"
+                },                
                 {
                     "type": "label",
                     "title": {
@@ -265,49 +262,16 @@
                 },
                 {
                     "type": "select",
+                    "key": "staging-resource-group"
+                },                  
+                {
+                    "type": "select",
                     "key": "staging-cluster-name",
                     "readonly": false
                 },
                 {
                     "type": "text",
                     "key": "staging-cluster-namespace",
-                    "readonly": false
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/organization"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/space"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "select",
-                    "key": "staging-organization"
-                },
-                {
-                    "type": "select",
-                    "key": "staging-space",
                     "readonly": false
                 },
                 {
@@ -344,6 +308,10 @@
                 },
                 {
                     "type": "select",
+                    "key": "prod-resource-group"
+                },                 
+                {
+                    "type": "select",
                     "key": "prod-cluster-name",
                     "readonly": false
                 },
@@ -355,39 +323,6 @@
                 {
                     "type": "label",
                     "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/organization"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": {
-                        "$ref": "#/messages/space"
-                    }
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "label",
-                    "title": ""
-                },
-                {
-                    "type": "select",
-                    "key": "prod-organization"
-                },
-                {
-                    "type": "select",
-                    "key": "prod-space",
-                    "readonly": false
                 }
             ]
         }, {

@@ -50,7 +50,7 @@ services:
           POLICY_NAME: '[catalog-api] PUBLISH Component Chart Checks'
           GIT_REPO: catalog-api-repo
           APP_NAME: catalog-api
-          CF_APP_NAME: 'catalog-api-{{timestamp}}'
+          IMAGE_NAME: 'catalog-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
@@ -78,7 +78,7 @@ services:
           POLICY_NAME: '[orders-api] PUBLISH Component Chart Checks'
           GIT_REPO: orders-api-repo
           APP_NAME: orders-api
-          CF_APP_NAME: 'orders-api-{{timestamp}}'
+          IMAGE_NAME: 'orders-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'          
@@ -108,7 +108,7 @@ services:
           SAUCE_LABS: test
           GIT_REPO: ui-repo
           APP_NAME: ui
-          CF_APP_NAME: 'ui-{{timestamp}}'
+          IMAGE_NAME: 'ui-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
@@ -137,7 +137,7 @@ services:
         env:
           SAUCE_LABS: test
           GIT_REPO: umbrella-repo
-          CF_APP_NAME: '{{form.pipeline.parameters.umbrella-app-name}}'
+          APP_NAME: '{{form.pipeline.parameters.umbrella-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'          
