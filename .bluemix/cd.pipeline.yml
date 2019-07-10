@@ -56,7 +56,7 @@ stages:
     type: text
   - name: SAUCE_ACCESS_KEY
     value: '{{services.test.parameters.key}}'
-    type: text
+    type: secure
   - name: LOGICAL_ENV_NAME
     value: STAGING
     type: text
