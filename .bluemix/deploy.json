@@ -73,7 +73,7 @@
             "pattern": "\\S",
             "validator": {
                 "v-type": "k8s-cluster-name",
-                "params": ["staging-region"]
+                "params": ["staging-region", "staging-resource-group"]
             }
         },
         "staging-cluster-namespace": {
@@ -110,7 +110,7 @@
             "pattern": "\\S",
             "validator": {
                 "v-type": "k8s-cluster-name",
-                "params": ["prod-region"]
+                "params": ["prod-region", "prod-resource-group"]
             }
         },
         "prod-cluster-namespace": {
