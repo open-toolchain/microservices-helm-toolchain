@@ -1,4 +1,5 @@
 ---
+defaultBaseImageVersion: latest
 properties:
 - name: HELM_VERSION
   value: '2.12.3'
@@ -10,7 +11,7 @@ stages:
 - name: BUILD
   inputs:
   - type: git
-    branch: master
+    branch: ${GIT_BRANCH}
     service: ${GIT_REPO}
   triggers:
   - type: commit
@@ -72,7 +73,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/check_umbrella_gate.sh")
   - name: Config cluster
     type: deployer
     target:
@@ -88,7 +89,6 @@ stages:
     target:
       api_key: ${API_KEY}
       region_id: ${STAGING_REGION_ID}
-      resource_group: ${STAGING_RESOURCE_GROUP}
       kubernetes_cluster: ${STAGING_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -105,7 +105,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/deploy_umbrella_chart.sh")
   - name: Sauce Labs Tests
     type: tester
     extension_id: ibm.devops.services.pipeline.saucelabs
@@ -158,7 +158,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/check_umbrella_gate.sh")
   - name: Config cluster
     type: deployer
     target:
@@ -174,7 +174,6 @@ stages:
     target:
       api_key: ${API_KEY}
       region_id: ${PROD_REGION_ID}
-      resource_group: ${PROD_RESOURCE_GROUP}
       kubernetes_cluster: ${PROD_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -191,4 +190,4 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/hack/scripts/deploy_umbrella_chart.sh")
