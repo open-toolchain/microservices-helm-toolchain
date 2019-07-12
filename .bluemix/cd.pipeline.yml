@@ -30,8 +30,8 @@ stages:
       #!/bin/bash
       #set -x
       cp -R -n ./ $ARCHIVE_DIR/ || true
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_umbrella_chart.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/fetch_git_creds.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/build_umbrella_chart.sh")
 - name: STAGING
   inputs:
   - type: job
@@ -83,7 +83,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/check_predeploy_helm.sh")
   - name: Config service
     type: deployer
     target:
@@ -95,7 +95,7 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")      
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/cluster_config_service.sh")      
   - name: Deploy umbrella chart
     type: deployer
     target:
@@ -168,7 +168,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/check_predeploy_helm.sh")
   - name: Config service
     type: deployer
     target:
@@ -180,7 +180,7 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/cluster_config_service.sh")
   - name: Deploy umbrella chart
     type: deployer
     target:

@@ -28,7 +28,7 @@ stages:
       #!/bin/bash
       # set -x
       cp -R -n ./ $ARCHIVE_DIR/ || true
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/fetch_git_creds.sh")
       # record Insights information
       BUILD_STATUS=pass
       ibmcloud login --apikey $IBM_CLOUD_API_KEY --no-region
@@ -70,7 +70,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_prebuild.sh")  
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/check_prebuild.sh")  
   - name: Build container image
     type: builder
     build_type: cr
@@ -83,7 +83,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_image.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/build_image.sh")
   - name: Vulnerability Advisor
     type: tester
     test_type: vulnerabilityadvisor
@@ -94,7 +94,7 @@ stages:
     script: |
       #!/bin/bash
       #  set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_vulnerabilities.sh")
+      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/doi/scripts/check_vulnerabilities.sh")
 - name: PUBLISH
   inputs:
   - type: job
