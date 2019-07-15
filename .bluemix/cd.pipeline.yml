@@ -1,4 +1,5 @@
 ---
+defaultBaseImageVersion: latest
 properties:
 - name: HELM_VERSION
   value: '2.12.3'
@@ -10,7 +11,7 @@ stages:
 - name: BUILD
   inputs:
   - type: git
-    branch: master
+    branch: ${GIT_BRANCH}
     service: ${GIT_REPO}
   triggers:
   - type: commit
@@ -78,6 +79,7 @@ stages:
     target:
       region_id: ${STAGING_REGION_ID}
       api_key: ${API_KEY}
+      resource_group: ${STAGING_RESOURCE_GROUP}
       kubernetes_cluster: ${STAGING_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -101,6 +103,7 @@ stages:
     target:
       region_id: ${STAGING_REGION_ID}
       api_key: ${API_KEY}
+      resource_group: ${STAGING_RESOURCE_GROUP}
       kubernetes_cluster: ${STAGING_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -164,6 +167,7 @@ stages:
     target:
       region_id: ${PROD_REGION_ID}
       api_key: ${API_KEY}
+      resource_group: ${PROD_RESOURCE_GROUP}
       kubernetes_cluster: ${PROD_CLUSTER_NAME}
     script: |
       #!/bin/bash
@@ -187,6 +191,7 @@ stages:
     target:
       region_id: ${PROD_REGION_ID}
       api_key: ${API_KEY}
+      resource_group: ${PROD_RESOURCE_GROUP}
       kubernetes_cluster: ${PROD_CLUSTER_NAME}
     script: |
       #!/bin/bash
