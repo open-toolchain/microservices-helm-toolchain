@@ -29,9 +29,14 @@ stages:
       # set -x
       cp -R -n ./ $ARCHIVE_DIR/ || true
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
+      # may need to set the ibmcloud api for staging env. The value defaults to cloud.ibm.com
+      export match=`echo $IDS_URL | grep test`
+      if [ $match ]; then
+         ibmcloud api test.cloud.ibm.com
+      fi
+      ibmcloud login --apikey $IBM_CLOUD_API_KEY --no-region
       # record Insights information
       BUILD_STATUS=pass
-      ibmcloud login --apikey $IBM_CLOUD_API_KEY --no-region
       ibmcloud doi publishbuildrecord --logicalappname="$APP_NAME" --buildnumber=$BUILD_NUMBER --branch=$GIT_BRANCH --repositoryurl=$GIT_URL --commitid=$GIT_COMMIT --status=$BUILD_STATUS
   - name: Unit Tests
     type: tester
