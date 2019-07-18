@@ -29,7 +29,7 @@ stages:
       # set -x
       cp -R -n ./ $ARCHIVE_DIR/ || true
       source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
-      # may need to set the ibmcloud api for staging env. The value defaults to cloud.ibm.com
+      # need to set the ibmcloud api for staging env. The value defaults to cloud.ibm.com
       export match=`echo $IDS_URL | grep test`
       if [ $match ]; then
          ibmcloud api test.cloud.ibm.com
