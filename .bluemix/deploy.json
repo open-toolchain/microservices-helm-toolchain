@@ -145,7 +145,7 @@
     ],
     "form": [{
             "type": "validator",
-            "url": "/devops/setup/bm-helper/validator-v1.html"
+            "url": "/devops/validator/validator-v1.html"
         },
         {
             "type": "text",
