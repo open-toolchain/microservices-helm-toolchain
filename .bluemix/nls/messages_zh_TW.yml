@@ -1,7 +1,7 @@
----
+﻿---
 template.name: "搭配使用 Kubernetes 和 Helm 進行開發及測試微服務"
 template.description: "搭配此雲端原生工具鏈，您可以使用連續整合 (CI) 及連續部署 (CD) 管線的組合，以將個別開發的微服務跨環境編排至中已提升的已協調版本。此工具鏈使用由下列三個微服務所組成的範例線上商店應用程式：「型錄 API」、「訂單 API」及呼叫這兩個 API 的使用者介面。此工具鏈已針對 Continuous Delivery、來源控制、功能測試、問題追蹤、線上編輯及警示通知進行預先配置。\n\nCloudant 商店支援「型錄 API」及「訂單 API」。在部署此應用程式過程中，會建立免費的 Cloudant 服務實例。如需相關資訊及術語，請參閱 [IBM Cloud 型錄](https://cloud.ibm.com/catalog/services/cloudant)。\n\n此工具鏈使用 Continuous Delivery 服務的部分工具。當您按一下**建立**時如果選取的組織中尚未具有該服務的實例，則將自動新增已搭配選取免費 [Lite](/catalog/services/continuous-delivery/) 方案的實例。\n\n若要開始，請按一下**建立**。\n\n如需逐步指示，請遵循[指導教學](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)。"
-template.gettingStarted: "**您的工具鏈已備妥！**\n**快速入門：** 透過 Helm 傘形圖來確定 Git 儲存庫的變更，以觸發其中一個微服務的新建置及部署。請在 DevOps Insights 的 Deployment Risk 儀表板中查看結果。如需逐步指示，請參閱此工具鏈的[指導教學](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3)。"
+template.gettingStarted: "**您的工具鏈已備妥！**\n**快速入門：** 透過 Helm 傘形圖來確定 Git 儲存庫的變更，以觸發其中一個微服務的新建置及部署。請在 DevOps Insights 的 Deployment Risk 儀表板中查看結果。如需逐步指示，請參閱此工具鏈的[指導教學](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3) for this toolchain。"
 deploy.title: "微服務部署階段"
 deploy.description: "微服務部署綱目"
 deploy.longDescription: "Delivery Pipeline 會自動執行連續部署。"
@@ -24,7 +24,10 @@ deploy.clusternsDescription: "如果叢集名稱空間還未存在，則將自�
 deploy.registrynsDescription: "容器映像檔登錄中的名稱空間。您可以用 {ibmcloud cr namespace-add] 來設定。如需進一步瞭解，請跳至 https://cloud.ibm.com/docs/services/Registry/index.html。"
 deploy.clusterDescription: "使用 CLI 指令 'ibmcloud cs clusters' 或透過[主控台](https://cloud.ibm.com/containers-kubernetes/home/clusters)來擷取 Kubernetes 叢集名稱。"
 deploy.clusterNameDescription: "叢集名稱"
+deploy.environmentsTitle: "**環境：**"
+build.containerRegistryTitle: "**容器映像檔登錄：**"
 region: "區域"
+resourceGroup: "資源群組"
 organization: "組織"
 space: "空間"
 clusterName: "叢集名稱"
