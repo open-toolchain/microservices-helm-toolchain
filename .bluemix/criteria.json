@@ -6,7 +6,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -23,7 +22,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -34,7 +32,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"cobertura",
         "stage":"code",
         "codeCoverage":60
       }
@@ -47,7 +44,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -58,7 +54,6 @@
       {
         "name": "Functional Test Rule",
         "description": "Functional Test Rule",
-        "format":"xunit",
         "stage":"fvt",
         "percentPass":100,
         "regressionCheck":true,
@@ -69,7 +64,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"cobertura",
         "stage":"code",
         "codeCoverage":80,
         "regressionCheck":true
@@ -83,7 +77,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -100,7 +93,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -111,7 +103,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"istanbul",
         "stage":"code",
         "codeCoverage":60
       }
@@ -124,7 +115,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -135,7 +125,6 @@
       {
         "name": "Functional Test Rule",
         "description": "Functional Test Rule",
-        "format":"xunit",
         "stage":"fvt",
         "percentPass":100,
         "regressionCheck":true,
@@ -146,7 +135,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"istanbul",
         "stage":"code",
         "codeCoverage":80,
         "regressionCheck":true
@@ -160,7 +148,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -177,7 +164,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -188,7 +174,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"istanbul",
         "stage":"code",
         "codeCoverage":60
       }
@@ -201,7 +186,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -212,7 +196,6 @@
       {
         "name": "Functional Test Rule",
         "description": "Functional Test Rule",
-        "format":"xunit",
         "stage":"fvt",
         "percentPass":100,
         "regressionCheck":true,
@@ -223,7 +206,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"istanbul",
         "stage":"code",
         "codeCoverage":80,
         "regressionCheck":true
@@ -237,7 +219,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -248,7 +229,6 @@
       {
         "name": "Functional Test Rule",
         "description": "Functional Test Rule",
-        "format":"xunit",
         "stage":"fvt",
         "percentPass":100,
         "regressionCheck":true,
@@ -259,7 +239,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"istanbul",
         "stage":"code",
         "codeCoverage":80,
         "regressionCheck":true
@@ -273,7 +252,6 @@
       {
         "name": "Unit Test Rule",
         "description": "Unit Test Rule",
-        "format":"xunit",
         "stage":"unittest",
         "percentPass":100,
         "regressionCheck":true,
@@ -284,7 +262,6 @@
       {
         "name": "Code Coverage Rule",
         "description": "Code Coverage Rule",
-        "format":"istanbul",
         "stage":"code",
         "codeCoverage":60
       }
@@ -297,7 +274,6 @@
       {
         "name": "Functional Test Rule",
         "description": "Functional Test Rule",
-        "format":"xunit",
         "stage":"fvt",
         "percentPass":100,
         "regressionCheck":true,
