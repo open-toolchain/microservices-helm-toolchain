@@ -16,7 +16,7 @@
     "properties": {
         "api-key": {
             "description": {
-                "$ref": "#/messages/deploy.description"
+                "$ref": "#/messages/deploy.apiKeyDescription"
             },
             "type": "string",
             "pattern": "\\S",
@@ -64,7 +64,7 @@
                 "v-type": "resource-group",
                 "params": ["api-key"]
             }
-        },  
+        },
         "staging-cluster-name": {
             "description": {
                 "$ref": "#/messages/deploy.clusterNameDescription"
@@ -101,7 +101,7 @@
                 "v-type": "resource-group",
                 "params": ["api-key"]
             }
-        },  
+        },
         "prod-cluster-name": {
             "description": {
                 "$ref": "#/messages/deploy.clusterNameDescription"
@@ -166,13 +166,13 @@
         {
             "type": "label",
             "title": ""
-        },        
+        },
         {
             "type": "label",
             "title": {
                 "$ref": "#/messages/build.containerRegistryTitle"
             }
-        },        
+        },
         {
             "type": "table",
             "columnCount": 3,
@@ -217,7 +217,7 @@
             "title": {
                 "$ref": "#/messages/deploy.environmentsTitle"
             }
-        },        
+        },
         {
             "type": "table",
             "columnCount": 5,
@@ -243,7 +243,7 @@
                     "title": {
                         "$ref": "#/messages/resourceGroup"
                     }
-                },                
+                },
                 {
                     "type": "label",
                     "title": {
@@ -269,7 +269,7 @@
                 {
                     "type": "select",
                     "key": "staging-resource-group"
-                },                  
+                },
                 {
                     "type": "select",
                     "key": "staging-cluster-name",
@@ -295,7 +295,7 @@
                     "title": {
                         "$ref": "#/messages/resourceGroup"
                     }
-                },                
+                },
                 {
                     "type": "label",
                     "title": {
@@ -321,7 +321,7 @@
                 {
                     "type": "select",
                     "key": "prod-resource-group"
-                },                 
+                },
                 {
                     "type": "select",
                     "key": "prod-cluster-name",
