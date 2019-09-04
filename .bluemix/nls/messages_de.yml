@@ -1,16 +1,7 @@
 ---
 template.name: "Microservices mit Kubernetes und Helm entwickeln und testen"
-template.description: "Mit dieser Cloud-nativen Toolchain verwenden Sie eine Kombination aus den Pipelines für kontinuierliche Integration (CI) und kontinuierliche Bereitstellung (CD), um Microservices, die einzeln entwickelt wurden, in koordinierte Releases zu orchestrieren, die über Umgebungen hinweg umgestuft werden. Diese Toolchain verwendet eine Beispiel-App für ein Onlinegeschäft, die aus drei Microservices besteht, einer Katalog-API, einer Bestellungs-API und einer Benutzerschnittstelle, die beide APIs aufruft. Diese Toolchain ist für die kontinuierliche Bereitstellung, Quellcodeverwaltung, Funktionstests, Issue-Verfolgung, Onlinebearbeitung und für die Alertbenachrichtigung vorkonfiguriert.
-  
-  Die Katalog- und die Bestellungs-API basieren auf einem Cloudant-Speicher. Als Teil der Bereitstellung dieser Anwendung wird eine kostenlose Cloudant-Serviceinstanz erstellt. Weitere Informationen und die Bedingungen finden Sie im [IBM Cloud-Katalog](https://cloud.ibm.com/catalog/services/cloudant).
-  
-  Diese Toolchain verwendet Tools, die Teil des Continuous Delivery-Service sind. Wenn sich noch keine Instanz dieses Service in der ausgewählten Organisation befindet, wird sie automatisch hinzugefügt, wenn Sie auf **Erstellen** klicken. Dabei ist der kostenlose Plan [Lite](/catalog/services/continuous-delivery/) ausgewählt.
-  
-  Klicken Sie auf **Erstellen**, um zu beginnen.
-  
-  Schrittweise Anweisungen finden Sie im [Lernprogramm](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)."
-template.gettingStarted: "**Ihre Toolchain steht bereit!**
-  **Schnelleinstieg:** Schreiben Sie eine Änderung in einem Git-Repository fest, um einen neuen Build und eine neue Bereitstellung für einen der Microservices über einen Umbrella-Helm-Chart auszulösen. Die Ergebnisse sehen Sie im Dashboard für Bereitstellungsrisiken (Deployment Risk) von DevOps Insights. Schrittweise Anweisungen finden Sie im [Lernprogramm](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3) für diese Toolchain."
+template.description: "Mit dieser Cloud-nativen Toolchain verwenden Sie eine Kombination aus den Pipelines für kontinuierliche Integration (CI) und kontinuierliche Bereitstellung (CD), um Microservices, die einzeln entwickelt wurden, in koordinierte Releases zu orchestrieren, die über Umgebungen hinweg umgestuft werden. Diese Toolchain verwendet eine Beispiel-App für ein Onlinegeschäft, die aus drei Microservices besteht, einer Katalog-API, einer Bestellungs-API und einer Benutzerschnittstelle, die beide APIs aufruft. Diese Toolchain ist für die kontinuierliche Bereitstellung, Quellcodeverwaltung, Funktionstests, Issue-Verfolgung, Onlinebearbeitung und für die Alertbenachrichtigung vorkonfiguriert. \n\nDie Katalog- und die Bestellungs-API basieren auf einem Cloudant-Speicher. Als Teil der Bereitstellung dieser Anwendung wird eine kostenlose Cloudant-Serviceinstanz erstellt. Weitere Informationen und die Bedingungen finden Sie im [IBM Cloud-Katalog](https://cloud.ibm.com/catalog/services/cloudant). \n\nDiese Toolchain verwendet Tools, die Teil des Continuous Delivery-Service sind. Wenn sich noch keine Instanz dieses Service in der ausgewählten Organisation befindet, wird sie automatisch hinzugefügt, wenn Sie auf **Erstellen** klicken. Dabei ist der kostenlose Plan [Lite](/catalog/services/continuous-delivery/) ausgewählt. \n\nKlicken Sie auf **Erstellen**, um zu beginnen. \n\nSchrittweise Anweisungen finden Sie im [Lernprogramm](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)."
+template.gettingStarted: "**Ihre Toolchain steht bereit!** \n**Schnelleinstieg:** Schreiben Sie eine Änderung in einem Git-Repository fest, um einen neuen Build und eine neue Bereitstellung für einen der Microservices über einen Umbrella-Helm-Chart auszulösen. Die Ergebnisse sehen Sie im Dashboard für Bereitstellungsrisiken (Deployment Risk) von DevOps Insights. Schrittweise Anweisungen finden Sie im [Lernprogramm](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3) für diese Toolchain."
 deploy.title: "Microservices-Entwicklungsphase"
 deploy.description: "Microservices-Bereitstellungsschema"
 deploy.longDescription: "Mit Delivery Pipeline wird die kontinuierliche Bereitstellung automatisiert."
@@ -59,6 +50,7 @@ headerSVG.issueTracker: "ISSUE-TRACKER"
 headerSVG.repository1: "REPOSITORY"
 headerSVG.repository2: "REPOSITORY"
 headerSVG.repository3: "REPOSITORY"
+headerSVG.repository4: "REPOSITORY"
 headerSVG.webIde: "WEB-IDE"
 headerSVG.pipeline1: "PIPELINE"
 headerSVG.pipeline2: "PIPELINE"
@@ -76,6 +68,8 @@ headerSVG.microservice1: "Mikroservice 1"
 headerSVG.microservice2: "Mikroservice 2"
 headerSVG.microservice3: "Mikroservice 3"
 headerSVG.pipelineCI: "PIPELINE (CI)"
+headerSVG.pipelineCI2: "PIPELINE (CI)"
+headerSVG.pipelineCI3: "PIPELINE (CI)"
 headerSVG.pipelineCD: "PIPELINE (CD)"
 headerSVG.gitlab: "GitLab"
 headerSVG.solution: "Lösung"
