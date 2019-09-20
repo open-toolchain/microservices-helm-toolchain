@@ -2,15 +2,15 @@
 template.name: "Desenvolver e testar microsserviços com Kubernetes e Helm"
 template.description: "Com esta cadeia de ferramentas nativa da nuvem, você usa uma combinação de pipelines de integração contínua (CI) e de implementação contínua (CD), para orquestrar microsserviços desenvolvidos individualmente em liberações coordenadas promovidas entre ambientes. Essa cadeia de ferramentas usa um app de amostra da loja on-line que consiste em três microsserviços: uma API de catálogo, um API de pedidos e uma IU que chama as duas APIs. A cadeia de ferramentas é pré-configurada para entrega contínua, controle de versão, teste funcional, rastreamento de problemas, edição on-line e notificação de alerta.
   
-  As APIs de Catálogo e Pedidos são suportadas por um armazenamento Cloudant. Como parte da implementação desse aplicativo, uma instância de serviço do Cloudant sem custo será criada. Para obter mais informações e termos, consulte o [catálogo do IBM Cloud](https://cloud.ibm.com/catalog/services/cloudant).
+  \n\nAs APIs de Catálogo e Pedidos são suportadas por um armazenamento Cloudant. Como parte da implementação desse aplicativo, uma instância de serviço do Cloudant sem custo será criada. Para obter mais informações e termos, consulte o [catálogo do IBM Cloud](https://cloud.ibm.com/catalog/services/cloudant).
   
-  Esta cadeia de ferramentas usa ferramentas que são parte do serviço Continuous Delivery. Se uma instância desse serviço ainda não estiver na organização selecionada, ela será adicionada automaticamente com o plano [Lite](/catalog/services/continuous-delivery/) grátis selecionado ao clicar em **Criar**.
+  \n\nEsta cadeia de ferramentas usa ferramentas que são parte do serviço Continuous Delivery. Se uma instância desse serviço ainda não estiver na organização selecionada, ela será adicionada automaticamente com o plano [Lite](/catalog/services/continuous-delivery/) grátis selecionado ao clicar em **Criar**.
   
-  Para iniciar, clique em **Criar**.
+  \n\nPara iniciar, clique em **Criar**.
   
-  Para obter instruções passo a passo, siga o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)."
+  \n\nPara obter instruções passo a passo, siga o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)."
 template.gettingStarted: "**Sua cadeia de ferramentas está pronta!**
-  **Iniciação rápida:** confirme uma mudança em um repositório Git para acionar uma nova construção e a implementação de um dos microsserviços por meio do gráfico de guarda-chuva Helm. Veja os resultados no painel Risco de implementação do DevOps Insights. Para obter instruções passo a passo, consulte o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3) para essa cadeia de ferramentas."
+  \n\n**Iniciação rápida:** confirme uma mudança em um repositório Git para acionar uma nova construção e a implementação de um dos microsserviços por meio do gráfico de guarda-chuva Helm. Veja os resultados no painel Risco de implementação do DevOps Insights. Para obter instruções passo a passo, consulte o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3) para essa cadeia de ferramentas."
 deploy.title: "Estágio de implementação de microsserviços"
 deploy.description: "Esquema de implementação de microsserviços"
 deploy.longDescription: "O Delivery Pipeline automatiza a implementação contínua."
