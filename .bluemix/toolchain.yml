@@ -35,7 +35,7 @@ services:
       repo_url: '{{form.hostedgit.parameters.catalog-api-repo_url}}'
       type: clone
       has_issues: false
-      enable_traceability: false
+      enable_traceability: true
   catalog-api-build:
     service_id: pipeline
     parameters:
@@ -64,7 +64,7 @@ services:
       repo_url: '{{form.hostedgit.parameters.orders-api-repo_url}}'
       type: clone
       has_issues: false
-      enable_traceability: false
+      enable_traceability: true
   orders-api-build:
     service_id: pipeline
     parameters:
@@ -93,7 +93,7 @@ services:
       repo_url: '{{form.hostedgit.parameters.ui-repo_url}}'
       type: clone
       has_issues: false
-      enable_traceability: false
+      enable_traceability: true
   ui-build:
     service_id: pipeline
     parameters:
@@ -124,7 +124,7 @@ services:
       repo_url: '{{form.hostedgit.parameters.umbrella-repo_url}}'
       type: clone
       has_issues: true
-      enable_traceability: false
+      enable_traceability: true
   umbrella-build:
     service_id: pipeline
     parameters:
