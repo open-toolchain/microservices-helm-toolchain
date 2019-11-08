@@ -2,7 +2,7 @@
 defaultBaseImageVersion: latest
 properties:
 - name: HELM_VERSION
-  value: '2.12.3'
+  value: ''
   type: text
 - name: IBM_CLOUD_API_KEY
   value: ${API_KEY}
