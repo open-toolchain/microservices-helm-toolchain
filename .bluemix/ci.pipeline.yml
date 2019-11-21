@@ -7,6 +7,9 @@ properties:
 - name: IBM_CLOUD_API_KEY
   value: ${API_KEY}
   type: secure
+- name: APP_NAME
+  value: ${APP_NAME}
+  type: text
 stages:
 - name: BUILD
   inputs:
@@ -16,9 +19,6 @@ stages:
   triggers:
   - type: commit
   properties:
-  - name: APP_NAME
-    value: ${APP_NAME}
-    type: text
   jobs:
   - name: Fetch code
     type: builder
@@ -104,9 +104,6 @@ stages:
   triggers:
   - type: stage
   properties:
-  - name: APP_NAME
-    value: ${APP_NAME}
-    type: text
   - name: LOGICAL_ENV_NAME
     value: PUBLISH
     type: text
