@@ -89,10 +89,10 @@
 API_KEY=<api-key>
 PIPELINE_KUBERNETES_CLUSTER_NAME=<cluster-name>
 ibmcloud login -apikey $API_KEY -a api.ng.bluemix.net
-ibmcloud cs region-set us-south
-ibmcloud cs init
-ibmcloud cs cluster-get $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
-eval $(ibmcloud cs cluster-config --export $PIPELINE_KUBERNETES_CLUSTER_NAME)
+ibmcloud ks region set us-south
+ibmcloud ks init
+ibmcloud ks cluster get $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
+eval $(ibmcloud ks cluster config --export $PIPELINE_KUBERNETES_CLUSTER_NAME)
 kubectl get nodes
 echo “LOGIN token for kubectl proxy :”
 kubectl config view -o jsonpath=‘{.users[0].user.auth-provider.config.id-token}’
