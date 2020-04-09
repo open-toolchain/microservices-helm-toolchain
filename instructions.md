@@ -91,7 +91,7 @@ PIPELINE_KUBERNETES_CLUSTER_NAME=<cluster-name>
 ibmcloud login -apikey $API_KEY -a api.ng.bluemix.net
 ibmcloud ks region set us-south
 ibmcloud ks init
-ibmcloud ks cluster get $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
+ibmcloud ks cluster get --cluster $PIPELINE_KUBERNETES_CLUSTER_NAME --showResources
 eval $(ibmcloud ks cluster config --export $PIPELINE_KUBERNETES_CLUSTER_NAME)
 kubectl get nodes
 echo “LOGIN token for kubectl proxy :”
