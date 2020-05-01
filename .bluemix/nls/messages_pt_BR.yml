@@ -1,16 +1,7 @@
 ---
 template.name: "Desenvolver e testar microsserviços com Kubernetes e Helm"
-template.description: "Com esta cadeia de ferramentas nativa da nuvem, você usa uma combinação de pipelines de integração contínua (CI) e de implementação contínua (CD), para orquestrar microsserviços desenvolvidos individualmente em liberações coordenadas promovidas entre ambientes. Essa cadeia de ferramentas usa um app de amostra da loja on-line que consiste em três microsserviços: uma API de catálogo, um API de pedidos e uma IU que chama as duas APIs. A cadeia de ferramentas é pré-configurada para entrega contínua, controle de versão, teste funcional, rastreamento de problemas, edição on-line e notificação de alerta.
-  
-  As APIs de Catálogo e Pedidos são suportadas por um armazenamento Cloudant. Como parte da implementação desse aplicativo, uma instância de serviço do Cloudant sem custo será criada. Para obter mais informações e termos, consulte o [catálogo do IBM Cloud](https://cloud.ibm.com/catalog/services/cloudant).
-  
-  Esta cadeia de ferramentas usa ferramentas que são parte do serviço Continuous Delivery. Se uma instância desse serviço ainda não estiver na organização selecionada, ela será adicionada automaticamente com o plano [Lite](/catalog/services/continuous-delivery/) grátis selecionado ao clicar em **Criar**.
-  
-  Para iniciar, clique em **Criar**.
-  
-  Para obter instruções passo a passo, siga o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)."
-template.gettingStarted: "**Sua cadeia de ferramentas está pronta!**
-  **Iniciação rápida:** confirme uma mudança em um repositório Git para acionar uma nova construção e a implementação de um dos microsserviços por meio do gráfico de guarda-chuva Helm. Veja os resultados no painel Risco de implementação do DevOps Insights. Para obter instruções passo a passo, consulte o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3) para essa cadeia de ferramentas."
+template.description: "Com esta cadeia de ferramentas nativa da nuvem, você usa uma combinação de pipelines de integração contínua (CI) e de implementação contínua (CD), para orquestrar microsserviços desenvolvidos individualmente em liberações coordenadas promovidas entre ambientes. Essa cadeia de ferramentas usa um app de amostra da loja on-line que consiste em três microsserviços: uma API de catálogo, um API de pedidos e uma IU que chama as duas APIs. A cadeia de ferramentas é pré-configurada para entrega contínua, controle de versão, teste funcional, rastreamento de problemas, edição on-line e notificação de alerta.\n\nAs APIs de Catálogo e Pedidos são suportadas por um armazenamento Cloudant. Como parte da implementação desse aplicativo, uma instância de serviço do Cloudant sem custo será criada. Para obter mais informações e termos, consulte o [catálogo do IBM Cloud](https://cloud.ibm.com/catalog/services/cloudant).\n\nEsta cadeia de ferramentas usa ferramentas que são parte do serviço Continuous Delivery. Se uma instância desse serviço ainda não estiver na organização selecionada, ela será adicionada automaticamente com o plano [Lite](/catalog/services/continuous-delivery/) grátis selecionado ao clicar em **Criar**.\n\nPara iniciar, clique em **Criar**.\n\nPara obter instruções passo a passo, siga o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)."
+template.gettingStarted: "**Sua cadeia de ferramentas está pronta!**\n**Iniciação rápida:** confirme uma mudança em um repositório Git para acionar uma nova construção e a implementação de um dos microsserviços por meio do gráfico de guarda-chuva Helm. Veja os resultados no painel Risco de implementação do DevOps Insights. Para obter instruções passo a passo, consulte o [tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain?task=3) para essa cadeia de ferramentas."
 deploy.title: "Estágio de implementação de microsserviços"
 deploy.description: "Esquema de implementação de microsserviços"
 deploy.longDescription: "O Delivery Pipeline automatiza a implementação contínua."
@@ -31,7 +22,7 @@ deploy.regionDescription: "A região do IBM Cloud"
 deploy.registryRegionDescription: "A região do IBM Cloud para registro de imagem"
 deploy.clusternsDescription: "Se o namespace de cluster não existir ainda, ele será criado e configurado automaticamente."
 deploy.registrynsDescription: "O namespace no registro da imagem de contêiner. É possível configurá-lo com {ibmcloud cr namespace-add]. Saiba mais em https://cloud.ibm.com/docs/services/Registry/index.html."
-deploy.clusterDescription: "Recupere o nome do cluster Kubernetes com o comando da CLI 'ibmcloud cs clusters' ou por meio do [console](https://cloud.ibm.com/containers-kubernetes/home/clusters)."
+deploy.clusterDescription: "Recupere o nome do cluster Kubernetes com o comando da CLI 'ibmcloud ks clusters' ou por meio do [console] (https://cloud.ibm.com/containers-kubernetes/home/clusters)."
 deploy.clusterNameDescription: "O nome do cluster"
 deploy.environmentsTitle: "**Ambientes:**"
 build.containerRegistryTitle: "**Registro da imagem de contêiner**"
@@ -40,7 +31,7 @@ resourceGroup: "Grupo de recursos"
 organization: "Organização"
 space: "Espaço"
 clusterName: "Nome do cluster"
-clusterNamespace: "Namespace de cluster"
+clusterNamespace: "Namespace do cluster"
 prodStage: "Ambiente de PRODUÇÃO"
 testStage: "Ambiente TEMPORÁRIO"
 github.title: "Estágio de implementação de microsserviços"
@@ -55,11 +46,11 @@ headerSVG.run: "EXECUTAR"
 headerSVG.learn: "APRENDER"
 headerSVG.manage: "GERENCIAR"
 headerSVG.culture: "CULTIVAR"
-headerSVG.issueTracker: "RASTREADOR DE PROBLEMA"
-headerSVG.repository1: "REPOSITÓRIO"
-headerSVG.repository2: "REPOSITÓRIO"
-headerSVG.repository3: "REPOSITÓRIO"
-headerSVG.repository4: "REPOSITÓRIO"
+headerSVG.issueTracker: "ISSUE TRACKER"
+headerSVG.repository1: "REPOSITORY"
+headerSVG.repository2: "REPOSITORY"
+headerSVG.repository3: "REPOSITORY"
+headerSVG.repository4: "REPOSITORY"
 headerSVG.webIde: "WEB IDE"
 headerSVG.pipeline1: "PIPELINE"
 headerSVG.pipeline2: "PIPELINE"
