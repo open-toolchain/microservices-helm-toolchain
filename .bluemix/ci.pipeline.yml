@@ -40,6 +40,17 @@ stages:
       # set -x
       if [ -f ./tests/run-tests.sh ]; then
         source ./tests/run-tests.sh
+        ibmcloud login --apikey $IBM_CLOUD_API_KEY --no-region
+        IFS=';' read -ra locations <<< "$FILE_LOCATIONS"
+        IFS=';' read -ra types <<< "$TEST_TYPES"
+        for i in "${!locations[@]}"
+        do
+          echo "$i ${locations[i]} ${types[i]}"
+          ibmcloud doi publishtestrecord --logicalappname="$APP_NAME" --buildnumber=$BUILD_NUMBER --filelocation=${locations[i]} --type=${types[i]}
+        done
+        if [ $TEST_STATUS -ne 0 ]; then
+          exit $TEST_STATUS
+        fi
       else
         echo "Test runner script not found: ./tests/run-tests.sh"
       fi
