@@ -7,6 +7,10 @@ properties:
 - name: IBM_CLOUD_API_KEY
   value: ${API_KEY}
   type: secure
+- name: COMMONS_HOSTED_REGION
+  value: ${COMMONS_HOSTED_REGION}
+  type: text
+  default: "https://raw.githubusercontent.com/open-toolchain/commons/master"
 stages:
 - name: BUILD
   inputs:
@@ -30,8 +34,8 @@ stages:
       #!/bin/bash
       #set -x
       cp -R -n ./ $ARCHIVE_DIR/ || true
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/fetch_git_creds.sh")
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/build_umbrella_chart.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/fetch_git_creds.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/build_umbrella_chart.sh")
 - name: STAGING
   inputs:
   - type: job
@@ -73,7 +77,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_umbrella_gate.sh")
   - name: Config cluster
     type: deployer
     target:
@@ -84,7 +88,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_predeploy_helm.sh")
   - name: Config service
     type: deployer
     target:
@@ -97,7 +101,7 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")      
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/cluster_config_service.sh")      
   - name: Deploy umbrella chart
     type: deployer
     target:
@@ -108,7 +112,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/deploy_umbrella_chart.sh")
   - name: Sauce Labs Tests
     type: tester
     extension_id: ibm.devops.services.pipeline.saucelabs
@@ -161,7 +165,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_umbrella_gate.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_umbrella_gate.sh")
   - name: Config cluster
     type: deployer
     target:
@@ -172,7 +176,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_predeploy_helm.sh")
   - name: Config service
     type: deployer
     target:
@@ -185,7 +189,7 @@ stages:
       INSTANCE_NAME=myMicroservicesCloudant
       SERVICE_NAME=cloudantnosqldb
       SERVICE_PLAN=lite
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/cluster_config_service.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/cluster_config_service.sh")
   - name: Deploy umbrella chart
     type: deployer
     target:
@@ -196,4 +200,4 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "https://raw.githubusercontent.com/open-toolchain/commons/master/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/deploy_umbrella_chart.sh")

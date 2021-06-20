@@ -17,11 +17,19 @@ template:
     - orders-api-repo
     - ui-repo
     - umbrella-repo
+  $configuration:
+     ENABLE_EXTENSIONS: true
+     ENABLE_IF_ELSE: true
+     EXPRESSION_MAXLENGTH: 1000
   info:
-    git url: >-
-      [https://github.com/open-toolchain/microservices-helm-toolchain](https://github.com/open-toolchain/microservices-helm-toolchain)
-    git branch: >-
-      [master](https://github.com/open-toolchain/microservices-helm-toolchain/tree/master)
+    git url: >
+      "[" + $env.repository + "]" +
+        "(" + $env.repository + ")"
+    git branch: >
+      "[" + $env.branch + "]" +
+        "(" + $env.repository +
+          "/tree/" + $env.branch + ")"
+    hosted_region: ""
 toolchain:
   template:
     getting_started:
@@ -49,13 +57,17 @@ services:
         env:
           POLICY_NAME: '[catalog-api] PUBLISH Component Chart Checks'
           GIT_REPO: catalog-api-repo
-          GIT_BRANCH: master
+          GIT_BRANCH: >
+            $env.template.info.hosted_region !== "" ? 'main': 'master'
           APP_NAME: catalog-api
           IMAGE_NAME: 'catalog-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
           UMBRELLA_REPO_NAME: '{{form.hostedgit.parameters.umbrella-repo_name}}'
+          COMMONS_HOSTED_REGION: >
+            $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/commons/-/raw/main':
+            'https://raw.githubusercontent.com/open-toolchain/commons/master'
         execute: true
   orders-api-repo:
     service_id: hostedgit
@@ -78,13 +90,17 @@ services:
         env:
           POLICY_NAME: '[orders-api] PUBLISH Component Chart Checks'
           GIT_REPO: orders-api-repo
-          GIT_BRANCH: master
+          GIT_BRANCH: >
+            $env.template.info.hosted_region !== "" ? 'main': 'master'
           APP_NAME: orders-api
           IMAGE_NAME: 'orders-api-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'          
           UMBRELLA_REPO_NAME: '{{form.hostedgit.parameters.umbrella-repo_name}}'
+          COMMONS_HOSTED_REGION: >
+            $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/commons/-/raw/main':
+            'https://raw.githubusercontent.com/open-toolchain/commons/master'
         execute: true
   ui-repo:
     service_id: hostedgit
@@ -109,13 +125,17 @@ services:
           POLICY_NAME: '[ui] PUBLISH Component Chart Checks'
           SAUCE_LABS: test
           GIT_REPO: ui-repo
-          GIT_BRANCH: master
+          GIT_BRANCH: >
+            $env.template.info.hosted_region !== "" ? 'main': 'master'
           APP_NAME: ui
           IMAGE_NAME: 'ui-{{timestamp}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
           API_KEY: '{{form.pipeline.parameters.api-key}}'            
           UMBRELLA_REPO_NAME: '{{form.hostedgit.parameters.umbrella-repo_name}}'
+          COMMONS_HOSTED_REGION: >
+            $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/commons/-/raw/main':
+            'https://raw.githubusercontent.com/open-toolchain/commons/master'
         execute: true
   umbrella-repo:
     service_id: hostedgit
@@ -140,7 +160,8 @@ services:
         env:
           SAUCE_LABS: test
           GIT_REPO: umbrella-repo
-          GIT_BRANCH: master
+          GIT_BRANCH: >
+            $env.template.info.hosted_region !== "" ? 'main': 'master'
           APP_NAME: '{{form.pipeline.parameters.umbrella-app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
@@ -154,6 +175,9 @@ services:
           PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
           POLICY_NAME_FORMAT: '[%s] %s Deployment Checks'
+          COMMONS_HOSTED_REGION: >
+            $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/commons/-/raw/main':
+            'https://raw.githubusercontent.com/open-toolchain/commons/master'
         execute: false
   alerting:
     service_id: pagerduty
@@ -205,12 +229,20 @@ form:
   hostedgit:
     parameters:
       catalog-api-repo_name: 'catalog-api-{{timestamp}}'
-      catalog-api-repo_url: 'https://github.com/open-toolchain/Microservices_CatalogAPI_helm'
+      catalog-api-repo_url: >
+        $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_CatalogAPI_helm':
+        'https://github.com/open-toolchain/Microservices_CatalogAPI_helm'
       orders-api-repo_name: 'orders-api-{{timestamp}}'
-      orders-api-repo_url: 'https://github.com/open-toolchain/Microservices_OrdersAPI_helm'
+      orders-api-repo_url: >
+        $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_OrdersAPI_helm':
+        'https://github.com/open-toolchain/Microservices_OrdersAPI_helm'
       ui-repo_name: 'ui-{{timestamp}}'
-      ui-repo_url: 'https://github.com/open-toolchain/Microservices_UI_helm'
+      ui-repo_url: >
+        $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_UI_helm':
+        'https://github.com/open-toolchain/Microservices_UI_helm'
       umbrella-repo_name: 'solution-{{timestamp}}'
-      umbrella-repo_url: 'https://github.com/open-toolchain/Microservices_Solution_helm'
+      umbrella-repo_url: >
+        $env.template.info.hosted_region !== "" ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_Solution_helm':
+        'https://github.com/open-toolchain/Microservices_Solution_helm'
     schema:
       $ref: repos.json
