@@ -76,7 +76,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_umbrella_gate.sh")
+      #source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_umbrella_gate.sh")
   - name: Config cluster
     type: deployer
     target:
@@ -164,7 +164,7 @@ stages:
     script: |-
       #!/bin/bash
       #set -x
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_umbrella_gate.sh")
+      #source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_umbrella_gate.sh")
   - name: Config cluster
     type: deployer
     target:

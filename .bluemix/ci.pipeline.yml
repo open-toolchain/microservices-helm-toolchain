@@ -140,7 +140,7 @@ stages:
     script: |-
       #!/bin/bash
       # set -x
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_publish_gate_component_helm_chart.sh")
+     # source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_publish_gate_component_helm_chart.sh")
   - name: Publish component chart
     type: builder
     build_type: cr
