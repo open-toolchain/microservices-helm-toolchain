@@ -66,7 +66,6 @@
 
     * Show traceability back from dashboard into git commit
     * Show red status in Slack (if needed explain pagerduty would have triggered only when actual prod deploy would have failed, but luckily gated)
-    * (TBD) Address problem, open issue, revert bad commit (using webide), show traceability back to commit and issue tracker
   * (TBD) Deliver a code change that will cause PagerDuty to trigger, fix it, show traceability to commit and issue tracker
   * (TBD) Prod style regression:
     * Remove CSS file from UI (or remove it from Dockerfile only), see outcome is bad layout in prod (should have been caught by selenium tests). 
