@@ -1,10 +1,10 @@
 # Develop and test microservices with Kubernetes and Helm
 
-* [Step by step tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)
+* [Step by step tutorial](https://www.ibm.com/cloud/architecture/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)
 
 ## Prerequisites
   * Need an existing cluster and API key
-  * See instructions at: https://www.ibm.com/cloud/garage/tutorials/devops-toolchain-integration?task=0
+  * See instructions at: https://www.ibm.com/cloud/architecture/tutorials/devops-toolchain-integration?task=0
   * Note: toolchain can only be created in US-South region (DevOps Insights only there)
   * If you are creating a second toolchain instance outputing into same cluster namespaces, you need to ensure they agree on cf orgs where Cloudant instances reside. If not, then have each toolchains target distinct cluster namespaces (e.g. 'staging' and 'staging1').
 ## Context

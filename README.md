@@ -12,9 +12,7 @@ This DevOps process uses a combination of continuous integration (CI) and contin
 ---
 ### Learn more 
 
-* [Step by step tutorial](https://www.ibm.com/cloud/garage/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)
+* [Step by step tutorial](https://www.ibm.com/cloud/architecture/tutorials/use-develop-test-microservices-with-kubernetes-and-helm-toolchain)
 * [Getting started](https://cloud.ibm.com/devops)
 * [Documentation](https://cloud.ibm.com/docs/services/ContinuousDelivery?topic=ContinuousDelivery-getting-started&pos=2)
-* [Toolchains on the IBM Cloud Garage Method site](https://www.ibm.com/devops/method/category/tools)
-* Blog: [IBM Cloud Continuous Delivery is now live](https://www.ibm.com/blogs/bluemix/2016/11/bluemix-continuous-delivery-is-now-live/)
-* Video: [Introducing IBM Cloud Continuous Delivery](https://www.youtube.com/watch?v=QPSAZ64APpc&feature=youtu.be) (2m12s)
+* [Toolchains on the IBM Cloud Garage Method site](https://www.ibm.com/garage/method/develop)
