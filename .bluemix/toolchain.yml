@@ -44,6 +44,10 @@ services:
         $env.template.info.hosted_region !== ""
         ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_CatalogAPI_helm'
         : 'https://github.com/open-toolchain/Microservices_CatalogAPI_helm'
+      source_repo_url: >
+        $env.template.info.hosted_region !== ""
+        ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_CatalogAPI_helm'
+        : 'https://github.com/open-toolchain/Microservices_CatalogAPI_helm'
       type: clone
       has_issues: false
       enable_traceability: true
@@ -77,6 +81,10 @@ services:
     parameters:
       repo_name: 'orders-api-{{timestamp}}'
       repo_url: >
+        $env.template.info.hosted_region !== ""
+        ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_OrdersAPI_helm'
+        : 'https://github.com/open-toolchain/Microservices_OrdersAPI_helm'
+      source_repo_url: >
         $env.template.info.hosted_region !== ""
         ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_OrdersAPI_helm'
         : 'https://github.com/open-toolchain/Microservices_OrdersAPI_helm'
@@ -116,6 +124,10 @@ services:
         $env.template.info.hosted_region !== ""
         ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_UI_helm'
         : 'https://github.com/open-toolchain/Microservices_UI_helm'
+      source_repo_url: >
+        $env.template.info.hosted_region !== ""
+        ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_UI_helm'
+        : 'https://github.com/open-toolchain/Microservices_UI_helm'
       type: clone
       has_issues: false
       enable_traceability: true
@@ -151,6 +163,10 @@ services:
     parameters:
       repo_name: 'solution-{{timestamp}}'
       repo_url: >
+        $env.template.info.hosted_region !== ""
+        ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_Solution_helm'
+        : 'https://github.com/open-toolchain/Microservices_Solution_helm'
+      source_repo_url: >
         $env.template.info.hosted_region !== ""
         ? 'https://{{template.info.hosted_region}}.git.cloud.ibm.com/open-toolchain/Microservices_Solution_helm'
         : 'https://github.com/open-toolchain/Microservices_Solution_helm'
