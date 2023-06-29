@@ -87,7 +87,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_predeploy_helm3.sh")
   - name: Config service
     type: deployer
     target:
@@ -111,7 +111,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/deploy_umbrella_chart_helm3.sh")
   - name: Sauce Labs Tests
     type: tester
     extension_id: ibm.devops.services.pipeline.saucelabs
@@ -175,7 +175,7 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_predeploy_helm.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/check_predeploy_helm3.sh")
   - name: Config service
     type: deployer
     target:
@@ -199,4 +199,4 @@ stages:
     script: |
       #!/bin/bash
       #set -x
-      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/deploy_umbrella_chart.sh")
+      source <(curl -sSL "${COMMONS_HOSTED_REGION}/scripts/deploy_umbrella_chart_helm3.sh")
