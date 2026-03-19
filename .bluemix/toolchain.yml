@@ -209,9 +209,6 @@ services:
         execute: false
   alerting:
     service_id: pagerduty
-  dra:
-    service_id: draservicebroker
-    $ref: dra.yml
   messaging:
     service_id: slack
   test:
